@@ -1,0 +1,73 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: login\n"
+"Language: es\n"
+
+#: 
+msgid "Incorrect user or password"
+msgstr "Usuario o contraseña incorrecto"
+
+#: 
+msgid "Resolve this captcha to try again"
+msgstr "Soluciona este captcha para volver a intentarlo"
+
+#: 
+msgid "The maximum number of users has been reached. Please contact your administrator"
+msgstr "Se ha llegado al número máximo de usuarios"
+
+#: 
+msgid "Connection lost. Now trying to reconnect"
+msgstr "Se ha interrumpido la conexión. Intentando reconectar"
+
+#: 
+msgid "Please fill out this field."
+msgstr "Por favor rellena este campo"
+
+#: 
+msgid "Do you want a better experience"
+msgstr "¿Quieres una experiencia mejorada?"
+
+#: 
+msgid "Download eyeRun"
+msgstr "Descarga eyeRun"
+
+#: 
+msgid "and enjoy eyeOS in a new way"
+msgstr "y disfruta de eyeOS de una nueva manera"
+
+#: 
+msgid "* Your workspace will be open in a new window for full experience"
+msgstr "Tu Workplace se abrirá en una nueva ventana para una experiencia mejorada"
+
+#: 
+msgid "Username"
+msgstr "Usuario"
+
+#: 
+msgid "Password"
+msgstr "Contraseña"
+
+#: 
+msgid "Log in"
+msgstr "Entrar"
+
+#: 
+msgid "Launch eyeOs"
+msgstr "Lanzar eyeOS"
+
+#: 
+msgid "Detecting Eyerun"
+msgstr "Detectando eyeRun"
+
+#: 
+msgid "Download"
+msgstr "Descargar"
+
+#: 
+msgid "or"
+msgstr "o"
+

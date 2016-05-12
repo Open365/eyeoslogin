@@ -1,0 +1,455 @@
+/* IF YOU MODIFY THIS FILE, YOU SHOULD MINIFY IT AND SAVE THE MINIFIED FILE
+ * INTO login.min.css . You can use www.cssminifier.com to minify it.
+ */
+
+/* IF YOU MODIFY THIS FILE, YOU SHOULD MINIFY IT AND SAVE THE MINIFIED FILE
+ * INTO login.min.css . You can use www.cssminifier.com to minify it.
+ */
+
+/* IF YOU MODIFY THIS FILE, YOU SHOULD MINIFY IT AND SAVE THE MINIFIED FILE
+ * INTO login.min.css . You can use www.cssminifier.com to minify it.
+ */
+
+/*** 
+* Loading Source Sans Pro for interface
+***/
+
+@font-face {
+  font-family: 'source-sans';
+  src: local('Source Sans Pro'), local('SourceSansPro-Regular'),
+	url(https://fonts.gstatic.com/s/sourcesanspro/v9/ODelI1aHBYDBqgeIAH2zlJbPFduIYtoLzwST68uhz_Y.woff2) format('woff2'), /* Chrome 26+, Opera 23+ */
+	url(https://fonts.gstatic.com/s/sourcesanspro/v9/ODelI1aHBYDBqgeIAH2zlJbPFduIYtoLzwST68uhz_Y.woff) format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+  font-family: 'source-sans';
+  src:  local('Source Sans Pro Light'), local('SourceSansPro-Light'), 
+	url(https://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGCP2LEk6lMzYsRqr3dHFImA.woff2) format('woff2'), /* Chrome 26+, Opera 23+ */
+	url(https://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGCP2LEk6lMzYsRqr3dHFImA.woff) format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	font-weight: 300;
+	font-style: normal;
+}
+@font-face {
+  font-family: 'source-sans';
+  src: local('Source Sans Pro Semibold'), local('SourceSansPro-Semibold'), url(https://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGMzFoXZ-Kj537nB_-9jJhlA.woff2) format('woff2'), /* Chrome 26+, Opera 23+ */
+	url(https://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGMzFoXZ-Kj537nB_-9jJhlA.woff) format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	font-weight: 600;
+	font-style: normal;
+}
+@font-face {
+  font-family: 'source-sans';
+  src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'), url(https://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGJkF8H8ye47wsfpWywda8og.woff2) format('woff2'), /* Chrome 26+, Opera 23+ */
+	url(https://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGJkF8H8ye47wsfpWywda8og.woff) format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	font-weight: 700;
+	font-style: normal;
+}
+
+html,body{ 	
+	font-family: 'source-sans', sans-serif;
+	margin: 0;
+	padding: 0;
+	overflow: auto !important;
+}
+
+body{
+	background: #424359 url(../images/wallpaper.jpg) center center no-repeat;
+	background-size: cover;
+	min-width: 685px;
+}
+
+#loginPage{
+	height: 100%;
+	margin: 0 auto;
+	padding: 0;
+	position: relative;
+	width: 685px;
+}
+#eyeRunTitle{
+	font-weight: bolder;
+}
+#eyeRunDownload{
+	margin-top: 8px;
+}
+#loading{ 	
+	_margin: 18% 40%;
+	background-repeat: no-repeat;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 18%;
+	position: relative;
+}
+
+.loading-button{
+	position: relative;
+	-webkit-animation: spinner linear 1s infinite;
+	  -moz-animation: spinner linear 1s infinite;
+	  animation: spinner linear 1s infinite;
+}
+
+.loading-button.clicked .loading-label {
+  -webkit-animation: zoom .5s ease 1;
+  animation: zoom s ease 1;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  position: relative;
+  display: inline-block;
+}
+
+@-webkit-keyframes zoom {
+	100% {
+		-webkit-transform: scale(0);
+		transform: scale(0);
+		opacity: 0;
+	}
+}
+
+@keyframes zoom {
+	100% {
+		-webkit-transform: scale(0);
+		transform: scale(0);
+		opacity: 0;
+	}
+}
+
+.btns-wrapper{
+	position: relative;
+}
+
+.loading-animation{
+	position: absolute;
+	opacity: 0;
+	height: 25px;
+    	width: 25px;
+   	 left: 1.3em;
+    	top: 50%;
+    	margin-top: 10px;
+   	 -webkit-transform: translateY(-50%);
+   	 transform: translateY(-50%);
+   	 
+   	 
+}
+
+.detectingEyerun{
+	padding-left: 3.5em !important;
+	background: #85ECD5 !important;
+	cursor: default !important;
+	color: rgba(255,255,255,.7);
+}
+
+.detectingEyerun:not(.hidden) ~ .loading-animation{
+	opacity: 1;
+}
+
+.loginButton.clicked:not(.hidden) ~ .loading-animation{
+	opacity: 1;
+}
+
+.loading-animation .spinner {
+	-webkit-animation: rotator .85s linear infinite;
+	animation: rotator .85s linear infinite;
+}
+
+.loading-animation .spinner .path {
+	-webkit-stroke-dasharray: 100;
+	-webkit-stroke-dashoffset: 0;
+	stroke-dasharray: 100;
+	stroke-dashoffset: 0;
+	-webkit-transform-origin: center;
+	-ms-transform-origin: center;
+	transform-origin: center;
+	stroke: rgba(255,255,255, 0.75);
+	stroke-dashoffset: 42;
+}
+
+@-webkit-keyframes rotator {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes rotator {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+#loginGeneralContainerCentered {
+	top: 50%;
+	left: 0;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	min-height: 80px;
+	padding-left: 275px;
+	position: absolute;
+	width: 410px;
+}
+
+#loginGeneralContainerCentered.eyeos-opened{
+	padding-left: 0;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+
+.eyeos-opened #logo_eyeos{
+	position: static;
+	-webkit-transform: none;
+	-moz-transform: none;
+	-ms-transform: none;
+	-o-transform: none;
+	transform: none;
+	width: 100%;
+	padding-right: 0;
+	background-position: center center;
+	min-height: 80px;
+}
+
+.eyeos-opened #formBox{
+	display: none;
+}
+
+#eyeRunGeneralContainer{
+	color:#ababb3;
+	padding-left: 90px;
+	position: relative;
+}
+
+#eyeRunGeneralContainer::after{
+	background: rgba(255,255,255,.29) url(../images/installer.svg) center center no-repeat;
+	border-radius: 100%;
+	content: ' ';
+	height: 70px;
+	margin-top: -35px;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 70px;
+}
+
+#eyeRunGeneralContainer #eyeRunTitle{
+	font-size: 21px;
+	font-weight: normal;
+}
+
+#eyeRunGeneralContainer #eyeRunTitle{
+	font-size: 21px;
+}
+
+#loginGeneralContainer{
+	position: relative;
+}
+#logo_eyeos{
+	background: url(../images/logo-open365.svg) left top no-repeat;
+	background-size: 85%;
+	height: 62px;
+	padding-right: 50px;
+	position: absolute;
+	width: 225px;
+	-webkit-transform: translateX(-100%);
+	transform: translateX(-100%);
+	top: 7px;
+}
+
+#loginform{
+	padding: 15px 0 30px 0;
+}
+
+#eyeRunDisclaimer, #eyeosRunning, #eyeRunGeneralContainer{
+	padding-top: 20px;
+	border-top: 1px solid rgba(255,255,255,.29);
+}
+
+.login-text{
+
+}
+
+#eyeRunDisclaimer {
+	color: #ababb3;
+	padding-top: 10px;
+}
+#eyeosRunning {
+	color: #ababb3;
+	padding-top: 10px;
+}
+.eyeRunDownloadLink{
+	color: #a7fbe8;
+	font-weight: 600;
+	text-decoration: none;
+	border-bottom: 1px solid #a7fbe8;
+}
+.eyeRunDownloadDescription, .linkSeparator, .eyeRunDownloadLink{
+	display: inline-block;
+}
+
+.title_placeholder{
+	display: none;
+}
+
+#sessionExpired_newPassText, .errorMessage, #captchaBox{
+	background-color: rgba(219,59,59,.4);
+	border: 1px solid rgba(253,115,115,.78);
+	color: #fff;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 1.5;
+	text-align: center;
+	margin-bottom: 20px;
+	padding: .5em 1.4em 1em;
+}
+
+#sessionExpired_newPassText::before, .errorMessage::before, .errorCaptchaMessage::before{
+	content: ' ';
+	background: url(../images/alert-icon.svg) center center no-repeat;
+	display: inline-block;
+	height: 24px;
+	width: 24px;
+	position: relative;
+	top: 6px;
+	right: 7px;
+}
+
+.errorMessage{
+
+}
+
+.textFieldBox{
+
+}
+.inputField{
+	border: none;
+	color: #4b4b69;
+	font-family: 'source-sans', sans-serif;
+	font-weight: normal;
+	height: 40px;
+	line-height: 40px;
+	width: 390px;
+	padding: 0 10px;
+	font-size: 18px;
+}
+.margTop{ 	margin-top: 20px;
+}
+
+.loginButton{
+    background-color: #50e3c2;
+    border: none;
+    border-radius: 1px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 'source-sans', sans-serif;
+    line-height: 1.5;
+    margin: 20px 0 0;
+    text-transform: uppercase;
+    padding: .5em 2.2em;
+
+   	 -webkit-transition: all .3s ease-out;
+   	 -moz-transition: all .3s ease-out;
+   	 -ms-transition: all .3s ease-out;
+   	 -o-transition: all .3s ease-out;
+   	 transition: all .3s ease-out;
+}
+
+.loginButton:hover{
+	background: #36CCAF;
+}
+
+.loginButton.clicked{
+	padding-left: 3.4em;
+	background: #85ECD5;
+	cursor: default;
+	color: rgba(255,255,255,.7);
+	
+}
+
+#captchaBox {
+	display: none;
+	margin: 20px 0 0 0;
+	padding: 20px 30px 30px 30px;
+}
+
+#captchaBox img {
+    width: 100%;
+}
+
+#captchaBox .inputField {
+	height: 30px;
+	line-height: 30px;
+	width: 298px;
+	padding: 0 10px;
+	float: left;
+}
+
+#captchaBox .captchaRefreshButton{
+	width: 30px;
+	height: 30px;
+	background-image: url(../images/reload-icon.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: #54546f;
+	cursor: pointer;
+}
+
+.captchaRefreshContainer {
+    float: right;
+}
+
+.hidden {
+    display: none;
+}
+
+.loadingShown {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url(../images/loading.gif);
+    height:100px;
+    width:100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: auto;
+}
+
+input::-webkit-input-placeholder{
+   color: #4b4b69;
+}
+
+input:-moz-placeholder{
+   color: #4b4b69;
+}
+
+input::-moz-placeholder{
+   color: #4b4b69;
+}
+
+input:-ms-input-placeholder{
+   color: #4b4b69;
+}
+
+input:focus::-webkit-input-placeholder{
+   color: #9d9db6;
+}
+
+input:focus:-moz-placeholder{
+   color: #9d9db6;
+}
+
+input:focus::-moz-placeholder{
+   color: #9d9db6;
+}
+
+input:focus:-ms-input-placeholder{
+   color: #9d9db6;
+}

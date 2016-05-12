@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" class=" js canvas webgl no-touch websockets websocketsbinary"
+      style="overflow: hidden; margin: 0px; padding: 0px; height: 100%; width: 100%;">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--IE=edge: It forces the browser the render at whatever the most recent version's standards are.-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--TODO: create build-->
+    <title>Open365</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="themes/desktop/images/favicon.ico"/>
+
+    <script src="js/platformSettings.js"></script>
+    <!--[if lt IE 9 ]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+
+    <script>
+        var newStyleInHead = "themes/" + window.platformSettings.theme + "/css/login.css";
+        var stylesheet = document.createElement('link');
+        stylesheet.rel = "stylesheet";
+        stylesheet.type = "text/css";
+        stylesheet.href = newStyleInHead;
+
+        var head = document.getElementsByTagName('head')[0];
+        head.appendChild(stylesheet);
+
+        if (window.platformSettings.customTitle) {
+            document.title = window.platformSettings.customTitle;
+        }
+    </script>
+    <script>
+        if (window.platformSettings.disableAnalytics === false) {
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                            (i[r].q = i[r].q || []).push(arguments)
+                        }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+            ga('create', 'UA-76176340-1', 'auto');
+            ga('send', 'pageview', document.location.pathname);
+        }
+    </script>
+</head>
+<body>
+
+<div id="loginPage">
+    <div class="bg-wrapper">
+        <div id="clouds"></div>
+        <div id="cloud-kde"></div>
+        <div id="cloud-lo"></div>
+        <div id="cloud-thunderbird"></div>
+        <div id="cloud-1"></div>
+        <div id="cloud-2"></div>
+        <div id="cloud-3"></div>
+        <div id="cloud-4"></div>
+    </div>
+
+    <div id="loginGeneralContainerCentered" class="login-text">
+        <div id="loginGeneralContainer" class="login-text">
+            <div id="logo_eyeos"></div>
+            <div id="formBox" class="formBox">
+                <p class="almost_there">
+                    Sorry, we are under maintenance.
+                </p>
+                <img style="margin-left: -48px;width: 384px;"
+                     src="./themes/open365/img/construction.gif">
+                <p>
+                    Please come back later
+                </p>
+
+                <div class="mobileLink">
+                    <a href="/" class="link loginButton loading-button"> try again </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    #forceDownload {
+        color: #01D7D4;
+    }
+
+    .almost_there {
+        font-size: 2em;
+    }
+
+    .btns-wrapper {
+        margin-top: 3em;
+    }
+
+    .disabled, .disabled:hover {
+        cursor: default;
+        background-color: #aaa;
+    }
+
+    .mobileLink {
+        margin-top: 30px;
+    }
+    .mobileLink .link {
+        margin-left: 10px;
+        text-decoration: none;
+    }
+    #loginGeneralContainerCentered {
+        padding-bottom: 2.8em;
+    }
+</style>
+</body>
+<script>
+
+    // Animating bg
+    $('#loginPage').mousemove(function (e) {
+        $('#clouds').css('transform', 'translate(' + (e.pageX + this.offsetLeft) / 120 + 'px, ' + (e.pageY + this.offsetTop) / 120 + 'px )');
+        $('#cloud-kde').css('transform', 'translate(' + (e.pageX + this.offsetLeft) / 20 + 'px, ' + (e.pageY + this.offsetTop) / 20 + 'px )');
+        $('#cloud-lo').css('transform', 'translate(' + (e.pageX + this.offsetLeft) / 100 + 'px, ' + (e.pageY + this.offsetTop) / 100 + 'px )');
+        $('#cloud-thunderbird').css('transform', 'translate(' + -(e.pageX + this.offsetLeft) / 30 + 'px, ' + -(e.pageY + this.offsetTop) / 30 + 'px )');
+        $('#cloud-1').css('transform', 'translate(' + -(e.pageX + this.offsetLeft) / 30 + 'px, ' + -(e.pageY + this.offsetTop) / 30 + 'px )');
+        $('#cloud-2').css('transform', 'translate(' + -(e.pageX + this.offsetLeft) / 70 + 'px, ' + -(e.pageY + this.offsetTop) / 70 + 'px )');
+        $('#cloud-3').css('transform', 'translate(' + -(e.pageX + this.offsetLeft) / 50 + 'px, ' + -(e.pageY + this.offsetTop) / 50 + 'px )');
+        $('#cloud-4').css('transform', 'translate(' + -(e.pageX + this.offsetLeft) / 20 + 'px, ' + -(e.pageY + this.offsetTop) / 20 + 'px )');
+    });
+
+    //Trying rotation mobile
+    if (window.DeviceOrientationEvent) {
+        function handleOrientation(event) {
+            var y = event.beta;  // In degree in the range [-180,180]
+            var x = event.gamma; // In degree in the range [-90,90]
+            var xAlt = x;
+            var yAlt = y;
+
+            if (x > 20) {
+                x = 20
+            }
+
+            if (x < -20) {
+                x = -20
+            }
+
+            x += 1;
+            y += 1;
+            xAlt -= 30;
+            yAlt -= 30;
+            $('#clouds').css('transform', 'translate(' + (x - 10) + 'px, ' + (y / 3) + 'px )');
+            $('#cloud-kde').css('transform', 'translate(' + xAlt + 'px, ' + yAlt + 'px )');
+            $('#cloud-lo').css('transform', 'translate(' + (yAlt - 1) + 'px, ' + x + 'px )');
+            $('#cloud-thunderbird').css('transform', 'translate(' + (x - 1) + 'px, ' + (y - 1) + 'px )');
+            $('#cloud-1').css('transform', 'translate(' + xAlt + 'px, ' + yAlt + 'px )');
+            $('#cloud-2').css('transform', 'translate(' + yAlt + 'px, ' + xAlt + 'px )');
+            $('#cloud-3').css('transform', 'translate(' + xAlt + 'px, ' + yAlt + 'px )');
+            $('#cloud-4').css('transform', 'translate(' + y + 'px, ' + x + 'px )');
+        }
+
+        window.addEventListener('deviceorientation', handleOrientation);
+    }
+</script>
+</html>

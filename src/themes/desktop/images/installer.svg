@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="30px" height="49px" viewBox="0 0 30 49" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.1 (12005) - http://www.bohemiancoding.com/sketch -->
+    <title>Slice 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.211764706   0 0 0 0 0.211764706   0 0 0 0 0.262745098  0 0 0 0.168 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.211764706   0 0 0 0 0.211764706   0 0 0 0 0.262745098  0 0 0 0.18350034 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Group-Copy" sketch:type="MSLayerGroup">
+            <g id="Imported-Layers" transform="translate(0.000000, 17.399209)" sketch:type="MSShapeGroup">
+                <path d="M14.9108496,6.29216695 L24.2991623,11.7636165 L24.2991623,23.527233 L14.9108496,18.0557834 L14.9108496,6.29216695" id="Fill-1" fill="#BFBFCA"></path>
+                <path d="M14.9108496,6.29216695 L5.5225369,11.7636165 L5.5225369,23.527233 L14.9108496,18.0557834 L14.9108496,6.29216695" id="Fill-2" fill="#9999AB"></path>
+                <path d="M14.9108496,28.9986825 L5.5225369,23.527233 L5.5225369,11.7636165 L14.9108496,17.235066 L14.9108496,28.9986825" id="Fill-3" fill="#DDDDE5" filter="url(#filter-1)"></path>
+                <path d="M14.9108496,28.9986825 L24.2991623,23.527233 L24.2991623,11.7636165 L14.9108496,17.235066 L14.9108496,28.9986825" id="Fill-4" fill="#DDDDE5" filter="url(#filter-2)"></path>
+                <path d="M20.4333865,1.64143486 L29.8216992,7.11288438 L24.2991623,11.7636165 L14.9108496,6.29216695 L20.4333865,1.64143486" id="Fill-5" fill="#FBFBFB"></path>
+                <path d="M9.38831272,0 L0,5.47144952 L5.5225369,11.7636165 L14.9108496,6.29216695 L9.38831272,0" id="Fill-6" fill="#FBFBFB"></path>
+                <path d="M9.38858885,23.2533869 L0.000276126844,17.7816638 L5.52281302,11.7633429 L14.9111257,17.2347924 L9.38858885,23.2533869" id="Fill-7" fill="#F0F0F0"></path>
+                <path d="M20.4336626,23.5269594 L29.8219754,18.0555099 L24.2994385,11.7633429 L14.9111257,17.2347924 L20.4336626,23.5269594" id="Fill-8" fill="#F0F0F0"></path>
+            </g>
+            <path d="M14.8689978,34.717221 C14.8689978,34.8977548 20.4977031,40.93179 20.4977031,40.93179 L24.3071203,38.6402018 L24.2866574,40.1347089 L18.0834067,42.6256075 C18.0834067,42.6256075 14.8689978,34.5366872 14.8689978,34.717221 Z" id="Path-448" fill="#C4C4D1" sketch:type="MSShapeGroup"></path>
+            <path d="M5.47862201,39.5848621 L5.47862201,38.52819 L9.39749148,40.707606 L14.8758188,34.6923473 L12.9817525,43.5697618 L5.47862201,39.5848621 Z" id="Path-449" fill="#C4C4D1" sketch:type="MSShapeGroup"></path>
+            <g id="Triangle-1-+-Rectangle-12" transform="translate(7.166149, 0.000000)" fill="#A7FBE8" sketch:type="MSShapeGroup">
+                <path d="M0,7.97463768 L17.1987578,7.97463768 L8.59937888,15.9492754 L0,7.97463768 Z" id="Triangle-1"></path>
+                <rect id="Rectangle-12" x="4.91393079" y="0" width="7.37089618" height="10.6328502"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

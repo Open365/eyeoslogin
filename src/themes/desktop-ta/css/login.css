@@ -1,0 +1,227 @@
+/* IF YOU MODIFY THIS FILE, YOU SHOULD MINIFY IT AND SAVE THE MINIFIED FILE
+ * INTO login.min.css . You can use www.cssminifier.com to minify it.
+ */
+
+/* IF YOU MODIFY THIS FILE, YOU SHOULD MINIFY IT AND SAVE THE MINIFIED FILE
+ * INTO login.min.css . You can use www.cssminifier.com to minify it.
+ */
+
+/* IF YOU MODIFY THIS FILE, YOU SHOULD MINIFY IT AND SAVE THE MINIFIED FILE
+ * INTO login.min.css . You can use www.cssminifier.com to minify it.
+ */
+
+
+@font-face {
+  font-family: 'source-sans';
+  src: local('Source Sans Pro'), local('SourceSansPro-Regular'),
+	url(https://fonts.gstatic.com/s/sourcesanspro/v9/ODelI1aHBYDBqgeIAH2zlJbPFduIYtoLzwST68uhz_Y.woff2) format('woff2'), /* Chrome 26+, Opera 23+ */
+	url(https://fonts.gstatic.com/s/sourcesanspro/v9/ODelI1aHBYDBqgeIAH2zlJbPFduIYtoLzwST68uhz_Y.woff) format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+  font-family: 'source-sans';
+  src:  local('Source Sans Pro Light'), local('SourceSansPro-Light'), 
+	url(https://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGCP2LEk6lMzYsRqr3dHFImA.woff2) format('woff2'), /* Chrome 26+, Opera 23+ */
+	url(https://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGCP2LEk6lMzYsRqr3dHFImA.woff) format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	font-weight: 300;
+	font-style: normal;
+}
+@font-face {
+  font-family: 'source-sans';
+  src: local('Source Sans Pro Semibold'), local('SourceSansPro-Semibold'), url(https://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGMzFoXZ-Kj537nB_-9jJhlA.woff2) format('woff2'), /* Chrome 26+, Opera 23+ */
+	url(https://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGMzFoXZ-Kj537nB_-9jJhlA.woff) format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	font-weight: 600;
+	font-style: normal;
+}
+@font-face {
+  font-family: 'source-sans';
+  src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'), url(https://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGJkF8H8ye47wsfpWywda8og.woff2) format('woff2'), /* Chrome 26+, Opera 23+ */
+	url(https://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGJkF8H8ye47wsfpWywda8og.woff) format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	font-weight: 700;
+	font-style: normal;
+}
+
+html{
+  	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html,body
+{ 	font-family: 'source-sans', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+#loginPage
+{ 	background: #363643 url(../images/bg-login.svg) no-repeat right bottom;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	width: 100%;
+	z-index: 1000;
+
+}
+#loading{ 	
+	background-repeat: no-repeat;
+	position: relative;
+}
+#loginGeneralContainerCentered
+{
+
+	height: 100%;
+}
+#loginGeneralContainer
+{
+	background: #fff;
+	padding: 2em  3em;
+	box-shadow: 0 0 5px rgba(0,0,0,.22), 0 2px 3px rgba(0,0,0,.43);
+	width: 40%;
+	position: absolute;
+	max-width: 45em;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	min-width: 350px;
+	
+}
+#logo_eyeos
+{
+	text-align: center;
+	margin-bottom: 10px;
+    background: url(../images/logo-eyeos.svg) no-repeat left top;
+    height: 110px;
+}
+
+.login-text
+{ 	color: #4c4c4c;
+	font-size: 14px;
+}
+.title_placeholder{ 
+	display: block;
+	font-weight: 600;
+	color: #4B4B69;
+	font-size: 18px;
+	margin-bottom: .5em;
+}
+.errorMessage
+{
+	color: #F44336;
+	text-align: center;
+	height: 35px;
+	line-height: 35px;
+	position: absolute;
+	top: 8em;
+	font-size: 16px;
+	width: 100%;
+	font-weight: bold;
+	left: 0;
+	
+}
+#sessionExpired_newPassText
+{
+	visibility: hidden;
+	height: 25px;
+	text-align: left;
+}
+
+.textFieldBox{
+	margin-bottom: 2em;
+}
+.inputField{
+ 	width: 100%;
+ 	border: 1px solid rgba(0,0,0,.2);
+ 	border-radius: 2px;
+ 	font-size: 16px;
+ 	padding: .8em 1.2em;
+}
+.margTop
+{ 	margin-top: 15px;
+}
+
+.loginButton
+{
+    width: 100%;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    background: #536DFE;
+    border: none;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 18px;
+    font-family: 'source-sans', sans-serif;
+    padding: .8em;
+    border: 1px solid #8C9EFF;
+    border-radius: 2px;
+
+}
+
+#captchaBox {
+    display: none;
+    padding-top: 10px;
+    margin-bottom: 30px;
+}
+
+#captchaBox img {
+    width: 100%;
+}
+
+#captchaBox .inputField {
+    width: 224px;
+    padding-left: 0;
+    float: left;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+#captchaBox .captchaRefreshButton{
+    margin-top: -1px;
+    width: 27px;
+    height:27px;
+    background-image: url(../images/refresh.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.captchaRefreshContainer {
+    float: right;
+}
+
+.hidden {
+    display: none;
+}
+
+.loadingShown {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url(../images/loading.gif);
+    height:100px;
+    width:100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: auto;
+}
+
+::-webkit-input-placeholder {
+   color: #fff;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #fff;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #fff;
+}
+
+:-ms-input-placeholder {  
+   color: #fff;
+}

@@ -1,0 +1,370 @@
+/* latin-ext */
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v11/8qcEw_nrk_5HEcCpYdJu8BTbgVql8nDJpwnrE27mub0.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v11/MDadn8DQ_3oT6kvnUq_2r_esZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v11/rZPI2gHXi8zxUjnybc2ZQFKPGs1ZzpMvnHX-7fPOuAc.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v11/MgNNr5y1C_tIEuLEmicLmwLUuEpTyoUstqEm5AMlJo4.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+html, body, #loginPage {
+    height: 100%;
+    font-family: 'Lato';
+    color: #fff;
+}
+
+html {
+    background: rgba(2, 71, 194, 1);
+    background: -moz-linear-gradient(top, rgba(2, 71, 194, 1) 0%, rgba(0, 220, 212, 1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(2, 71, 194, 1)), color-stop(100%, rgba(0, 220, 212, 1)));
+    background: -webkit-linear-gradient(top, rgba(2, 71, 194, 1) 0%, rgba(0, 220, 212, 1) 100%);
+    background: -o-linear-gradient(top, rgba(2, 71, 194, 1) 0%, rgba(0, 220, 212, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(2, 71, 194, 1) 0%, rgba(0, 220, 212, 1) 100%);
+    background: linear-gradient(to bottom, rgba(2, 71, 194, 1) 0%, rgba(0, 220, 212, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0247c2', endColorstr='#00dcd4', GradientType=0);
+}
+
+body {
+    margin: 0;
+}
+
+.bg-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+}
+
+#clouds, #cloud-kde, #cloud-lo, #cloud-thunderbird, #cloud-1, #cloud-2, #cloud-3, #cloud-4 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#clouds {
+    background: url(../img/clouds.svg) no-repeat center 100%;
+}
+
+#cloud-lo {
+    background: url(../img/cloud-lo.svg) no-repeat 17% 56%;
+}
+
+#cloud-kde {
+    background: url(../img/cloud-kde.svg) no-repeat 86% 52%;
+    -webkit-background-size: auto 25%;
+    background-size: auto 25%;
+}
+
+#cloud-thunderbird {
+    background: url(../img/cloud-thunderbird.svg) no-repeat 8% 23%;
+    -webkit-background-size: auto 16%;
+    background-size: auto 16%;
+}
+
+#cloud-1 {
+    background: url(../img/cloud1.svg) no-repeat 95% 6%;
+}
+
+#cloud-2 {
+    background: url(../img/cloud2.svg) no-repeat 7% 75%;
+}
+
+#cloud-3 {
+    background: url(../img/cloud3.svg) no-repeat 37% 87%;
+}
+
+#cloud-4 {
+    background: url(../img/cloud4.svg) no-repeat 74% 85%;
+}
+
+/*html::before, html::after, body::before, body::after, #loginPage::before, #loginPage::after, #loginGeneralContainerCentered::before, #loginGeneralContainerCentered::after{
+    content: "";
+    position: absolute;
+    width: 105%;
+    height: 100%;
+    left: -5%;
+    top: 0;
+    background: url(../img/clouds.svg) no-repeat center 103%;
+}*/
+
+#loginGeneralContainerCentered {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(27, 38, 85, .58);
+    z-index: 2;
+    text-align: center;
+    max-width: 24em;
+    width: 50%;
+    padding-bottom: 1.8em;
+
+}
+
+#loginGeneralContainerCentered::before, #loginGeneralContainerCentered::after {
+    z-index: -1;
+}
+
+#logo_eyeos {
+    background: url(../img/logo-open365.svg) center center no-repeat;
+    -webkit-background-size: contain;
+    background-size: contain;
+    width: 45%;
+    padding-top: 20%;
+    margin: 1em auto;
+}
+
+.formBox {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.textFieldBox {
+    position: relative;
+    padding-top: 1em;
+
+}
+
+.inputField {
+    border: none;
+    background: none;
+    border-bottom: 1px solid #fff;
+    font-size: 1rem;
+    color: #fff;
+    padding: .4em 0;
+    margin-bottom: 1em;
+    width: 100%;
+    padding-left: 5px;
+}
+
+.inputField:focus + .title_placeholder, .inputField:valid + .title_placeholder {
+    transform: translateY(0);
+    font-size: 0.75rem
+}
+
+.inputField:-webkit-autofill + .title_placeholder {
+    transform: translateY(0);
+    font-size: 0.75rem
+}
+
+.title_placeholder {
+    display: block;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 0.875em;
+    position: absolute;
+    top: 0;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    transform: translateY(1.7em);
+}
+
+.loginButton {
+    background: #01D7D4;
+    border: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 0.875em;
+    font-weight: 800;
+    width: 100%;
+    padding: 1em;
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    margin-bottom: 1em;
+    cursor: pointer;
+    -webkit-transition: background .3s ease-out;
+    -moz-transition: background .3s ease-out;
+    -ms-transition: background .3s ease-out;
+    -o-transition: background .3s ease-out;
+    transition: background .3s ease-out;
+
+}
+
+.loginButton:hover {
+    background: #7AF1EF;
+}
+
+.errorCaptchaMessage, .errorMessage, #captchaBox, #sessionExpired_newPassText {
+    color: #FF5151;
+    background-color: rgba(219, 59, 59, .4);
+    border: 1px solid rgba(253, 115, 115, .78);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: .5em 1.4em 1em;
+}
+
+.errorMessage::before, .errorCaptchaMessage::before {
+    content: ' ';
+    background: url(../img/alert-icon.svg) center center no-repeat;
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    position: relative;
+    top: 6px;
+    right: 7px;
+}
+
+#captchaBox {
+    display: none;
+    margin: 20px 0 0 0;
+    padding: 20px 30px 30px 30px;
+}
+
+#captchaBox img {
+    width: 100%;
+}
+
+#captchaBox .inputField {
+    color: black;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    float: left;
+    width: calc(100% - 50px);
+    background: #fff;
+}
+
+.captchaRefreshContainer {
+    float: right;
+}
+
+#captchaBox .captchaRefreshButton {
+    width: 30px;
+    height: 30px;
+    background-image: url(../img/reload-icon.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #54546f;
+    cursor: pointer;
+}
+
+.btns-wrapper {
+    position: relative;
+    margin-top: 1.2em;
+}
+
+.loading-button {
+    position: relative;
+    -webkit-animation: spinner linear 1s infinite;
+    -moz-animation: spinner linear 1s infinite;
+    animation: spinner linear 1s infinite;
+}
+
+.loading-animation {
+    position: absolute;
+    opacity: 0;
+    height: 25px;
+    width: 25px;
+    left: 1.3em;
+    top: 50%;
+    margin-top: 10px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+#eyeRunDisclaimer {
+    color: #fff;
+    padding-top: 10px;
+}
+
+#eyeRunDisclaimer, #eyeosRunning, #eyeRunGeneralContainer {
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, .29);
+}
+
+#eyeRunGeneralContainer {
+    color: #fff;
+    padding-left: 90px;
+    position: relative;
+    text-align: left;
+}
+
+#eyeRunGeneralContainer::after {
+    background: rgba(255, 255, 255, .29) url(../img/installer.svg) center center no-repeat;
+    border-radius: 100%;
+    content: ' ';
+    height: 70px;
+    margin-top: -35px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 70px;
+}
+
+#eyeRunGeneralContainer #eyeRunTitle {
+    font-size: 21px;
+    font-weight: normal;
+}
+
+#eyeRunDownload {
+    margin-top: 8px;
+}
+
+.eyeRunDownloadDescription, .linkSeparator, .eyeRunDownloadLink {
+    display: inline-block;
+}
+
+.eyeRunDownloadLink {
+    color: #a7fbe8;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid #a7fbe8;
+}
+
+.hidden {
+    display: none;
+
+}
+
+.advice_username {
+    margin-bottom: 16px;
+    font-style: italic;
+    color: #fff;
+    font-size: 0.9em;"
+}
+
+#register_label {
+    float:right;
+    font-style:italic;
+    margin-bottom: 20px;
+    color:#fff
+}

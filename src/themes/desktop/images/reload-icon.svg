@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.1 (12005) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Artboard-1" sketch:type="MSArtboardGroup" fill="#FFFFFF">
+            <path d="M5.5,10.353 C6.042,6.861 8.721,5.114 11.461,5.114 C12.996,5.114 14.712,5.746 15.977,6.89 L16.218,7.161 C16.007,6.048 15.977,5.174 15.916,4.211 L17.904,4 L18.415,10.413 L12.093,11.045 L12.003,8.998 C12.936,8.907 13.899,8.787 14.893,8.817 L14.712,8.576 C13.809,7.703 12.635,7.222 11.551,7.222 C9.745,7.222 7.969,8.396 7.547,10.744 L5.5,10.353 L5.5,10.353 Z M18.777,13.453 C18.204,16.916 15.555,18.692 12.816,18.692 C11.28,18.692 9.564,18.06 8.3,16.916 L8.059,16.645 C8.27,17.729 8.3,18.631 8.36,19.595 L6.373,19.806 L5.861,13.393 L12.183,12.761 L12.274,14.808 C11.341,14.899 10.377,14.989 9.353,14.959 L9.564,15.199 C10.497,16.133 11.641,16.554 12.755,16.554 C14.562,16.554 16.308,15.38 16.729,13.062 L18.777,13.453 L18.777,13.453 Z" id="Imported-Layers" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

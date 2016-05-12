@@ -1,0 +1,9 @@
+.idea
+node_modules
+bower_components
+builder/contents
+pkgs
+builder/log
+build
+src/vendor/eyeosAuthClient.min.js
+src/translations/

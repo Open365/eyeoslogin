@@ -1,0 +1,261 @@
+/* IF YOU MODIFY THIS FILE, YOU SHOULD MINIFY IT AND SAVE THE MINIFIED FILE
+ * INTO login.min.css . You can use www.cssminifier.com to minify it.
+ */
+
+/* IF YOU MODIFY THIS FILE, YOU SHOULD MINIFY IT AND SAVE THE MINIFIED FILE
+ * INTO login.min.css . You can use www.cssminifier.com to minify it.
+ */
+
+/* IF YOU MODIFY THIS FILE, YOU SHOULD MINIFY IT AND SAVE THE MINIFIED FILE
+ * INTO login.min.css . You can use www.cssminifier.com to minify it.
+ */
+
+html,body
+{ 	font-family: arial;
+	margin: 0;
+	padding: 0;
+}
+#loginPage
+{ 	background-color: #3773af;
+	background-image: linear-gradient(bottom,#6eafe0 20%,#2b5482 100%);
+	background-image: -moz-linear-gradient(bottom,#6eafe0 20%,#2b5482 100%);
+	background-image: -ms-linear-gradient(bottom,#6eafe0 20%,#2b5482 100%);
+	background-image: -o-linear-gradient(bottom,#6eafe0 20%,#2b5482 100%);
+	background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.2,#6eafe0),color-stop(0.6,#2b5482));
+	background-image: -webkit-linear-gradient(bottom,#6eafe0 20%,#2b5482 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2b5482', endColorstr='#6eafe0',GradientType=0 );
+	font-family: arial;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	width: 100%;
+	z-index: 1000;
+}
+#eyeRunTitle
+{
+	font-weight: bolder;
+}
+#eyeRunDownload
+{
+	margin-top: 8px;
+}
+#loading
+{ 	_margin: 18% 40%;
+	background-repeat: no-repeat;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 18%;
+	position: relative;
+}
+#loginGeneralContainerCentered
+{
+	_margin: 12% 40%;
+	margin: 12% auto;
+	position: relative;
+	width: 297px;
+}
+#eyeRunGeneralContainer {
+	margin-top: 10px;
+	background: #fff;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	box-shadow: 0 1px 4px #111;
+	moz-border-radius: 10px;
+	moz-box-shadow: 0 1px 4px #111;
+	ms-border-radius: 10px;
+	position: absolute;
+	webkit-border-radius: 10px;
+	webkit-box-shadow: 0 1px 4px #111;
+	padding: 20px;
+	position: relative;
+	width:254px;
+}
+#loginGeneralContainer
+{
+	background: #fff;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	box-shadow: 0 1px 4px #111;
+	moz-border-radius: 10px;
+	moz-box-shadow: 0 1px 4px #111;
+	ms-border-radius: 10px;
+	position: absolute;
+	webkit-border-radius: 10px;
+	webkit-box-shadow: 0 1px 4px #111;
+	padding: 20px;
+	position: relative;
+	width:254px;
+}
+#logo_eyeos
+{
+	text-align: center;
+	margin-bottom: 10px;
+    background-image: url(../images/Logo-eyeos.png);
+    height:52px;
+    width:100%;
+    background-repeat: no-repeat;
+}
+
+.login-text
+{ 	color: #4c4c4c;
+	font-size: 14px;
+}
+#eyeRunDisclaimer {
+	font-size: 12px;
+	padding-top: 10px;
+}
+#eyeosRunning {
+	font-size: 12px;
+	padding-top: 10px;
+	text-align: center;
+}
+.eyeRunDownloadLink
+{
+	background: #f3f3f3;
+	padding-left: 2px;
+	padding-bottom: 1px;
+	border: 1px solid #aaa;
+	text-align: center;
+	text-decoration: none;
+ 	color: #4c4c4c;
+	margin-bottom: 5px;
+}
+.eyeRunDownloadDescription
+{
+	padding-left: 5px;
+}
+.linkSeparator
+{
+	padding-left: 5px;
+}
+.title_placeholder
+{ 	background: #f3f3f3;
+	border: 1px solid #aaa;
+	border-radius: 2px 0 0 2px;
+	height: 20px;
+	moz-border-radius: 2px 0 0 2px;
+	ms-border-radius: 2px 0 0 2px;
+	padding: 5px 0 0 0;
+	position: absolute;
+	text-align: center;
+	webkit-border-radius: 2px 0 0 2px;
+	width: 84px;
+	z-index: 1;
+}
+.errorMessage
+{
+	color: #953134;
+	text-align: center;
+	height: 35px;
+	line-height: 35px;
+}
+#sessionExpired_newPassText
+{
+	visibility: hidden;
+	height: 25px;
+	text-align: left;
+}
+.textFieldBox
+{ 	_border: 1px solid #e5e5e5;
+	_height: 22px;
+	_top: -2px;
+	border-bottom: 1px solid #e5e5e5;
+	height: 26px;
+	left: 85px;
+	position: relative;
+	top: 0;
+	width: 168px;
+}
+.inputField
+{ 	_border: 0 solid #e5e5e5;
+	_height: 22px;
+	background: #fafafa;
+	border: 0 none;
+	border-bottom: 1px #e5e5e5;
+	border-radius: 0 2px 2px 0;
+	box-shadow: 0 1px 1px #888 inset;
+	height: 24px;
+	moz-border-radius: 0 2px 2px 0;
+	moz-box-shadow: 0 1px 1px #888 inset;
+	ms-border-radius: 0 2px 2px 0;
+	padding-left: 5px;
+	position: relative;
+	top: 0;
+	webkit-border-radius: 0 2px 2px 0;
+	webkit-box-shadow: 0 1px 1px #888 inset;
+	width: 164px;
+}
+.margTop
+{ 	margin-top: 15px;
+}
+
+.loginButton
+{
+    width: 100%;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+#captchaBox {
+    display: none;
+    padding-top: 10px;
+    margin-bottom: 30px;
+}
+
+#captchaBox img {
+    width: 100%;
+}
+
+#captchaBox .inputField {
+    width: 224px;
+    padding-left: 0;
+    float: left;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+#captchaBox .captchaRefreshButton{
+    margin-top: -1px;
+    width: 27px;
+    height:27px;
+    background-image: url(../images/refresh.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.captchaRefreshContainer {
+    float: right;
+}
+
+.hidden {
+    display: none;
+}
+
+.loadingShown {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url(../images/loading.gif);
+    height:100px;
+    width:100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: auto;
+}
+
+::-webkit-input-placeholder {
+   color: #fff;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #fff;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #fff;
+}
+
+:-ms-input-placeholder {  
+   color: #fff;
+}
