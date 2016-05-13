@@ -31,7 +31,6 @@ define([
 		var sut, sutMock, url,
 			prepare, prepareMock,
 			credentials, credentialsMock,
-			spySetSessionEyeRun,
 			call, callMock,
 			captcha, captchaMock,
 			fakeUser, fakePassword,
@@ -65,8 +64,6 @@ define([
 
 			userInfo = new UserInfo();
 			userInfoStub = sinon.stub(userInfo, 'getAndStore');
-
-			spySetSessionEyeRun = sinon.spy();
 
 			redirector = new Redirector();
 			redirectorGoToLoginTargetStub = sinon.stub(redirector, 'goToLoginTarget');

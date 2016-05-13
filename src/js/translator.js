@@ -66,16 +66,8 @@ define(["js/tr", "i18next"], function (tr) {
 
 		$("#textLogIn").text(tr($('#textLogIn').text().trim()));
 		$("#textLaunch").text(tr($('#textLaunch').text().trim()));
-		$("#detectingEyerun").text(tr($('#detectingEyerun').text().trim()));
 		$("#captchaRefreshButton").attr('alt', tr($("#captchaRefreshButton").attr('alt')));
 
-		$("#eyeRunDown").html(tr($("#eyeRunDown").html()));
-		$("#eyeRunLinkor").html(tr($("#eyeRunLinkor").html()));
-
-		$("#eyeRunTitle").html(tr($("#eyeRunTitle").html()));
-		$("#eyeRunLink").html(tr($("#eyeRunLink").html()));
-		$("#eyeRunLinkDescription").html(tr($("#eyeRunLinkDescription").html()));
-		$("#eyeRunDisclaimer").html(tr($("#eyeRunDisclaimer").html()));
 	};
 
 	return Translator;

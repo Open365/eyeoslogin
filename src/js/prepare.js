@@ -25,7 +25,6 @@ define([
 ], function ($, emile, tr, OperatingSystem) {
 
 	var Prepare = function () {
-		this._eyeRunDownloadInterval = null;
 		this.platformSettings = window.platformSettings || {};
 	};
 
@@ -137,16 +136,6 @@ define([
 		$("#loginform").removeClass("hidden");
 	};
 
-
-	Prepare.prototype.hideDetectButtonAndShowLoginButton = function () {
-		this.hideDetectingEyerunButton();
-		this.showLoginButton();
-	};
-	Prepare.prototype.hideDetectButtonAndShowLaunchButton = function () {
-		this.hideDetectingEyerunButton();
-		this.showLaunchButton();
-	};
-
 	Prepare.prototype.showLoginButton = function () {
 		$("#textLogIn").removeClass("hidden");
 	};
@@ -162,33 +151,6 @@ define([
 
 	Prepare.prototype.hideLaunchButton = function () {
 		$("#textLaunch").addClass("hidden");
-	};
-
-	Prepare.prototype.hideDetectingEyerunButton = function () {
-		$("#detectingEyerun").addClass("hidden");
-	};
-
-	Prepare.prototype.generateDownloadLinks = function(versions) {
-
-			OperatingSystem.getEyeRunDownloadLink(function(url) {
-
-				$("#eyeRunGeneralContainer").show();
-
-				var downloadName = versions?versions[0].name:'eyeRun';
-				$("#eyeRunLink1").text(downloadName).attr("href", url);
-
-				if (versions[1] !== 'undefined' ) {
-					OperatingSystem.getEyeRunDownloadLink(function(url) {
-
-						$("#eyeRunLinkor").show();
-						$("#eyeRunLink2").text(versions[1].name).attr("href", url).show();
-
-					}, versions[1].version);
-				}
-
-
-			}, versions?versions[0].version:'');
-
 	};
 
 	Prepare.prototype.hideDomainMessage = function () {

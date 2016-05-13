@@ -21,7 +21,6 @@ window.platformSettings = {
 	lang: 'en',
 	theme:'open365',
 	cleanUrlParameters: false,
-	disableEyeRun: false,
 	customTitle: false,
 	disableAnalytics: false,
 	forceDomain: true,

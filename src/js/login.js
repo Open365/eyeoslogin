@@ -173,7 +173,7 @@ define([
 			this.domain = this.platformSettings.domainFromUrl ? "@" + location.hostname : "@" + this.platformSettings.defaultDomain;
 			this.prepare.showDomainMessage(this.domain);
 
-			this.prepare.hideDetectButtonAndShowLoginButton();
+			this.prepare.showLoginButton();
 		}
 	};
 
