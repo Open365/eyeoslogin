@@ -149,6 +149,20 @@ module.exports = function (grunt) {
 		} else {
 			grunt.task.run(['requirejs:'+target, 'shell:deploy']); //release or debug
 		}
+		grunt.task.run('hashJavascriptFiles');
+	});
+
+	grunt.registerTask('hashJavascriptFiles', 'Hashes javascript files', function () {
+		var hashAndReplaceFiles = require('./grunt_tasks/hashAndReplaceFiles');
+
+		var dist = grunt.config('dirs').dist + "/";
+
+		var whereToReplace = dist + "index.html";
+		var filesToReplace = [dist + "js/main.js"];
+		hashAndReplaceFiles.call(this, grunt, filesToReplace, whereToReplace);
+
+		filesToReplace = [dist + "js/platformSettings.js"];
+		hashAndReplaceFiles.call(this, grunt, filesToReplace, whereToReplace);
 	});
 
 };
