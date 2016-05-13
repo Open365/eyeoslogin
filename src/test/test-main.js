@@ -37,8 +37,8 @@ require.config({
 		jquery: 'src/vendor/jquery-2.1.1.min',
 		emile: 'src/vendor/emile',
 		eyeosAuthClient: 'src/test/utils/fakeEyeosAuthClient',
-		eyeRunRequestor: 'bower_components/eyeRunRequestor/build/eyeRunRequestor.min',
-		operatingSystem : 'bower_components/operatingSystem/build/operatingSystem.min',
+		eyeRunRequestor: 'bower_components/eyerun_requestor/build/eyeRunRequestor.min',
+		operatingSystem : 'bower_components/operating_system/build/operatingSystem.min',
 		urijs: 'bower_components/uri.js/src',
 	},
 

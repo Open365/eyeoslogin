@@ -16,8 +16,8 @@
   "dependencies": {
     "eyeos-auth-client": "*",
     "i18next": "1.8.0",
-    "eyeRunRequestor": "~0.0.6",
-    "operatingSystem": "~0.0.2",
+    "eyerun_requestor": "~0.0.6",
+    "operating_system": "~0.0.2",
     "uri.js": "1.15.0"
   },
   "license": "AGPL-3.0"
