@@ -46,7 +46,6 @@ module.exports = function (grunt) {
 				paths: {
 					js: 'src/js',
 					operatingSystem : 'bower_components/operating_system/build/operatingSystem',
-					eyeRunRequestor: 'bower_components/eyerun_requestor/build/eyeRunRequestor.min',
 					urijs: 'bower_components/uri.js/src',
 					jquery: 'src/vendor/jquery-2.1.1.min',
 					emile: 'src/vendor/emile',

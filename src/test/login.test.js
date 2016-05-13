@@ -31,7 +31,7 @@ define([
 		var sut, sutMock, url,
 			prepare, prepareMock,
 			credentials, credentialsMock,
-			fakeEyeRunRequestor, spySetSessionEyeRun,
+			spySetSessionEyeRun,
 			call, callMock,
 			captcha, captchaMock,
 			fakeUser, fakePassword,
@@ -67,10 +67,6 @@ define([
 			userInfoStub = sinon.stub(userInfo, 'getAndStore');
 
 			spySetSessionEyeRun = sinon.spy();
-			fakeEyeRunRequestor = {
-				setSession: spySetSessionEyeRun,
-				appGateway: function () {}
-			};
 
 			redirector = new Redirector();
 			redirectorGoToLoginTargetStub = sinon.stub(redirector, 'goToLoginTarget');
@@ -104,7 +100,7 @@ define([
 
 			platformSettings = {};
 
-			sut = new Login(prepare, settings, credentials, call, captcha, fakeEyeRunRequestor, redirector, userInfo, platformSettings);
+			sut = new Login(prepare, settings, credentials, call, captcha, redirector, userInfo, platformSettings);
 			sutMock = sinon.mock(sut);
 
 			originalJSON = JSON;
@@ -313,13 +309,6 @@ define([
 		suite("#doSuccess", function () {
 			var credentials, setTokenExp;
 
-			function makeSetSessionSuccess () {
-				fakeEyeRunRequestor.setSession.callArg(3);
-			}
-			function makeSetSessionFail () {
-				fakeEyeRunRequestor.setSession.callArg(4);
-			}
-
 			setup(function () {
 				credentials = "fake credentials";
 				setTokenExp = credentialsMock.expects("setToken").once().withExactArgs(credentials);
@@ -335,18 +324,10 @@ define([
 				sinon.assert.calledWithExactly(userInfoStub, sinon.match.func);
 			});
 
-			test("calls to login.goToLoginTarget after sending credentials to eyerun", function () {
+			test("calls to login.goToLoginTarget after getting user info", function () {
 				sut.transactionId = 'myTransactionId';
 				sut.doSuccess(credentials);
 				userInfoStub.callArg(0);
-				makeSetSessionSuccess();
-				assert(redirectorGoToLoginTargetStub.calledWithExactly('myTransactionId'));
-			});
-			test("calls to login.goToLoginTarget after sending credentials to eyerun FAILS", function () {
-				sut.transactionId = 'myTransactionId';
-				sut.doSuccess(credentials);
-				userInfoStub.callArg(0);
-				makeSetSessionFail();
 				assert(redirectorGoToLoginTargetStub.calledWithExactly('myTransactionId'));
 			});
 		});

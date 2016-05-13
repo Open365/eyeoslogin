@@ -25,18 +25,16 @@ define([
 	"js/captcha",
 	"js/settings",
 	"operatingSystem",
-	"eyeRunRequestor",
 	"js/redirector",
 	"js/userInfo"
-], function (Prepare, Settings, Credentials, Call, Captcha, Settings, OperatingSystem, EyeRunRequestor, Redirector, UserInfo) {
+], function (Prepare, Settings, Credentials, Call, Captcha, Settings, OperatingSystem, Redirector, UserInfo) {
 
-	var Login = function (prepare, settings, credentials, call, captcha, eyeRunRequestor, redirector, userInfo, injectedPlatformSettings) {
+	var Login = function (prepare, settings, credentials, call, captcha, redirector, userInfo, injectedPlatformSettings) {
 		this.prepare = prepare || new Prepare();
 		this.settings = settings || Settings;
 		this.credentials = credentials || new Credentials();
 		this.call = call || new Call();
 		this.captcha = captcha || new Captcha();
-		this._requestor = eyeRunRequestor || new EyeRunRequestor();
 		this._redirector = redirector || new Redirector();
 		this.userInfo = userInfo || new UserInfo();
 		this.platformSettings = injectedPlatformSettings || window.platformSettings;
@@ -137,9 +135,7 @@ define([
 				self._redirector.goToLoginTarget.call(self._redirector, self.transactionId);
 			}
 			this.credentials.setToken(data);
-			this.userInfo.getAndStore(function () {
-				self._requestor.setSession(self.credentials.getRawCredentials(), window.location.hostname, self.transactionId, goToLoginTarget, goToLoginTarget);
-			});
+			this.userInfo.getAndStore(goToLoginTarget);
  		},
 
 		loginFailCallback: function (xhr) {
@@ -166,14 +162,6 @@ define([
 			}
 		},
 
-		shouldApplyEnhancedMode : function() {
-			if (this.platformSettings.disableEyeRun) {
-				return false;
-			}
-			var notAlreadyAppModeRunning = (window.location.href.indexOf('APP_MODE=1') === -1);
-			return notAlreadyAppModeRunning && this.settings.ENHANCED_MODE_AVAILABLE && $.inArray(OperatingSystem.getName(), this.settings.ENHANCED_MODE_AVAILABLE_OS) !== -1
-		},
-
 		init: function () {
 			this.prepare.hideLoading();
 			this.prepare.prepareLoginFormFocus();
@@ -185,11 +173,7 @@ define([
 			this.domain = this.platformSettings.domainFromUrl ? "@" + location.hostname : "@" + this.platformSettings.defaultDomain;
 			this.prepare.showDomainMessage(this.domain);
 
-			if (this.shouldApplyEnhancedMode()) {
-				this.prepare.prepareEnhancedMode();
-			} else {
-				this.prepare.hideDetectButtonAndShowLoginButton();
-			}
+			this.prepare.hideDetectButtonAndShowLoginButton();
 		}
 	};
 

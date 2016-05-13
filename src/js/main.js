@@ -25,7 +25,6 @@ require.config({
 		emile: 'src/vendor/emile',
 		i18next: 'src/vendor/i18next.min',
 		eyeosAuthClient: 'src/vendor/eyeosAuthClient.min',
-		eyeRunRequestor: '../../bower_components/eyerun_requestor/build/eyeRunRequestor.min',
 		operatingSystem : '../../bower_components/operating_system/build/operatingSystem.min',
 		urijs: '../../bower_components/uri.js/src'
 	},

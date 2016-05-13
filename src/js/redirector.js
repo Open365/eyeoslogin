@@ -20,15 +20,12 @@
 define([
 	"js/settings",
 	"operatingSystem",
-	"eyeRunRequestor",
 	"urijs/URI",
 	"js/credentials",
-], function (Settings, OperatingSystem, EyeRunRequestor, UriJS, Credentials) {
+], function (Settings, OperatingSystem, UriJS, Credentials) {
 
-	var Redirector = function (settings, eyeRunRequestor, injectedLocation, injectedOperatingSystem, credentials, injectedPlatformSettings) {
+	var Redirector = function (settings, injectedLocation, injectedOperatingSystem, credentials, injectedPlatformSettings) {
 		this.settings = settings || Settings;
-		this._requestor = eyeRunRequestor || new EyeRunRequestor();
-		this._appGateway = this._requestor.appGateway();
 		this.location = injectedLocation || window.location;
 		this.OperatingSystem = injectedOperatingSystem || OperatingSystem;
 		this.credentials = credentials || new Credentials();
@@ -63,65 +60,9 @@ define([
 		this.location.replace(url);
 	};
 
-	Redirector.prototype.goToEnhancedTarget = function(transactionId) {
-		var url = getURLParameter('target', this.location) || '';
-		if (!url) {
-			url = this.settings.desktop.url;
-		}
-
-		url = this.addTidToUrl(url, transactionId);
-		var symbol = "?";
-		if(url.indexOf("?")!==-1){
-			symbol = "&";
-		}
-		this._appGateway.openApp(url + symbol +"userInfo="+ encodeURIComponent(localStorage.getItem('userInfo')));
-
-
-		//TODO: this legacy code should be moved to preparejs.
-		$("#loading").removeClass("loadingShown");
-		$("#loading").addClass("hidden");
-		$("#eyeRunDisclaimer").addClass("hidden");
-		$("#textLaunch").addClass("hidden");
-		$("#textLogIn").addClass("hidden");
-		$("#captchaBox").addClass("hidden");
-		$("#passRow").addClass("hidden");
-		$("#userRow").addClass("hidden");
-		$("#errorMessage").addClass("hidden");
-		$("#errorCaptchaMessage").addClass("hidden");
-		$("#eyeRunGeneralContainer").addClass("hidden");
-		$("#loginGeneralContainerCentered").addClass("eyeos-opened");
-		$("#loginform").removeClass("hidden");
-
-	};
-
 	Redirector.prototype.goToLoginTarget = function (transactionId) {
 		var self = this;
-		if(!this.shouldApplyEnhancedMode()) {
-			return self.goToDefaultTarget(transactionId);
-		}
-		this._requestor.eyeRunInstalled(function(exists) {
-			if(exists) {
-				self._appGateway.isChromeInstalled(function(chromeExists) {
-					if(chromeExists) {
-						//Delete credentials for this browser
-						self.credentials.removeCard();
-						self.goToEnhancedTarget(transactionId)
-					} else {
-						self.goToDefaultTarget(transactionId);
-					}
-				});
-			} else{
-				self.goToDefaultTarget(transactionId);
-			}
-		});
-	};
-
-	Redirector.prototype.shouldApplyEnhancedMode = function() {
-		if (this.platformSettings.disableEyeRun) {
-			return false;
-		}
-		var notAlreadyAppModeRunning = (this.location.href.indexOf('APP_MODE=1') === -1);
-		return notAlreadyAppModeRunning && this.settings.ENHANCED_MODE_AVAILABLE && $.inArray(this.OperatingSystem.getName(), this.settings.ENHANCED_MODE_AVAILABLE_OS) !== -1
+		return self.goToDefaultTarget(transactionId);
 	};
 
 	function getURLParameter(name, location) {

@@ -21,12 +21,10 @@ define([
 	"jquery",
 	"emile",
 	"js/tr",
-	"eyeRunRequestor",
 	"operatingSystem"
-], function ($, emile, tr, EyeRunRequestor, OperatingSystem) {
+], function ($, emile, tr, OperatingSystem) {
 
 	var Prepare = function () {
-		this._eyeRunRequestor = new EyeRunRequestor();
 		this._eyeRunDownloadInterval = null;
 		this.platformSettings = window.platformSettings || {};
 	};
@@ -191,45 +189,6 @@ define([
 
 			}, versions?versions[0].version:'');
 
-	};
-
-	Prepare.prototype.prepareEnhancedMode = function() {
-		var self = this;
-		this._eyeRunRequestor.eyeRunInstalled(function(exists) {
-			if(exists) {
-				self.hideDetectButtonAndShowLaunchButton();
-				if(self._eyeRunDownloadInterval){
-					clearInterval(self._eyeRunDownloadInterval);
-				}
-				$("#eyeRunDisclaimer").show();
-
-			} else {
-				self.hideDetectButtonAndShowLoginButton();
-
-				$("#eyeRunLink2").hide();
-				$("#eyeRunLinkor").hide();
-				$("#eyeRunGeneralContainer").hide();
-
-				switch(OperatingSystem.getName()) {
-
-					case 'Windows':
-						self.generateDownloadLinks([{ version: '32', name: 'eyeRun 32'},
-													{ version: '64', name: 'eyeRun 64'}]);
-						break;
-					case 'MacOs':
-						self.generateDownloadLinks();
-						break;
-					case 'UNIX':
-					case 'Linux':
-						self.generateDownloadLinks([{ version: 'rpm', name: 'eyeRun rpm'},
-													{ version: 'deb', name: 'eyeRun deb'}]);
-						break;
-					default:
-
-						break;
-				}
-			}
-		});
 	};
 
 	Prepare.prototype.hideDomainMessage = function () {
