@@ -38,7 +38,7 @@ if [[ -n $EYEOS_LOGIN_FORCE_DOMAIN ]]; then
     sed -i "s/forceDomain: .*,/forceDomain: $EYEOS_LOGIN_FORCE_DOMAIN,/" build/js/platformSettings.js
 fi
 
-if [[ -n EYEOS_LOGIN_ENABLE_USER_REGISTRATION ]]; then
+if [[ -n $EYEOS_LOGIN_ENABLE_USER_REGISTRATION ]]; then
     sed -i "s/enableUserRegistration: .*,/enableUserRegistration: $EYEOS_LOGIN_ENABLE_USER_REGISTRATION,/" build/js/platformSettings.js
 fi
 
