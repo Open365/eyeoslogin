@@ -136,6 +136,7 @@ define([
 		$("#errorMessage").html(this.translator.messageTranslation(message));
 		if(message.length > 0){
 			$("#errorMessage").removeClass('hidden');
+			$("#successMessage").addClass('hidden');
 		}else{
 			$("#errorMessage").addClass('hidden');
 		}
