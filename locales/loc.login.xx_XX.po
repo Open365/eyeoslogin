@@ -126,3 +126,7 @@ msgstr "Xxxxxxx xxx xxx xxxxxxxx"
 #:
 msgid "Reset password"
 msgstr "Xxxxx xxxxxxxx"
+
+#:
+msgid "An email has been sent to you..."
+msgstr "Xx xxxxx xxx xxxx xxxx xx xxx..."

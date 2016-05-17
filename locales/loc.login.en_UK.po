@@ -126,3 +126,7 @@ msgstr "Re-Type the new password"
 #:
 msgid "Reset password"
 msgstr "Reset password"
+
+#:
+msgid "An email has been sent to you..."
+msgstr "An email has been sent to you..."
