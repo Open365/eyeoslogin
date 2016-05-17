@@ -24,8 +24,9 @@ define([
 	"js/call",
 	"js/captcha",
 	"js/redirector",
-	"js/userInfo"
-], function (Login, Prepare, Credentials, Call, Captcha, Redirector, UserInfo) {
+	"js/userInfo",
+	"js/forgot"
+], function (Login, Prepare, Credentials, Call, Captcha, Redirector, UserInfo, Forgot) {
 
 	suite("Login", function () {
 		var sut, sutMock, url,
@@ -38,7 +39,7 @@ define([
 			originalJSON, settings,
 			xhr, tid,
 			redirector, redirectorGoToLoginTargetStub,
-			userInfo, userInfoStub, platformSettings;
+			userInfo, userInfoStub, platformSettings, forgot;
 
 		setup(function () {
 			url = "fake url";
@@ -67,6 +68,9 @@ define([
 
 			redirector = new Redirector();
 			redirectorGoToLoginTargetStub = sinon.stub(redirector, 'goToLoginTarget');
+
+			forgot = new Forgot();
+			forgotMock = sinon.mock(forgot);
 
 			settings = {
 				login: {
@@ -97,7 +101,7 @@ define([
 
 			platformSettings = {};
 
-			sut = new Login(prepare, settings, credentials, call, captcha, redirector, userInfo, platformSettings);
+			sut = new Login(prepare, settings, credentials, call, captcha, redirector, userInfo, forgot, platformSettings);
 			sutMock = sinon.mock(sut);
 
 			originalJSON = JSON;
