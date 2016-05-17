@@ -73,6 +73,10 @@ define([
 		$("#forgotPassHelpText").contents().get(0).textContent = tr($("#forgotPassHelpText").contents().get(0).nodeValue);
 		$("#forgotPassHelpText a").html(tr($("#forgotPassHelpText a").text()));
 
+		$("#newPasswordLabel").html(tr($("#newPasswordLabel").html()));
+		$("#repeatPasswordLabel").html(tr($("#repeatPasswordLabel").html()));
+		$("#recoverPassButton").text(tr($("#recoverPassButton").text().trim()));
+
 		$("#textLogIn").text(tr($("#textLogIn").text().trim()));
 		$("#captchaRefreshButton").attr('alt', tr($("#captchaRefreshButton").attr('alt')));
 

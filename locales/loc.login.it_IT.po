@@ -114,3 +114,15 @@ msgstr ""
 #:
 msgid "ask for help here"
 msgstr ""
+
+#:
+msgid "Type a new password"
+msgstr ""
+
+#:
+msgid "Re-Type the new password"
+msgstr ""
+
+#:
+msgid "Reset password"
+msgstr ""

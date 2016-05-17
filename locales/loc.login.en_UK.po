@@ -114,3 +114,15 @@ msgstr "For any other problem accessing the platform you can "
 #:
 msgid "ask for help here"
 msgstr "ask for help here"
+
+#:
+msgid "Type a new password"
+msgstr "Type a new password"
+
+#:
+msgid "Re-Type the new password"
+msgstr "Re-Type the new password"
+
+#:
+msgid "Reset password"
+msgstr "Reset password"

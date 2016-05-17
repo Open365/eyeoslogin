@@ -114,3 +114,15 @@ msgstr "Xxx xxx xxxxx xxxxxxx xxxxxxxxx xxx xxxxxxxx xxx xxx "
 #:
 msgid "ask for help here"
 msgstr "xxx xxx xxxx xxxx"
+
+#:
+msgid "Type a new password"
+msgstr "Xxxx x xxx xxxxxxxx"
+
+#:
+msgid "Re-Type the new password"
+msgstr "Xxxxxxx xxx xxx xxxxxxxx"
+
+#:
+msgid "Reset password"
+msgstr "Xxxxx xxxxxxxx"
