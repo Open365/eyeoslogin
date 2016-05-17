@@ -48,7 +48,8 @@ define([
             }
         },
 
-        recoverFail: function (response, status, xhr) {
+        recoverFail: function (response) {
+            response = JSON.parse(response.responseText);
             this.requestFail(response);
         },
 

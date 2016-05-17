@@ -46,6 +46,7 @@ define([
         },
 
         forgotFail: function (response) {
+            response = JSON.parse(response.responseText);
             this.requestFail(response);
         },
 
