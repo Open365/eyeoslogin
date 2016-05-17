@@ -243,6 +243,29 @@ body {
     right: 7px;
 }
 
+.successMessage {
+    background-color: rgba(0, 195, 219, 0.4);
+    border: 1px solid rgba(160, 253, 248, 0.78);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: .5em 1.4em 1em;
+}
+
+.successMessage::before {
+    content: ' ';
+    background: url(../img/alert-icon.svg) center center no-repeat;
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    position: relative;
+    top: 6px;
+    right: 7px;
+}
+
 #captchaBox {
     display: none;
     margin: 20px 0 0 0;
