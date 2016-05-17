@@ -39,7 +39,8 @@ define([
 			originalJSON, settings,
 			xhr, tid,
 			redirector, redirectorGoToLoginTargetStub,
-			userInfo, userInfoStub, platformSettings, forgot;
+			userInfo, userInfoStub, platformSettings,
+			forgot, forgotMock;
 
 		setup(function () {
 			url = "fake url";
@@ -99,7 +100,9 @@ define([
 				}
 			};
 
-			platformSettings = {};
+			platformSettings = {
+				defaultDomain: fakeDomain
+			};
 
 			sut = new Login(prepare, settings, credentials, call, captcha, redirector, userInfo, forgot, platformSettings);
 			sutMock = sinon.mock(sut);
@@ -193,13 +196,19 @@ define([
 				prepareKeyPressExp,
 				prepareUsernameInputExp,
 				hideLoadingExp,
-				prepareSubmitExp;
+				prepareSubmitExp,
+				prepareForgotExp,
+				prepareForgotPassExp,
+				forgotSetDomainExp;
 			setup(function() {
 				prepareLoginFormFocusExp = prepareMock.expects('prepareLoginFormFocus').once().withExactArgs();
 				prepareKeyPressExp = prepareMock.expects('prepareKeyPress').once().withExactArgs();
 				prepareSubmitExp = prepareMock.expects('prepareLoginSubmit').once().withExactArgs(sinon.match.func);
+				prepareForgotExp = prepareMock.expects('prepareForgotSubmit').once().withExactArgs(sinon.match.func);
+				prepareForgotPassExp = prepareMock.expects('prepareForgotPassClick').once().withExactArgs(sinon.match.func);
 				prepareUsernameInputExp = prepareMock.expects('prepareUsernameInput').once().withExactArgs();
 				hideLoadingExp = prepareMock.expects('hideLoading').once().withExactArgs();
+				forgotSetDomainExp = forgotMock.expects('setDomain').once();
 			});
 			test("calls to prepare.prepareLoginFormFocus", function () {
 				sut.init();
@@ -220,6 +229,14 @@ define([
 			test("calls to prepare.prepareLoginSubmit", function () {
 				sut.init();
 				prepareSubmitExp.verify();
+			});
+			test("calls to prepare.prepareForgotPassClick", function () {
+				sut.init();
+				prepareForgotPassExp.verify();
+			});
+			test("calls to forgot.setDomain", function () {
+				sut.init();
+				forgotSetDomainExp.verify();
 			});
 		});
 
