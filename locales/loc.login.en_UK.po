@@ -98,3 +98,19 @@ msgstr "Using this service implies that you have read and accept the "
 #:
 msgid "Terms and Conditions"
 msgstr "Terms and Conditions"
+
+#:
+msgid "I forgot my password"
+msgstr "I forgot my password"
+
+#:
+msgid "Recover my password"
+msgstr "Recover my password"
+
+#:
+msgid "For any other problem accessing the platform you can "
+msgstr "For any other problem accessing the platform you can "
+
+#:
+msgid "ask for help here"
+msgstr "ask for help here"

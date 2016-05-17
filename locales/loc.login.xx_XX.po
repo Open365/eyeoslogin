@@ -98,3 +98,19 @@ msgstr "Xxxxx xxxx xxxxxxx xxxxxxx xxxx xxx xxxx xxxx xxx xxxxxx xxx "
 #:
 msgid "Terms and Conditions"
 msgstr "Xxxxx xxx Xxxxxxxxxx"
+
+#:
+msgid "I forgot my password"
+msgstr "X xxxxxx xx xxxxxxxx"
+
+#:
+msgid "Recover my password"
+msgstr "Xxxxxxx xx xxxxxxxx"
+
+#:
+msgid "For any other problem accessing the platform you can "
+msgstr "Xxx xxx xxxxx xxxxxxx xxxxxxxxx xxx xxxxxxxx xxx xxx "
+
+#:
+msgid "ask for help here"
+msgstr "xxx xxx xxxx xxxx"

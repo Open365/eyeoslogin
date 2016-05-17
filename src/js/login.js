@@ -172,7 +172,8 @@ define([
 			this.forgot.setDomain(this.domain);
 			this.prepare.prepareForgotSubmit(this.forgot.performForgot.bind(this.forgot));
 			this.prepare.prepareForgotPassClick(this.prepare.showForgotForm.bind(this.prepare));
-			this.prepare.prepareTermsAndConditionsClick(this.prepare.linkTermsAndConditions());
+			this.prepare.prepareForgotAskForHelpClick(this.prepare.linkAskForHelp());
+			this.prepare.prepareLoginTermsAndConditionsClick(this.prepare.linkTermsAndConditions());
 
 			this.prepare.showLoginButton();
 		}

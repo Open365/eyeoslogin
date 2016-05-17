@@ -60,18 +60,20 @@ define([
 			};
 		}
 
-		$("#usernameLabel").html(tr($('#usernameLabel').html()));
-		$("#username").attr('placeholder', tr($("#username").attr('placeholder')));
-
-		$("#passwordLabel").html(tr($('#passwordLabel').html()));
-		$("#password").attr('placeholder', tr($("#password").attr('placeholder')));
-
+		$("#usernameLabel").html(tr($("#usernameLabel").html()));
+		$("#passwordLabel").html(tr($("#passwordLabel").html()));
 		$("#forgotPassLink a").html(tr($("#forgotPassLink a").text()));
 		$("#register_button a").html(tr($("#register_button a").text()));
 		$("#termsAndConditions").contents().get(0).textContent = tr($("#termsAndConditions").contents().get(0).nodeValue);
 		$("#termsAndConditions a").html(tr($("#termsAndConditions a").text()));
 
-		$("#textLogIn").text(tr($('#textLogIn').text().trim()));
+		$("#forgotPassLabel").html(tr($("#forgotPassLabel").html()));
+		$("#usernameForgotLabel").html(tr($("#usernameForgotLabel").html()));
+		$("#forgotPassButton").text(tr($("#forgotPassButton").text().trim()));
+		$("#forgotPassHelpText").contents().get(0).textContent = tr($("#forgotPassHelpText").contents().get(0).nodeValue);
+		$("#forgotPassHelpText a").html(tr($("#forgotPassHelpText a").text()));
+
+		$("#textLogIn").text(tr($("#textLogIn").text().trim()));
 		$("#captchaRefreshButton").attr('alt', tr($("#captchaRefreshButton").attr('alt')));
 
 	};

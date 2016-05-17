@@ -46,13 +46,26 @@ define([
 		$("#forgotPassLink").click(callback);
 	};
 
-	Prepare.prototype.prepareTermsAndConditionsClick = function(callback) {
+	Prepare.prototype.prepareLoginTermsAndConditionsClick = function(callback) {
 		$("#termsAndConditions a").click(callback);
 	};
 
+	Prepare.prototype.prepareForgotAskForHelpClick = function(callback) {
+		$("#forgotPassHelpText a").click(callback);
+	};
+
 	Prepare.prototype.linkTermsAndConditions = function() {
-		var localization = "terms_conditions/" + this.translator.getUserLanguage() + "/terms-and-conditions.html";
-		$("#termsAndConditions a").attr("href", localization);
+		var urlTermsConditions = "terms_conditions/" + this.translator.getUserLanguage() + "/terms-and-conditions.html";
+		$("#termsAndConditions a").attr("href", urlTermsConditions);
+	};
+
+	Prepare.prototype.linkAskForHelp = function() {
+		var userLanguage = this.translator.getUserLanguage();
+		if (userLanguage.localeCompare("en") != 0 && userLanguage.localeCompare("es") != 0) {
+			userLanguage = "en";
+		}
+		var urlHelp = "https://support.open365.io/index.php/" + userLanguage + "/forum";
+		$("#forgotPassHelpText a").attr("href", urlHelp);
 	};
 
 	Prepare.prototype.showForgotForm = function() {

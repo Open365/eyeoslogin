@@ -98,3 +98,19 @@ msgstr ""
 #:
 msgid "Terms and Conditions"
 msgstr ""
+
+#:
+msgid "I forgot my password"
+msgstr ""
+
+#:
+msgid "Recover my password"
+msgstr ""
+
+#:
+msgid "For any other problem accessing the platform you can "
+msgstr ""
+
+#:
+msgid "ask for help here"
+msgstr ""
