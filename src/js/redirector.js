@@ -65,6 +65,10 @@ define([
 		return self.goToDefaultTarget(transactionId);
 	};
 
+	Redirector.prototype.gotToMainPage = function() {
+		window.location = '/';
+	};
+
 	function getURLParameter(name, location) {
 		return decodeURIComponent((
 			new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)')

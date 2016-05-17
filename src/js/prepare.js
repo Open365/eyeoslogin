@@ -56,13 +56,6 @@ define([
 		$("#recoverform").removeClass("hidden");
 	};
 
-	Prepare.prototype.showLoginForm = function() {
-		this.hideRecoverForm();
-		this.hideForgotForm();
-		$("#loginform").removeClass("hidden");
-		this.prepareRegisterButton();
-	};
-
 	Prepare.prototype.hideForgotForm = function() {
 		$("#forgotform").addClass("hidden");
 	};

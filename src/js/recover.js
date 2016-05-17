@@ -20,14 +20,16 @@
 define([
     "js/prepare",
     "js/settings",
-    "js/call"
-], function (Prepare, Settings, Call) {
+    "js/call",
+    "js/redirector"
+], function (Prepare, Settings, Call, Redirector) {
 
-    var Recover = function (prepare, settings, call, injectedPlatformSettings) {
+    var Recover = function (prepare, settings, call, injectedPlatformSettings, redirector) {
         this.prepare = prepare || new Prepare();
         this.settings = settings || Settings;
         this.call = call || new Call();
         this.platformSettings = injectedPlatformSettings || window.platformSettings;
+        this.redirector = redirector || new Redirector();
     };
 
     Recover.prototype = {
@@ -39,7 +41,7 @@ define([
         recoverSuccess: function (response, status, xhr) {
             if (!response.error && status === 'success') {
                 this.prepare.prepareSuccessMessage(this.settings.recover.message.SUCCESS);
-                this.prepare.showLoginForm();
+                this.redirector.gotToMainPage();
                 $('.recoverPassButton').addClass('clicked');
             } else {
                 this.requestFail(response);
