@@ -193,7 +193,7 @@ define([
 			setup(function() {
 				prepareLoginFormFocusExp = prepareMock.expects('prepareLoginFormFocus').once().withExactArgs();
 				prepareKeyPressExp = prepareMock.expects('prepareKeyPress').once().withExactArgs();
-				prepareSubmitExp = prepareMock.expects('prepareSubmit').once().withExactArgs(sinon.match.func);
+				prepareSubmitExp = prepareMock.expects('prepareLoginSubmit').once().withExactArgs(sinon.match.func);
 				prepareUsernameInputExp = prepareMock.expects('prepareUsernameInput').once().withExactArgs();
 				hideLoadingExp = prepareMock.expects('hideLoading').once().withExactArgs();
 			});
@@ -213,7 +213,7 @@ define([
 				sut.init();
 				hideLoadingExp.verify();
 			});
-			test("calls to prepare.prepareSubmit", function () {
+			test("calls to prepare.prepareLoginSubmit", function () {
 				sut.init();
 				prepareSubmitExp.verify();
 			});

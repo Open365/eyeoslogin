@@ -165,7 +165,7 @@ define([
 		init: function () {
 			this.prepare.hideLoading();
 			this.prepare.prepareLoginFormFocus();
-			this.prepare.prepareSubmit(this.performLogin.bind(this));
+			this.prepare.prepareLoginSubmit(this.performLogin.bind(this));
 			this.prepare.prepareKeyPress();
 			this.prepare.prepareUsernameInput();
 			this.prepare.prepareRegisterButton();

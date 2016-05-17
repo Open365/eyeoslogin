@@ -28,7 +28,7 @@ define([
 		this.platformSettings = window.platformSettings || {};
 	};
 
-	Prepare.prototype.prepareSubmit = function (callback) {
+	Prepare.prototype.prepareLoginSubmit = function (callback) {
 		$("#loginform").on("submit", callback);
 	};
 
