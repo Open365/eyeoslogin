@@ -99,6 +99,14 @@ define([
 		}
 	};
 
+	Prepare.prototype.prepareSuccessMessage = function (message) {
+		$("#successMessage").html(tr(message));
+		if(message.length > 0){
+			$("#successMessage").removeClass('hidden');
+		}else{
+			$("#successMessage").addClass('hidden');
+		}
+	};
 	Prepare.prototype.prepareCaptchaErrorMessage = function (message) {
 		$("#errorCaptchaMessage").html(tr(message));
 		if(message.length > 0){
