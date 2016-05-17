@@ -82,7 +82,6 @@ define([
 
 	Translator.prototype.getUserLanguage = function() {
 		var userInfo = JSON.parse(localStorage.getItem('userInfo')) || {};
-		debugger;
 		return userInfo.lang || 'en';
 	};
 
