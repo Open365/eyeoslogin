@@ -70,3 +70,11 @@ msgstr "XXXXXXXX"
 #: 
 msgid "or"
 msgstr "XX"
+
+#:
+msgid "Username should include"
+msgstr "Xxxxxxxx xxxxxx xxxxxxx"
+
+#:
+msgid "Username should be something like username@example.com"
+msgstr "Xxxxxxxx xxxxxx xx xxxxxxxxx xxxx xxxxxxxxxxxxxxxxxxxx"

@@ -70,6 +70,10 @@ define(["js/tr", "i18next"], function (tr) {
 
 	};
 
+	Translator.prototype.messageTranslation = function(message) {
+		return tr(message);
+	};
+
 	return Translator;
 });
 

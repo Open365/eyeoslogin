@@ -71,3 +71,10 @@ msgstr ""
 msgid "or"
 msgstr ""
 
+#:
+msgid "Username should include"
+msgstr ""
+
+#:
+msgid "Username should be something like username@example.com"
+msgstr ""
