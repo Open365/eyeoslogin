@@ -170,6 +170,16 @@ define([
 		}
 	};
 
+	Prepare.prototype.showDomainErrorMessage = function(domain) {
+		if (this.platformSettings.forceDomain) {
+			if (this.platformSettings.suggestDomain) {
+				this.prepareErrorMessage("Your username should end with " + domain);
+			} else {
+				this.prepareErrorMessage("Your username should be something like username@example.com");
+			}
+			this.shakeBox();
+		}
+	};
 	Prepare.prototype.prepareRegisterButton = function () {
 		if (this.platformSettings.enableUserRegistration) {
 			$('#register_button').removeClass('hidden');
