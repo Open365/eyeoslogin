@@ -32,7 +32,7 @@ define([
         this.prepare.setInputValue('password', '');
         this.prepare.prepareKeyPress();
 
-        this.prepare.shakeLogin();
+        this.prepare.shakeBox();
 		this.prepare.prepareCaptchaErrorMessage(this.settings.login.message.MAX_ATTEMPS);
 		this.captchaCall();
 	};

@@ -48,7 +48,7 @@ define([
         $("#" +input).focus();
 	};
 
-	Prepare.prototype.shakeLogin = function () {
+	Prepare.prototype.shakeBox = function () {
 		//third party
 		function bounce(pos) {
 			pos += 1.941626;

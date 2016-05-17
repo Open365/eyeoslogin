@@ -160,18 +160,18 @@ define([
 
 		suite("#loginFail", function () {
 			var data,
-				shakeLoginExp,
+				shakeBoxExp,
 				setInputValuePasswordExp,
 				prepareErrorMessageExp;
 			setup(function () {
 				data = settings.login.response.MAX_ATTEMPS;
-				shakeLoginExp = prepareMock.expects("shakeLogin").once().withExactArgs();
+				shakeBoxExp = prepareMock.expects("shakeBox").once().withExactArgs();
 				setInputValuePasswordExp = prepareMock.expects("setInputValue").once().withExactArgs('password', '');
 				prepareErrorMessageExp = prepareMock.expects("prepareErrorMessage").once();
 			});
-			test("calls shakeLogin when called", function () {
+			test("calls shakeBox when called", function () {
 				sut.loginFail({});
-				shakeLoginExp.verify();
+				shakeBoxExp.verify();
 			});
 			test("calls to prepare.setInputValue of password", function () {
 				sut.loginFail({});
@@ -252,7 +252,7 @@ define([
 		});
 
 		suite("#performLogin invalid user", function () {
-			var fakeUsernameContent, fakeEvent, prepareErrorMessage, shakeLoginExp;
+			var fakeUsernameContent, fakeEvent, prepareErrorMessage, shakeBoxExp;
 
 			function executeSut(fakeUser) {
 				fakeUsernameContent = fakeUser + '@' + fakeDomain;
@@ -262,7 +262,7 @@ define([
 
 				sut.performLogin(fakeEvent);
 				prepareErrorMessage.verify();
-				shakeLoginExp.verify();
+				shakeBoxExp.verify();
 			}
 			setup(function () {
 				fakeEvent = { preventDefault: function () {} };
@@ -270,7 +270,7 @@ define([
 				prepareMock.expects('getInputValue').once().withExactArgs('captchaText').returns(fakeText);
 				prepareMock.expects('getInputValue').once().withExactArgs('captchaId').returns(fakeId);
 				prepareErrorMessage = prepareMock.expects("prepareErrorMessage").once().withExactArgs("Username invalid");
-				shakeLoginExp = prepareMock.expects("shakeLogin").once();
+				shakeBoxExp = prepareMock.expects("shakeBox").once();
 			});
 
 			test("calls to prepare.prepareErrorMessage user invalid reason min length", function () {

@@ -91,7 +91,7 @@ define([
 						this.prepare.prepareErrorMessage("Your username should be something like username@example.com");
 					}
 					this.prepare.hideDomainMessage();
-					this.prepare.shakeLogin();
+					this.prepare.shakeBox();
 					return;
 				} else {
 					domain = this.domain.substring(1); //it contains @ and we don't need it
@@ -105,7 +105,7 @@ define([
 
 			if(!/^[a-zA-Z0-9_.-]{4,192}$/.test(username)) {
 				this.prepare.prepareErrorMessage("Username invalid");
-				this.prepare.shakeLogin();
+				this.prepare.shakeBox();
 				return;
 			}
 
@@ -145,7 +145,7 @@ define([
 		loginFail: function (status) {
 			var loginSettings = this.settings.login,
 				message = loginSettings.message.INVALID;
-			this.prepare.shakeLogin();
+			this.prepare.shakeBox();
 			this.prepare.setInputValue('password', '');
 			if (status === loginSettings.response.MAX_ATTEMPS) {
 				message = loginSettings.message.MAX_ATTEMPS;
