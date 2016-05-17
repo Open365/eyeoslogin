@@ -69,7 +69,6 @@ define([
 		$("#password").attr('placeholder', tr($("#password").attr('placeholder')));
 
 		$("#textLogIn").text(tr($('#textLogIn').text().trim()));
-		$("#textLaunch").text(tr($('#textLaunch').text().trim()));
 		$("#captchaRefreshButton").attr('alt', tr($("#captchaRefreshButton").attr('alt')));
 
 	};

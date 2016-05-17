@@ -182,7 +182,6 @@ define([
 	Prepare.prototype.hideLoading = function () {
 		$("#loading").removeClass("loadingShown");
 		$("#loading").addClass("hidden");
-		this.hideLaunchButton();
 		this.hideLoginButton();
 		$("#loginform").removeClass("hidden");
 	};
@@ -193,15 +192,6 @@ define([
 
 	Prepare.prototype.hideLoginButton = function () {
 		$("#textLogIn").addClass("hidden");
-	};
-
-
-	Prepare.prototype.showLaunchButton = function () {
-		$("#textLaunch").removeClass("hidden");
-	};
-
-	Prepare.prototype.hideLaunchButton = function () {
-		$("#textLaunch").addClass("hidden");
 	};
 
 	Prepare.prototype.hideDomainMessage = function () {
