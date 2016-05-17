@@ -32,6 +32,14 @@ define([
 		$("#loginform").on("submit", callback);
 	};
 
+	Prepare.prototype.showForgotForm = function() {
+		this.hideLoginForm();
+		this.hideRecoverForm();
+		$("#forgotform").removeClass("hidden");
+	};
+	Prepare.prototype.hideForgotForm = function() {
+		$("#forgotform").addClass("hidden");
+	};
 	Prepare.prototype.prepareLoginFormFocus = function () {
 		// focus on username when the page is loaded.
 		$("#username").focus();
