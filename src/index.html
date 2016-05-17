@@ -128,6 +128,30 @@
                     <p id="termsAndConditions" style="font-size:13px;font-style:italic;">Using this service implies that you have read and accept the <a href="terms-and-conditions.html" target="_blank" style="color:#fff;font-weight:bold;">Terms and Conditions</a>.</p>
                 </form>
 
+                <form id="forgotform" class="hidden" method="post">
+                    <p id="forgotPassLabel">
+                        I forgot my password
+                    </p>
+                    <div id="userForgotRow">
+                        <div class="textFieldBox">
+                            <input tabindex="1" type="text" id="usernameForgot" name="usernameForgot" class="inputField login-text"
+                                   required="">
+                            <label class="title_placeholder" id="usernameForgotLabel" for="usernameForgot">Username</label>
+                        </div>
+                    </div>
+                    <div id="buttonsForgotBox" class="btns-wrapper">
+                        <button type="submit" name="Login" id="forgotPassButton" class="loginButton loading-button"
+                                tabindex="4">Recover my password
+                        </button>
+                       <span class="loading-animation">
+                            <svg class="spinner" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                <circle class="path" fill="none" stroke-width="5" stroke-linecap="round" cx="16" cy="16"
+                                        r="13"></circle>
+                            </svg>
+                        </span>
+                    </div>
+                    <p id="forgotPassHelpText">For any other problem accessing the platform you can <a class="alt-link" href="https://support.open365.io/index.php/en/forum" title="Get help" target="_blank">ask for help here</a>.</p>
+                </form>
             </div>        
         </div>
         <div class="eyeLoginFooter">
