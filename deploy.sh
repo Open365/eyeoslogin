@@ -1,5 +1,6 @@
 #!/bin/sh -e
 cp -r src/themes build/
+cp -r src/terms_conditions build/
 cp -r src/vendor build/
 rm -rf build/js
 mkdir build/js

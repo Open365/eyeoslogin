@@ -46,6 +46,15 @@ define([
 		$("#forgotPassLink").click(callback);
 	};
 
+	Prepare.prototype.prepareTermsAndConditionsClick = function(callback) {
+		$("#termsAndConditions a").click(callback);
+	};
+
+	Prepare.prototype.linkTermsAndConditions = function() {
+		var localization = "terms_conditions/" + this.translator.getUserLanguage() + "/terms-and-conditions.html";
+		$("#termsAndConditions a").attr("href", localization);
+	};
+
 	Prepare.prototype.showForgotForm = function() {
 		this.hideLoginForm();
 		this.hideRecoverForm();

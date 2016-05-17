@@ -30,9 +30,8 @@ define([
 	Translator.prototype.getCurrentLanguage = function(lang) {
 		var languageMap = {
 			"es" : "es_ES",
-			"ca" : "ca_CA",
 			"en" : "en_UK",
-			"eu" : "eu_EU"
+			"it" : "it_IT"
 		};
 		if(languageMap.hasOwnProperty(lang)) {
 			return languageMap[lang];
@@ -41,8 +40,7 @@ define([
 	};
 
 	Translator.prototype.applyTranslations = function () {
-		var userInfo = JSON.parse(localStorage.getItem('userInfo')) || {};
-		window.lang = userInfo.lang || 'en';
+		window.lang = this.getUserLanguage();
 		i18n.init({
 			getAsync:false,
 			resGetPath: 'translations/__lng__/__ns__.json',
@@ -80,6 +78,12 @@ define([
 
 	Translator.prototype.messageTranslation = function(message) {
 		return tr(message);
+	};
+
+	Translator.prototype.getUserLanguage = function() {
+		var userInfo = JSON.parse(localStorage.getItem('userInfo')) || {};
+		debugger;
+		return userInfo.lang || 'en';
 	};
 
 	return Translator;
