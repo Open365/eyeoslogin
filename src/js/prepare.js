@@ -37,9 +37,21 @@ define([
 		this.hideRecoverForm();
 		$("#forgotform").removeClass("hidden");
 	};
+
+	Prepare.prototype.showRecoverForm = function() {
+		this.hideLoginForm();
+		this.hideForgotForm();
+		$("#recoverform").removeClass("hidden");
+	};
+
 	Prepare.prototype.hideForgotForm = function() {
 		$("#forgotform").addClass("hidden");
 	};
+
+	Prepare.prototype.hideRecoverForm = function() {
+		$("#recoverform").addClass("hidden");
+	};
+
 	Prepare.prototype.prepareLoginFormFocus = function () {
 		// focus on username when the page is loaded.
 		$("#username").focus();
