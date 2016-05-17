@@ -23,13 +23,13 @@ define([
 	"js/credentials",
 	"js/call",
 	"js/captcha",
-	"js/settings",
 	"operatingSystem",
 	"js/redirector",
-	"js/userInfo"
-], function (Prepare, Settings, Credentials, Call, Captcha, Settings, OperatingSystem, Redirector, UserInfo) {
+	"js/userInfo",
+	"js/forgot"
+], function (Prepare, Settings, Credentials, Call, Captcha, OperatingSystem, Redirector, UserInfo, Forgot) {
 
-	var Login = function (prepare, settings, credentials, call, captcha, redirector, userInfo, injectedPlatformSettings) {
+	var Login = function (prepare, settings, credentials, call, captcha, redirector, userInfo, forgot, injectedPlatformSettings) {
 		this.prepare = prepare || new Prepare();
 		this.settings = settings || Settings;
 		this.credentials = credentials || new Credentials();
@@ -37,6 +37,7 @@ define([
 		this.captcha = captcha || new Captcha();
 		this._redirector = redirector || new Redirector();
 		this.userInfo = userInfo || new UserInfo();
+		this.forgot = forgot || new Forgot();
 		this.platformSettings = injectedPlatformSettings || window.platformSettings;
 	};
 
@@ -172,6 +173,10 @@ define([
 
 			this.domain = this.platformSettings.domainFromUrl ? "@" + location.hostname : "@" + this.platformSettings.defaultDomain;
 			this.prepare.showDomainMessage(this.domain);
+
+			this.forgot.setDomain(this.domain);
+			this.prepare.prepareForgotSubmit(this.forgot.performForgot.bind(this.forgot));
+			this.prepare.prepareForgotPassClick(this.prepare.showForgotForm.bind(this.prepare));
 
 			this.prepare.showLoginButton();
 		}

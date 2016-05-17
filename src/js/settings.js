@@ -53,7 +53,17 @@ define(['operatingSystem'], function (OperatingSystem) {
 			url: {
 				request: protocol + "//" + domain + "/password/v1/forgot",
 				change: protocol + "//" + domain + "/password/v1/recover/"
+		forgot: {
+			url: protocol + "//" + domain + "/password/v1/forgot",
+			response: {
+				success: true
 			},
+			message: {
+				SUCCESS: "Your password has been changed.You can now use your new password to login.",
+				INVALID: "Incorrect params",
+				INVALID_USER: "Invalid user"
+			}
+		},
 			response: {
 				success: true
 			},

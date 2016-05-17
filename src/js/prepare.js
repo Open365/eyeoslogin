@@ -32,6 +32,14 @@ define([
 		$("#loginform").on("submit", callback);
 	};
 
+	Prepare.prototype.prepareForgotSubmit = function (callback) {
+		$("#forgotform").on("submit", callback);
+	};
+
+	Prepare.prototype.prepareForgotPassClick = function(callback) {
+		$("#forgotPassLink").click(callback);
+	};
+
 	Prepare.prototype.showForgotForm = function() {
 		this.hideLoginForm();
 		this.hideRecoverForm();
