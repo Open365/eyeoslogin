@@ -82,3 +82,19 @@ msgstr "Xxxxxxxx xxxx xx xx xxxxx x xxxxxxxxxx"
 #:
 msgid "Passwords can't be equal to username"
 msgstr "Xxxxxxxxx xxxxx xx xxxxx xx xxxxxxxx"
+
+#:
+msgid "Forgot password?"
+msgstr "Xxxxxx xxxxxxxx?"
+
+#:
+msgid "Or register here"
+msgstr "Xx xxxxxxxx xxxx"
+
+#:
+msgid "Using this service implies that you have read and accept the "
+msgstr "Xxxxx xxxx xxxxxxx xxxxxxx xxxx xxx xxxx xxxx xxx xxxxxx xxx "
+
+#:
+msgid "Terms and Conditions"
+msgstr "Xxxxx xxx Xxxxxxxxxx"

@@ -68,6 +68,11 @@ define([
 		$("#passwordLabel").html(tr($('#passwordLabel').html()));
 		$("#password").attr('placeholder', tr($("#password").attr('placeholder')));
 
+		$("#forgotPassLink a").html(tr($("#forgotPassLink a").text()));
+		$("#register_button a").html(tr($("#register_button a").text()));
+		$("#termsAndConditions").contents().get(0).textContent = tr($("#termsAndConditions").contents().get(0).nodeValue);
+		$("#termsAndConditions a").html(tr($("#termsAndConditions a").text()));
+
 		$("#textLogIn").text(tr($('#textLogIn').text().trim()));
 		$("#captchaRefreshButton").attr('alt', tr($("#captchaRefreshButton").attr('alt')));
 

@@ -82,3 +82,19 @@ msgstr "Password must be at least 8 characters"
 #:
 msgid "Passwords can't be equal to username"
 msgstr "Passwords can't be equal to username"
+
+#:
+msgid "Forgot password?"
+msgstr "Forgot password?"
+
+#:
+msgid "Or register here"
+msgstr "Or register here"
+
+#:
+msgid "Using this service implies that you have read and accept the "
+msgstr "Using this service implies that you have read and accept the "
+
+#:
+msgid "Terms and Conditions"
+msgstr "Terms and Conditions"

@@ -340,5 +340,22 @@ body {
     float:right;
     font-style:italic;
     margin-bottom: 20px;
+}
+
+#forgotPassLink a {
     color:#fff
+}
+
+#register_button a {
+    color:#fff
+}
+
+#termsAndConditions {
+    font-size: 13px;
+    font-style: italic;
+}
+
+#termsAndConditions a {
+    color: #fff;
+    font-weight: bold;
 }

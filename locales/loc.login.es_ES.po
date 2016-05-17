@@ -82,3 +82,19 @@ msgstr ""
 #:
 msgid "Passwords can't be equal to username"
 msgstr ""
+
+#:
+msgid "Forgot password?"
+msgstr ""
+
+#:
+msgid "Or register here"
+msgstr ""
+
+#:
+msgid "Using this service implies that you have read and accept the "
+msgstr ""
+
+#:
+msgid "Terms and Conditions"
+msgstr ""
