@@ -44,12 +44,23 @@ define([
 		$("#recoverform").removeClass("hidden");
 	};
 
+	Prepare.prototype.showLoginForm = function() {
+		this.hideRecoverForm();
+		this.hideForgotForm();
+		$("#loginform").removeClass("hidden");
+		this.prepareRegisterButton();
+	};
+
 	Prepare.prototype.hideForgotForm = function() {
 		$("#forgotform").addClass("hidden");
 	};
 
 	Prepare.prototype.hideRecoverForm = function() {
 		$("#recoverform").addClass("hidden");
+	};
+
+	Prepare.prototype.hideLoginForm = function() {
+		$("#loginform").addClass("hidden");
 	};
 
 	Prepare.prototype.prepareLoginFormFocus = function () {
