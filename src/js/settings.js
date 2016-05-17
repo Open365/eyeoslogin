@@ -55,9 +55,9 @@ define(['operatingSystem'], function (OperatingSystem) {
 				success: true
 			},
 			message: {
-				SUCCESS: "Your password has been changed.You can now use your new password to login.",
-				INVALID: "Incorrect params",
-				INVALID_USER: "Invalid user"
+				SUCCESS: "An email has been sent to you...",
+				INVALID: "Incorrect params.",
+				INVALID_USER: "Invalid user."
 			}
 		},
 		recover: {
@@ -67,13 +67,13 @@ define(['operatingSystem'], function (OperatingSystem) {
 			},
 			message: {
 				SUCCESS: "Your password has been changed.",
-				INVALID: "Incorrect params",
-				INVALID_USER: "Invalid user",
-				INVALID_PASSWORD: "Invalid password",
-				INVALID_TOKEN: "Your password recovery session has expired",
-				PASS_MISSMATCH: "Passwords don't match",
-				PASS_MIN_LENGHT: "Password must be at least 8 characters",
-				PASS_EQUAL_USER: "Passwords can't be equal to username"
+				INVALID: "Incorrect params.",
+				INVALID_USER: "Invalid user.",
+				INVALID_PASSWORD: "Invalid password.",
+				INVALID_TOKEN: "Your password recovery session has expired.",
+				PASS_MISSMATCH: "Passwords don't match.",
+				PASS_MIN_LENGHT: "Password must be at least 8 characters.",
+				PASS_EQUAL_USER: "Passwords can't be equal to username."
 			}
 		},
 		desktop: {
