@@ -89,6 +89,7 @@ define([
 					},
 					message: {
 						INVALID: "Incorrect user or password",
+						INVALID_USER: "Invalid user",
 						MAX_ATTEMPS: "Resolve this captcha to try again"
 					}
 				},
@@ -290,7 +291,7 @@ define([
 				prepareMock.expects('getInputValue').once().withExactArgs('password').returns(fakePassword);
 				prepareMock.expects('getInputValue').once().withExactArgs('captchaText').returns(fakeText);
 				prepareMock.expects('getInputValue').once().withExactArgs('captchaId').returns(fakeId);
-				prepareErrorMessage = prepareMock.expects("prepareErrorMessage").once().withExactArgs("Username invalid");
+				prepareErrorMessage = prepareMock.expects("prepareErrorMessage").once().withExactArgs(settings.login.message.INVALID_USER);
 				shakeBoxExp = prepareMock.expects("shakeBox").once();
 			});
 

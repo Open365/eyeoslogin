@@ -20,12 +20,14 @@
 define([
 	"jquery",
 	"emile",
-	"js/tr",
-	"operatingSystem"
-], function ($, emile, tr, OperatingSystem) {
+	"js/translator",
+	"js/settings"
+], function ($, emile, Translator, Settings) {
 
-	var Prepare = function () {
+	var Prepare = function (settings, translator) {
 		this.platformSettings = window.platformSettings || {};
+		this.translator = translator || new Translator();
+		this.settings = settings || Settings;
 	};
 
 	Prepare.prototype.prepareLoginSubmit = function (callback) {
@@ -131,7 +133,7 @@ define([
 	};
 
 	Prepare.prototype.prepareErrorMessage = function (message) {
-		$("#errorMessage").html(tr(message));
+		$("#errorMessage").html(this.translator.messageTranslation(message));
 		if(message.length > 0){
 			$("#errorMessage").removeClass('hidden');
 		}else{
@@ -140,7 +142,7 @@ define([
 	};
 
 	Prepare.prototype.prepareSuccessMessage = function (message) {
-		$("#successMessage").html(tr(message));
+		$("#successMessage").html(this.translator.messageTranslation(message));
 		if(message.length > 0){
 			$("#successMessage").removeClass('hidden');
 		}else{
@@ -149,7 +151,7 @@ define([
 	};
 
 	Prepare.prototype.prepareCaptchaErrorMessage = function (message) {
-		$("#errorCaptchaMessage").html(tr(message));
+		$("#errorCaptchaMessage").html(this.translator.messageTranslation(message));
 		if(message.length > 0){
 			$("#errorCaptchaMessage").removeClass('hidden');
 		}else{
@@ -211,9 +213,9 @@ define([
 		var html = "";
 		if (this.platformSettings.forceDomain) {
 			if (this.platformSettings.suggestDomain) {
-				html = "Username should include <strong >" + domain + "</strong>";
+				html = this.translator.messageTranslation(this.settings.general.message.ADVICE_USERNAME) + " <strong id=\"domain\">" + domain + "</strong>";
 			} else {
-				html = "Username should be something like username@example.com";
+				html = this.translator.messageTranslation(this.settings.general.message.INVALID_USER_MANDATORY_DOMAIN);
 			}
 			$('#advice_username').removeClass('hidden').html(html);
 		}
@@ -222,9 +224,9 @@ define([
 	Prepare.prototype.showDomainErrorMessage = function(domain) {
 		if (this.platformSettings.forceDomain) {
 			if (this.platformSettings.suggestDomain) {
-				this.prepareErrorMessage("Your username should end with " + domain);
+				this.prepareErrorMessage(this.translator.messageTranslation(this.settings.general.message.ADVICE_USERNAME) + " " + domain);
 			} else {
-				this.prepareErrorMessage("Your username should be something like username@example.com");
+				this.prepareErrorMessage(this.settings.general.message.INVALID_USER_MANDATORY_DOMAIN);
 			}
 			this.shakeBox();
 		}

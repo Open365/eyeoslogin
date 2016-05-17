@@ -36,6 +36,7 @@ require.config({
 		js: 'src/js',
 		jquery: 'src/vendor/jquery-2.1.1.min',
 		emile: 'src/vendor/emile',
+		i18next: 'src/vendor/i18next.min',
 		eyeosAuthClient: 'src/test/utils/fakeEyeosAuthClient',
 		operatingSystem : 'bower_components/operating_system/build/operatingSystem.min',
 		urijs: 'bower_components/uri.js/src',

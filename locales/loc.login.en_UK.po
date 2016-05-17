@@ -19,31 +19,11 @@ msgstr "Resolve this captcha to try again"
 msgid "The maximum number of users has been reached. Please contact your administrator"
 msgstr "The maximum number of users has been reached. Please contact your administrator"
 
-#: 
-msgid "Connection lost. Now trying to reconnect"
-msgstr "Connection lost. Now trying to reconnect"
-
-#: 
+#:
 msgid "Please fill out this field."
 msgstr "Please fill out this field"
 
-#: 
-msgid "Do you want a better experience"
-msgstr "Do you want a better experience"
-
-#: 
-msgid "Download eyeRun"
-msgstr "Download eyeRun"
-
-#: 
-msgid "and enjoy eyeOS in a new way"
-msgstr "and enjoy eyeOS in a new way"
-
-#: 
-msgid "* Your workspace will be open in a new window for full experience"
-msgstr "Your Workplace will be open in a new window for full experience"
-
-#: 
+#:
 msgid "Username"
 msgstr "Username"
 
@@ -55,27 +35,50 @@ msgstr "Password"
 msgid "Log in"
 msgstr "Log in"
 
-#: 
-msgid "Launch eyeOs"
-msgstr "Launch eyeOs"
-
-#: 
-msgid "Detecting Eyerun"
-msgstr "Detecting Eyerun"
-
-#: 
-msgid "Download"
-msgstr "Download"
-
-#: 
-msgid "or"
-msgstr "or"
-
-
 #:
 msgid "Username should include"
-msgstr ""
+msgstr "Username should include"
 
 #:
 msgid "Username should be something like username@example.com"
-msgstr ""
+msgstr "Username should be something like username@example.com"
+
+#:
+msgid "Invalid user"
+msgstr "Invalid user"
+
+#:
+msgid "Servers have some hiccups, try later"
+msgstr "Servers have some hiccups, try later"
+
+#:
+msgid "Your password has been changed.You can now use your new password to login."
+msgstr "Your password has been changed.You can now use your new password to login."
+
+#:
+msgid "Incorrect params"
+msgstr "Incorrect params"
+
+#:
+msgid "Your password has been changed."
+msgstr "Your password has been changed."
+
+#:
+msgid "Invalid password"
+msgstr "Invalid password"
+
+#:
+msgid "Your password recovery session has expired"
+msgstr "Your password recovery session has expired"
+
+#:
+msgid "Passwords don't match"
+msgstr "Passwords don't match"
+
+#:
+msgid "Password must be at least 8 characters"
+msgstr "Password must be at least 8 characters"
+
+#:
+msgid "Passwords can't be equal to username"
+msgstr "Passwords can't be equal to username"

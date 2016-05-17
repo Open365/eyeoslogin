@@ -17,10 +17,14 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-define(["js/tr", "i18next"], function (tr) {
+define([
+	"js/tr",
+	"i18next",
+	"js/settings"
+],	function (tr, Settings) {
 
 	function Translator() {
-
+		this.settings = Settings;
 	}
 
 	Translator.prototype.getCurrentLanguage = function(lang) {
@@ -50,7 +54,7 @@ define(["js/tr", "i18next"], function (tr) {
 			elements[i].oninvalid = function (e) {
 				e.target.setCustomValidity("");
 				if (!e.target.validity.valid) {
-					e.target.setCustomValidity(tr("Please fill out this field."));
+					e.target.setCustomValidity(this.messageTranslation(this.settings.general.message.CUSTOM_VALIDITY));
 				}
 			};
 			elements[i].oninput = function (e) {

@@ -19,31 +19,11 @@ msgstr "Soluciona este captcha para volver a intentarlo"
 msgid "The maximum number of users has been reached. Please contact your administrator"
 msgstr "Se ha llegado al número máximo de usuarios"
 
-#: 
-msgid "Connection lost. Now trying to reconnect"
-msgstr "Se ha interrumpido la conexión. Intentando reconectar"
-
-#: 
+#:
 msgid "Please fill out this field."
 msgstr "Por favor rellena este campo"
 
-#: 
-msgid "Do you want a better experience"
-msgstr "¿Quieres una experiencia mejorada?"
-
-#: 
-msgid "Download eyeRun"
-msgstr "Descarga eyeRun"
-
-#: 
-msgid "and enjoy eyeOS in a new way"
-msgstr "y disfruta de eyeOS de una nueva manera"
-
-#: 
-msgid "* Your workspace will be open in a new window for full experience"
-msgstr "Tu Workplace se abrirá en una nueva ventana para una experiencia mejorada"
-
-#: 
+#:
 msgid "Username"
 msgstr "Usuario"
 
@@ -55,23 +35,6 @@ msgstr "Contraseña"
 msgid "Log in"
 msgstr "Entrar"
 
-#: 
-msgid "Launch eyeOs"
-msgstr "Lanzar eyeOS"
-
-#: 
-msgid "Detecting Eyerun"
-msgstr "Detectando eyeRun"
-
-#: 
-msgid "Download"
-msgstr "Descargar"
-
-#: 
-msgid "or"
-msgstr "o"
-
-
 #:
 msgid "Username should include"
 msgstr ""
@@ -80,3 +43,42 @@ msgstr ""
 msgid "Username should be something like username@example.com"
 msgstr ""
 
+#:
+msgid "Invalid user"
+msgstr ""
+
+#:
+msgid "Servers have some hiccups, try later"
+msgstr ""
+
+#:
+msgid "Your password has been changed.You can now use your new password to login."
+msgstr ""
+
+#:
+msgid "Incorrect params"
+msgstr ""
+
+#:
+msgid "Your password has been changed."
+msgstr ""
+
+#:
+msgid "Invalid password"
+msgstr ""
+
+#:
+msgid "Your password recovery session has expired"
+msgstr ""
+
+#:
+msgid "Passwords don't match"
+msgstr ""
+
+#:
+msgid "Password must be at least 8 characters"
+msgstr ""
+
+#:
+msgid "Passwords can't be equal to username"
+msgstr ""

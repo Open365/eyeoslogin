@@ -39,6 +39,7 @@ define(['operatingSystem'], function (OperatingSystem) {
 			},
 			message: {
 				INVALID: "Incorrect user or password",
+				INVALID_USER: "Invalid user",
 				MAX_ATTEMPS: "Resolve this captcha to try again",
                 SERVICE_UNAVAILABLE: "Servers have some hiccups, try later",
 				LICENSE_EXPIRED: "The maximum number of users has been reached. Please contact your administrator"
@@ -74,6 +75,13 @@ define(['operatingSystem'], function (OperatingSystem) {
 				PASS_MISSMATCH: "Passwords don't match.",
 				PASS_MIN_LENGHT: "Password must be at least 8 characters.",
 				PASS_EQUAL_USER: "Passwords can't be equal to username."
+			}
+		},
+		general: {
+			message: {
+				CUSTOM_VALIDITY: "Please fill out this field.",
+				ADVICE_USERNAME: "Username should include",
+				INVALID_USER_MANDATORY_DOMAIN: "Username should be something like username@example.com"
 			}
 		},
 		desktop: {

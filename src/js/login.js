@@ -86,13 +86,8 @@ define([
 
 			if (!domain) {
 				if (this.platformSettings.forceDomain) {
-					if (this.platformSettings.suggestDomain) {
-						this.prepare.prepareErrorMessage("Your username should end with " + this.domain);
-					} else {
-						this.prepare.prepareErrorMessage("Your username should be something like username@example.com");
-					}
 					this.prepare.hideDomainMessage();
-					this.prepare.shakeBox();
+					this.prepare.showDomainErrorMessage(this.domain);
 					return;
 				} else {
 					domain = this.domain.substring(1); //it contains @ and we don't need it
@@ -105,7 +100,7 @@ define([
 			}
 
 			if(!/^[a-zA-Z0-9_.-]{4,192}$/.test(username)) {
-				this.prepare.prepareErrorMessage("Username invalid");
+				this.prepare.prepareErrorMessage(this.settings.login.message.INVALID_USER);
 				this.prepare.shakeBox();
 				return;
 			}
@@ -164,14 +159,14 @@ define([
 		},
 
 		init: function () {
+			this.domain = this.platformSettings.domainFromUrl ? "@" + location.hostname : "@" + this.platformSettings.defaultDomain;
+
 			this.prepare.hideLoading();
 			this.prepare.prepareLoginFormFocus();
 			this.prepare.prepareLoginSubmit(this.performLogin.bind(this));
 			this.prepare.prepareKeyPress();
 			this.prepare.prepareUsernameInput();
 			this.prepare.prepareRegisterButton();
-
-			this.domain = this.platformSettings.domainFromUrl ? "@" + location.hostname : "@" + this.platformSettings.defaultDomain;
 			this.prepare.showDomainMessage(this.domain);
 
 			this.forgot.setDomain(this.domain);
