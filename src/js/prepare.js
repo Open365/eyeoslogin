@@ -36,6 +36,10 @@ define([
 		$("#forgotform").on("submit", callback);
 	};
 
+	Prepare.prototype.prepareRecoverSubmit = function (callback) {
+		$("#recoverform").on("submit", callback);
+	};
+
 	Prepare.prototype.prepareForgotPassClick = function(callback) {
 		$("#forgotPassLink").click(callback);
 	};
@@ -69,6 +73,10 @@ define([
 
 	Prepare.prototype.hideLoginForm = function() {
 		$("#loginform").addClass("hidden");
+	};
+
+	Prepare.prototype.prepareRecoverFormFocus = function() {
+		$("#newPassword").focus();
 	};
 
 	Prepare.prototype.prepareLoginFormFocus = function () {
@@ -146,6 +154,7 @@ define([
 			$("#successMessage").addClass('hidden');
 		}
 	};
+
 	Prepare.prototype.prepareCaptchaErrorMessage = function (message) {
 		$("#errorCaptchaMessage").html(tr(message));
 		if(message.length > 0){
@@ -227,10 +236,31 @@ define([
 			this.shakeBox();
 		}
 	};
+
 	Prepare.prototype.prepareRegisterButton = function () {
 		if (this.platformSettings.enableUserRegistration) {
 			$('#register_button').removeClass('hidden');
 		}
+	};
+
+	Prepare.prototype.getUrlParametersByNames = function(names) {
+		var url = window.location.href,
+			params = {};
+		for(var i = 0; i < names.length; i++) {
+			names[i] = names[i].replace(/[\[\]]/g, "\\$&");
+			var regex = new RegExp("[?&]" + names[i] + "(=([^&#]*)|&|#|$|)"),
+				results = regex.exec(url);
+			if (!results) {
+				params[names[i]] = null;
+				break;
+			}
+			if (!results[2]) {
+				params[names[i]] = '';
+				break;
+			}
+			params[names[i]] = decodeURIComponent(results[2].replace(/\+/g, " ")).replace("/","");
+		}
+		return params;
 	};
 
 	return Prepare;

@@ -49,10 +49,6 @@ define(['operatingSystem'], function (OperatingSystem) {
 				captcha: protocol + "//" + domain + "/captcha/v1/captcha/"
 			}
 		},
-		recovery: {
-			url: {
-				request: protocol + "//" + domain + "/password/v1/forgot",
-				change: protocol + "//" + domain + "/password/v1/recover/"
 		forgot: {
 			url: protocol + "//" + domain + "/password/v1/forgot",
 			response: {
@@ -64,16 +60,20 @@ define(['operatingSystem'], function (OperatingSystem) {
 				INVALID_USER: "Invalid user"
 			}
 		},
+		recover: {
+			url: protocol + "//" + domain + "/password/v1/recover/",
 			response: {
 				success: true
 			},
 			message: {
-				SUCCESS_1: "An email has been sent to you...",
-				SUCCESS_2: "Your password has been changed successfully",
-				INVALID_USER: "Your username should be something like username@example.com",
-				PASS_MISSMATCH: "Passwords do not match",
-				INVALID_PASSWORD: "Password must be at least 8 characters long and different than your username",
-				INVALID_TOKEN: "Your password recovery session has expired"
+				SUCCESS: "Your password has been changed.",
+				INVALID: "Incorrect params",
+				INVALID_USER: "Invalid user",
+				INVALID_PASSWORD: "Invalid password",
+				INVALID_TOKEN: "Your password recovery session has expired",
+				PASS_MISSMATCH: "Passwords don't match",
+				PASS_MIN_LENGHT: "Password must be at least 8 characters",
+				PASS_EQUAL_USER: "Passwords can't be equal to username"
 			}
 		},
 		desktop: {

@@ -45,36 +45,34 @@ require([
 	"js/prepare",
 	"js/translator",
 	"js/redirector",
-	"js/recovery"	
-], function (domReady, Login, Credentials, Prepare, Translator, Redirector, Recovery) {	
+	"js/recover"
+], function (domReady, Login, Credentials, Prepare, Translator, Redirector, Recover) {
 	domReady(function() {
-
-		if ($("#recoveryPage").length) {
-
-			var recovery = new Recovery();
-			recovery.prepare();
-
+		if (!localStorage.userInfo) {
+			localStorage.setItem('userInfo', JSON.stringify({lang: platformSettings.lang}));
 		} else {
-
-			if (!localStorage.userInfo) {
-				localStorage.setItem('userInfo', JSON.stringify({lang: platformSettings.lang}));
-			} else {
-				var userInfo = JSON.parse(localStorage.userInfo);
-				if (!userInfo.lang) {
-					userInfo.lang = platformSettings.lang;
-				}
-				localStorage.setItem('userInfo', JSON.stringify(userInfo));
+			var userInfo = JSON.parse(localStorage.userInfo);
+			if (!userInfo.lang) {
+				userInfo.lang = platformSettings.lang;
 			}
+			localStorage.setItem('userInfo', JSON.stringify(userInfo));
+		}
 
-			var translator = new Translator();
-			translator.applyTranslations();
-			var login = new Login(),
+		var translator = new Translator();
+		translator.applyTranslations();
+		var login = new Login(),
+			recover = new Recover(),
 			redirector = new Redirector(),
 			credentials = new Credentials(),
 			prepare = new Prepare();
-			prepare.showLoading();
+
+		prepare.showLoading();
+		var params = prepare.getUrlParametersByNames(['username', 'token']);
+
+		if(params && params.username != null && params.username.length > 0 && params.token != null && params.token.length > 0) {
+			recover.init(params);
+		} else {
 			credentials.checkCard(redirector.goToLoginTarget.bind(redirector), login.init.bind(login));
 		}
-
 	});
 });
