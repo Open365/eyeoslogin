@@ -17,7 +17,7 @@ msgstr "Inserire questo captcha per riprovare"
 
 #: 
 msgid "The maximum number of users has been reached. Please contact your administrator"
-msgstr "Il numero massimo di utenti è stato raggiunto. Si prega di contattare l’amministratore"
+msgstr "Il numero massimo di utenti è stato raggiunto. Si prega di contattare l'amministratore"
 
 #:
 msgid "Please fill out this field."
@@ -37,96 +37,96 @@ msgstr "Accedi (Log in)"
 
 #:
 msgid "Username should include"
-msgstr ""
+msgstr "Il nome utente deve includere"
 
 #:
 msgid "Username should be something like username@example.com"
-msgstr ""
+msgstr "Il nome utente deve essere del tipo utente@esempio.com"
 
 #:
 msgid "Invalid user"
-msgstr ""
+msgstr "Utente non valido"
 
 #:
 msgid "Servers have some hiccups, try later"
-msgstr ""
+msgstr "Il collegamento al Server ha dei problemi. Riprovare più tardi"
 
 #:
 msgid "Your password has been changed.You can now use your new password to login."
-msgstr ""
+msgstr "La tua password è stata modificata. Devi utilizzarla al prossimo login"
 
 #:
 msgid "Incorrect params"
-msgstr ""
+msgstr "Parametri incorretti"
 
 #:
 msgid "Your password has been changed."
-msgstr ""
+msgstr "La tua password è stata cambiata"
 
 #:
 msgid "Invalid password"
-msgstr ""
+msgstr "Password non valida"
 
 #:
 msgid "Your password recovery session has expired"
-msgstr ""
+msgstr "La sessione di recupero password è scaduta"
 
 #:
 msgid "Passwords don't match"
-msgstr ""
+msgstr "Le password non sono uguali"
 
 #:
 msgid "Password must be at least 8 characters"
-msgstr ""
+msgstr "Le password devono avere almeno 8 caratteri"
 
 #:
 msgid "Passwords can't be equal to username"
-msgstr ""
+msgstr "La password non può essere uguale al nome utente"
 
 #:
 msgid "Forgot password?"
-msgstr ""
+msgstr "Password dimenticata?"
 
 #:
 msgid "Or register here"
-msgstr ""
+msgstr "O regitrati qui"
 
 #:
 msgid "Using this service implies that you have read and accept the "
-msgstr ""
+msgstr "L'utilizzo di questo servizio implica che hai letto e accettato le"
 
 #:
 msgid "Terms and Conditions"
-msgstr ""
+msgstr "condizioni"
 
 #:
 msgid "I forgot my password"
-msgstr ""
+msgstr "Ho dimenticato la password"
 
 #:
 msgid "Recover my password"
-msgstr ""
+msgstr "Recuperare la mia password"
 
 #:
 msgid "For any other problem accessing the platform you can "
-msgstr ""
+msgstr "Per qualsiasi problemi di accesso alla piattaforma poi"
 
 #:
 msgid "ask for help here"
-msgstr ""
+msgstr "chiede aiuto qui"
 
 #:
 msgid "Type a new password"
-msgstr ""
+msgstr "Scrivi una nuova password"
 
 #:
 msgid "Re-Type the new password"
-msgstr ""
+msgstr "Ripeti la nuova password"
 
 #:
 msgid "Reset password"
-msgstr ""
+msgstr "Resetare password"
 
 #:
 msgid "An email has been sent to you..."
-msgstr ""
+msgstr "Ti è stata inviata una mail…"
