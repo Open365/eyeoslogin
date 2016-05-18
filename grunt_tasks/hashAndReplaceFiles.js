@@ -7,7 +7,7 @@ var hashAndReplaceFiles = function (grunt, files, whereToReplace) {
 	var done = this.async();
 
 	var dist = grunt.config('dirs').dist + "/" ;
-	var whereToReplace = whereToReplace || dist+'scripts/scripts.js';
+	var whereToReplace = whereToReplace || [dist+'scripts/scripts.js'];
 
 
 	var hashOptions = {
@@ -25,7 +25,7 @@ var hashAndReplaceFiles = function (grunt, files, whereToReplace) {
 				return splittedName.join('.');
 			}
 
-			replaceFileReferences(whereToReplace);
+			whereToReplace.forEach(replaceFileReferences);
 			async.each(filesPath, renameFile, done);
 
 			function renameFile (filepath, cb) {
@@ -41,7 +41,8 @@ var hashAndReplaceFiles = function (grunt, files, whereToReplace) {
 
 			function replaceFileReferences (file) {
 				var fileContent = grunt.file.read(file);
-				var replacedFileContent = fileContent.replace(originalFilename, hashedFilename);
+				var regex = new RegExp(originalFilename, 'g');
+				var replacedFileContent = fileContent.replace(regex, hashedFilename);
 				grunt.file.write(file, replacedFileContent);
 			}
 		}
