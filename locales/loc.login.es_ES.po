@@ -37,96 +37,96 @@ msgstr "Entrar"
 
 #:
 msgid "Username should include"
-msgstr ""
+msgstr "El nombre de usuario debería contener"
 
 #:
 msgid "Username should be something like username@example.com"
-msgstr ""
+msgstr "El nombre de usuario debería ser del tipo nombreusuario@ejemplo.com"
 
 #:
 msgid "Invalid user"
-msgstr ""
+msgstr "Usuario incorrecto"
 
 #:
 msgid "Servers have some hiccups, try later"
-msgstr ""
+msgstr "Estamos experimentando algunos contratiempos. Inténtalo más tarde."
 
 #:
 msgid "Your password has been changed.You can now use your new password to login."
-msgstr ""
+msgstr "Tu contraseña ha sido cambiada. Ahora ya puedes usar tu nueva contraseña para entrar"
 
 #:
 msgid "Incorrect params"
-msgstr ""
+msgstr "Parámetros incorrectos"
 
 #:
 msgid "Your password has been changed."
-msgstr ""
+msgstr "Tu contraseña ha cambiado."
 
 #:
 msgid "Invalid password"
-msgstr ""
+msgstr "Contraseña incorrecta"
 
 #:
 msgid "Your password recovery session has expired"
-msgstr ""
+msgstr "Tu sesión ha expirado"
 
 #:
 msgid "Passwords don't match"
-msgstr ""
+msgstr "Las contraseñas no coinciden"
 
 #:
 msgid "Password must be at least 8 characters"
-msgstr ""
+msgstr "La contraseña debe tener como mínimo 8 caracteres"
 
 #:
 msgid "Passwords can't be equal to username"
-msgstr ""
+msgstr "La contraseña no puede ser igual al nombre de usuario"
 
 #:
 msgid "Forgot password?"
-msgstr ""
+msgstr "He olvidado mi contraseña"
 
 #:
 msgid "Or register here"
-msgstr ""
+msgstr "O regístrate aquí"
 
 #:
 msgid "Using this service implies that you have read and accept the "
-msgstr ""
+msgstr "Utilizar este servicio implica que has leído y aceptado los "
 
 #:
 msgid "Terms and Conditions"
-msgstr ""
+msgstr "Términos y condiciones"
 
 #:
 msgid "I forgot my password"
-msgstr ""
+msgstr "He olvidado mi contraseña"
 
 #:
 msgid "Recover my password"
-msgstr ""
+msgstr "Recuperar contraseña"
 
 #:
 msgid "For any other problem accessing the platform you can "
-msgstr ""
+msgstr "Para cualquier otra incidencia accediendo a la plataforma puedes "
 
 #:
 msgid "ask for help here"
-msgstr ""
+msgstr "obtener ayuda aquí"
 
 #:
 msgid "Type a new password"
-msgstr ""
+msgstr "Escribe una nueva contraseña"
 
 #:
 msgid "Re-Type the new password"
-msgstr ""
+msgstr "Repite la nueva contraseña"
 
 #:
 msgid "Reset password"
-msgstr ""
+msgstr "Cambiar contraseña"
 
 #:
 msgid "An email has been sent to you..."
-msgstr ""
+msgstr "Te hemos enviado un correo-e con los datos para continuar."
