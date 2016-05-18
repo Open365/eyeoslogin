@@ -24,6 +24,7 @@ define([
 ],	function (tr, Settings) {
 
 	function Translator() {
+		this.platformSettings = window.platformSettings || {};
 		this.settings = Settings;
 	}
 
@@ -87,8 +88,7 @@ define([
 	};
 
 	Translator.prototype.getUserLanguage = function() {
-		var userInfo = JSON.parse(localStorage.getItem('userInfo')) || {};
-		return userInfo.lang || 'en';
+		return this.platformSettings.lang || 'en';
 	};
 
 	return Translator;
