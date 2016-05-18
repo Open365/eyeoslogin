@@ -128,5 +128,5 @@ msgid "Reset password"
 msgstr "Resetare password"
 
 #:
-msgid "An email has been sent to you..."
+msgid "An email has been sent to you…"
 msgstr "Ti è stata inviata una mail…"

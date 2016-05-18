@@ -56,7 +56,7 @@ define(['operatingSystem'], function (OperatingSystem) {
 				success: true
 			},
 			message: {
-				SUCCESS: "An email has been sent to you...",
+				SUCCESS: "An email has been sent to you…",
 				INVALID: "Incorrect params.",
 				INVALID_USER: "Invalid user."
 			}
