@@ -20,13 +20,15 @@
 define([
     "js/prepare",
     "js/settings",
-    "js/call"
-], function (Prepare, Settings, Call) {
+    "js/call",
+    "js/translator"
+], function (Prepare, Settings, Call, Translator) {
 
-    var Forgot = function (prepare, settings, call, injectedPlatformSettings) {
+    var Forgot = function (prepare, settings, call, injectedPlatformSettings, translator) {
         this.prepare = prepare || new Prepare();
         this.settings = settings || Settings;
         this.call = call || new Call();
+        this.translator = translator || new Translator();
         this.platformSettings = injectedPlatformSettings || window.platformSettings;
     };
 
@@ -41,7 +43,7 @@ define([
                 this.prepare.prepareSuccessMessage(this.settings.forgot.message.SUCCESS);
                 $('.forgotPassButton').addClass('clicked');
             } else {
-                this.requestFail(response);
+                this.forgotFail(response);
             }
         },
 
@@ -76,9 +78,7 @@ define([
                 this.prepare.shakeBox();
                 return;
             }
-
-            this.prepare.prepareErrorMessage("");
-            this.forgotCall(usernameContent);
+            this.forgotCall(usernameContent, this.translator.getUserLanguage());
         },
 
         requestFail: function (response) {
@@ -97,11 +97,12 @@ define([
             this.prepare.shakeBox();
         },
 
-        forgotCall: function (username) {
-            var recoverySettings = this.settings.forgot;
+        forgotCall: function (username, lang) {
+            var forgotSettings = this.settings.forgot;
 
-            this.call.post(recoverySettings.url, {
-                username: username
+            this.call.post(forgotSettings.url, {
+                username: username,
+                lang: lang
             }, this.forgotSuccess.bind(this), this.forgotFail.bind(this));
         }
     };
