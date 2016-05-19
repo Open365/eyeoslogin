@@ -28,5 +28,6 @@ window.platformSettings = {
 	domainFromUrl: false,
 	suggestDomain: true,
 	enableUserRegistration: true,
+	minBrowsersVersion: { "Chrome":48, "Firefox": 44 },
 	lastSettingsInFile: null // This line is to make sure that all the settings have a trailing coma
 };

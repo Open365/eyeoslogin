@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" class=" js canvas webgl no-touch websockets websocketsbinary"
       style="overflow: hidden; margin: 0px; padding: 0px; height: 100%; width: 100%;">
 <head>
@@ -17,6 +17,54 @@
     <![endif]-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+
+    <script>
+
+        var BrowserSupport = {};
+
+        // Opera 8.0+
+        BrowserSupport.Opera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+        // Firefox 1.0+
+        BrowserSupport.Firefox = typeof InstallTrigger !== 'undefined';
+        // At least Safari 3+: "[object HTMLElementConstructor]"
+        BrowserSupport.Safari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+        // Internet Explorer 6-11
+        BrowserSupport.IE = false || !!document.documentMode;
+        // Edge 20+
+        BrowserSupport.Edge = !BrowserSupport.IE && !!window.StyleMedia;
+        // Chrome 1+
+        BrowserSupport.Chrome = !!window.chrome && !!window.chrome.webstore;
+        // Blink engine detection
+        BrowserSupport.Blink = (BrowserSupport.Chrome ||BrowserSupport.Opera) && !!window.CSS;
+
+        if (!BrowserSupport.Chrome && !BrowserSupport.Firefox) {
+            location.replace("./browserNotSupported.html");
+        } else {
+            var browserVersion = navigator.userAgent;
+            var tokens = browserVersion.split(' ');
+            var version;
+            var browser;
+            for (var i=0; i< tokens.length; i++) {
+                if (tokens[i].substr(0,6) === 'Chrome') {
+                    version = tokens[i].split('/')[1];
+                    version = version.split('.')[0];
+                    browser = 'Chrome';
+                    break;
+                }
+                if (tokens[i].substr(0,7) === 'Firefox') {
+                    version = tokens[i].split('/')[1];
+                    version = version.split('.')[0];
+                    browser = 'Firefox';
+                    break;
+                }
+
+            }
+            if (version < window.platformSettings.minBrowsersVersion[browser]) {
+                location.replace("./browserNotSupported.html");
+            }
+        }
+
+    </script>
 
     <script>
         var isMobile = false; //initiate as false
