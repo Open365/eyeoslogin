@@ -156,7 +156,7 @@ module.exports = function (grunt) {
 
 		var dist = grunt.config('dirs').dist + "/";
 
-		var whereToReplace = [dist + "index.html", "start.sh", "browserNotSupported.html"];
+		var whereToReplace = [dist + "index.html", "start.sh", dist + "browserNotSupported.html"];
 		var filesToReplace = [dist + "js/main.js"];
 		hashAndReplaceFiles.call(this, grunt, filesToReplace, whereToReplace);
 
