@@ -1,14 +1,16 @@
 FROM docker-registry.eyeosbcn.com/eyeos-fedora21-frontend-base
 
-RUN mkdir -p /usr/share/nginx/html/applogin
 
-COPY start.sh /
-CMD /start.sh
+ENV InstallationDir=/usr/share/nginx/html/applogin
 
-WORKDIR /usr/share/nginx/html/applogin
+WORKDIR ${InstallationDir}
 
-COPY . /usr/share/nginx/html/applogin
+RUN mkdir -p ${InstallationDir}
+
+COPY . ${InstallationDir}
 
 RUN ./build.sh
 
-VOLUME /usr/share/nginx/html/applogin
+VOLUME ${InstallationDir}
+
+CMD ${InstallationDir}/start.sh
