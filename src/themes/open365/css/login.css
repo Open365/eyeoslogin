@@ -350,12 +350,12 @@ body {
     color:#fff
 }
 
-#termsAndConditions {
+.accessLink {
     font-size: 13px;
     font-style: italic;
 }
 
-#termsAndConditions a {
+.accessLink a{
     color: #fff;
     font-weight: bold;
 }
