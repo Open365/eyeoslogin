@@ -44,7 +44,7 @@ define([
                 this.redirector.gotToMainPage();
                 $('.recoverPassButton').addClass('clicked');
             } else {
-                this.requestFail(response);
+                this.recoverFail(response);
             }
         },
 
