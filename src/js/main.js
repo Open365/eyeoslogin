@@ -45,8 +45,14 @@ require([
 	"js/prepare",
 	"js/translator",
 	"js/redirector",
-	"js/recover"
-], function (domReady, Login, Credentials, Prepare, Translator, Redirector, Recover) {
+	"js/recover",
+	"js/analytics",
+	"js/themeStyles",
+	"js/clouds"
+
+], function (domReady, Login, Credentials, Prepare, Translator, Redirector, Recover, Analytics, ThemeStyles,clouds) {
+
+
 	domReady(function() {
 		if (!localStorage.userInfo) {
 			localStorage.setItem('userInfo', JSON.stringify({lang: platformSettings.lang}));
@@ -64,7 +70,12 @@ require([
 			recover = new Recover(),
 			redirector = new Redirector(),
 			credentials = new Credentials(),
-			prepare = new Prepare();
+			prepare = new Prepare(),
+			themeStyles = new ThemeStyles();
+
+		if (window.currentPage) {
+			themeStyles.insertStyle("themes/" + window.platformSettings.theme + "/css/" + window.currentPage + ".css");
+		}
 
 		prepare.showLoading();
 		var params = prepare.getUrlParametersByNames(['username', 'token']);

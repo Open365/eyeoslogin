@@ -1,0 +1,24 @@
+#forceDownload {
+    color: #01D7D4;
+}
+
+.almost_there {
+    font-size: 2em;
+}
+
+.btns-wrapper {
+    margin-top: 3em;
+}
+
+.disabled, .disabled:hover {
+    cursor: default;
+    background-color: #aaa;
+}
+
+.mobileLink {
+    margin-top: 30px;
+}
+.mobileLink .link {
+    margin-left: 10px;
+    text-decoration: none;
+}

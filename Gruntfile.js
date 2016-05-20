@@ -128,7 +128,7 @@ module.exports = function (grunt) {
 					files: ["<%= dirs.dist %>/js/platformSettings.js"]
 				}
 			}
-		},
+		}
 	});
 
 	grunt.registerTask('test', [

@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" class=" js canvas webgl no-touch websockets websocketsbinary"
       style="overflow: hidden; margin: 0px; padding: 0px; height: 100%; width: 100%;">
 <head>
@@ -10,88 +10,41 @@
     <title>Open365</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="themes/desktop/images/favicon.ico"/>
-    <style>
-        .almost_there {
-            font-size: 2em;
-        }
-
-        .mobileLink .link {
-            margin-left: 10px;
-            text-decoration: none;
-        }
-        #loginGeneralContainerCentered {
-            background: rgb(27, 38, 85) !important;
-        }
-
-        #formBox a {
-            color: white;
-        }
-
-    </style>
-
     <!--[if lt IE 9 ]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
     <script src="js/platformSettings.js"></script>
-
-
-
-    <script>
-        var newStyleInHead = "themes/" + window.platformSettings.theme + "/css/login.css";
-        var stylesheet = document.createElement('link');
-        stylesheet.rel = "stylesheet";
-        stylesheet.type = "text/css";
-        stylesheet.href = newStyleInHead;
-
-        var head = document.getElementsByTagName('head')[0];
-        head.appendChild(stylesheet);
-
-        if (window.platformSettings.customTitle) {
-            document.title = window.platformSettings.customTitle;
-        }
-    </script>
-    <script>
-        if (window.platformSettings.disableAnalytics === false) {
-            (function (i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r;
-                i[r] = i[r] || function () {
-                            (i[r].q = i[r].q || []).push(arguments)
-                        }, i[r].l = 1 * new Date();
-                a = s.createElement(o),
-                        m = s.getElementsByTagName(o)[0];
-                a.async = 1;
-                a.src = g;
-                m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-            ga('create', 'UA-76176340-1', 'auto');
-            ga('send', 'pageview', document.location.pathname);
-        }
-    </script>
 </head>
 <body>
 
 <div id="loginPage">
-
-
     <div id="loginGeneralContainerCentered" class="login-text">
         <div id="loginGeneralContainer" class="login-text">
             <div id="logo_eyeos"></div>
             <div id="formBox" class="formBox">
-                <p class="almost_there">
+                <p id="notSupported" class="almost_there">
                     Browser not supported
                 </p>
 
-                <p>Sorry, your current browser or version isn't supported by Open365.</p>
+                <p id="notSupportedDesc">Sorry, your current browser or version isn't supported by Open365.</p>
                 <p>
-                    Please download last version of
-                    <a href="https://www.google.com/chrome/browser/desktop/index.html">Google Chrome</a> or
+                    <span id="pleaseDownload">Please download last version of</span>
+                    <a href="https://www.google.com/chrome/browser/desktop/index.html">Google Chrome</a> /
                     <a href="https://www.mozilla.org/firefox/new/?scene=2">Mozilla Firefox</a>
                 </p>
             </div>
+            <div class="mobileLink">
+                <a href="/" class="link loginButton loading-button" id="notSupportedTryAgain">try again</a>
+            </div>
+
         </div>
     </div>
 </div>
+<script>
+    window.currentPage = "browserNotSupported"
+</script>
+<script src="vendor/require.js" data-main="js/main.js"></script>
 </body>
 
 </html>
