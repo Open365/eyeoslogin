@@ -131,13 +131,14 @@ msgstr "Reset password"
 msgid "An email has been sent to you…"
 msgstr "An email has been sent to you…"
 
-
 #:
 msgid "Browser not supported"
 msgstr "Browser not supported"
+
 #:
 msgid "Sorry, your current browser or version isn't supported by Open365."
 msgstr "Sorry, your current browser or version isn't supported by Open365."
+
 #:
 msgid "Please download last version of"
 msgstr "Please download last version of"

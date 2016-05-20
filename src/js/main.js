@@ -48,9 +48,10 @@ require([
 	"js/recover",
 	"js/analytics",
 	"js/themeStyles",
-	"js/clouds"
+	"js/clouds",
+	"js/browserDetection"
 
-], function (domReady, Login, Credentials, Prepare, Translator, Redirector, Recover, Analytics, ThemeStyles,clouds) {
+], function (domReady, Login, Credentials, Prepare, Translator, Redirector, Recover, Analytics, ThemeStyles,clouds, BrowserDetector) {
 
 
 	domReady(function() {
@@ -71,7 +72,8 @@ require([
 			redirector = new Redirector(),
 			credentials = new Credentials(),
 			prepare = new Prepare(),
-			themeStyles = new ThemeStyles();
+			themeStyles = new ThemeStyles(),
+			browserDetection = new BrowserDetector();
 
 		if (window.currentPage) {
 			themeStyles.insertStyle("themes/" + window.platformSettings.theme + "/css/" + window.currentPage + ".css");
