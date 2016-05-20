@@ -10,6 +10,7 @@ module.exports = function (grunt) {
 
 	// Project configuration
 	grunt.loadNpmTasks('grunt-shell');
+	grunt.loadNpmTasks('hash-replace-files');
 	grunt.initConfig({
 
 		// Project settings
@@ -105,7 +106,29 @@ module.exports = function (grunt) {
 					keepalive: false
 				}
 			}
-		}
+		},
+		hash_replace_files: {
+			options: {
+				whereToReplace: [
+					"<%= dirs.dist %>/index.html",
+					"start.sh",
+					"<%= dirs.dist %>/browserNotSupported.html",
+					"<%= dirs.dist %>/firstTime.html",
+					"<%= dirs.dist %>/maintenance.html",
+					"<%= dirs.dist %>/mobile.html"
+				]
+			},
+			main: {
+				options: {
+					files: ["<%= dirs.dist %>/js/main.js"]
+				}
+			},
+			platformSettings: {
+				options: {
+					files: ["<%= dirs.dist %>/js/platformSettings.js"]
+				}
+			}
+		},
 	});
 
 	grunt.registerTask('test', [
@@ -148,27 +171,7 @@ module.exports = function (grunt) {
 		} else {
 			grunt.task.run(['requirejs:'+target, 'shell:deploy']); //release or debug
 		}
-		grunt.task.run('hashJavascriptFiles');
-	});
-
-	grunt.registerTask('hashJavascriptFiles', 'Hashes javascript files', function () {
-		var hashAndReplaceFiles = require('./grunt_tasks/hashAndReplaceFiles');
-
-		var dist = grunt.config('dirs').dist + "/";
-
-		var whereToReplace = [
-			dist + "index.html",
-			"start.sh",
-			dist + "browserNotSupported.html",
-			dist + "firstTime.html",
-			dist + "maintenance.html",
-			dist + "mobile.html"
-		];
-		var filesToReplace = [dist + "js/main.js"];
-		hashAndReplaceFiles.call(this, grunt, filesToReplace, whereToReplace);
-
-		filesToReplace = [dist + "js/platformSettings.js"];
-		hashAndReplaceFiles.call(this, grunt, filesToReplace, whereToReplace);
+		grunt.task.run('hash_replace_files');
 	});
 
 };

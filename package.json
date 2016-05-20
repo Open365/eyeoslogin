@@ -5,7 +5,6 @@
   "dependencies": {},
   "installationPath": "/usr/share/nginx/html/applogin",
   "devDependencies": {
-    "async": "1.5.2",
     "bower": "1.3.5",
     "chai": "1.8.0",
     "grunt": "0.4.2",
@@ -19,7 +18,6 @@
     "grunt-mocha-test": "*",
     "grunt-npm": "0.0.2",
     "grunt-shell": "0.7.0",
-    "hash-files": "1.1.0",
     "istanbul": "0.2.11",
     "karma": "0.12.16",
     "karma-chai": "~0.1.0",
@@ -33,6 +31,7 @@
     "requirejs": "~2.1.14",
     "shelljs": "0.4.0",
     "sinon": "1.7.3",
+    "grunt-hash-replace-files": "*",
     "time-grunt": "0.3.2"
   },
   "license": "AGPL-3.0"
