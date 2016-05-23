@@ -80,10 +80,12 @@ require([
 		}
 
 		prepare.showLoading();
-		var params = prepare.getUrlParametersByNames(['username', 'token']);
+		if(location.pathname === "/password/reset/") {
+			var params = prepare.getUrlParametersByNames(['username', 'token']);
 
-		if(params && params.username != null && params.username.length > 0 && params.token != null && params.token.length > 0) {
-			recover.init(params);
+			if(params && params.username != null && params.username.length > 0 && params.token != null && params.token.length > 0) {
+				recover.init(params);
+			}
 		} else {
 			credentials.checkCard(redirector.goToLoginTarget.bind(redirector), login.init.bind(login));
 		}
