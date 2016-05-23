@@ -78,7 +78,11 @@ define([
                 this.prepare.shakeBox();
                 return;
             }
-            this.forgotCall(usernameContent, this.translator.getUserLanguage());
+            this.forgotCall({
+                username: usernameContent,
+                lang:this.translator.getUserLanguage(),
+                domain: location.hostname
+            });
         },
 
         requestFail: function (response) {
@@ -97,13 +101,10 @@ define([
             this.prepare.shakeBox();
         },
 
-        forgotCall: function (username, lang) {
+        forgotCall: function (data) {
             var forgotSettings = this.settings.forgot;
 
-            this.call.post(forgotSettings.url, {
-                username: username,
-                lang: lang
-            }, this.forgotSuccess.bind(this), this.forgotFail.bind(this));
+            this.call.post(forgotSettings.url, data, this.forgotSuccess.bind(this), this.forgotFail.bind(this));
         }
     };
 

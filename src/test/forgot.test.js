@@ -28,7 +28,7 @@ define([
 	suite("Forgot", function () {
 		var sut,
 			prepare, prepareStub, call, callStub, translator, translatorStub, fakeUser, fakeLang, fakeUrl,
-			fakeDomain, settings, xhr, platformSettings;
+			fakeDomain, settings, xhr, platformSettings, location;
 
 		setup(function () {
 			fakeUrl = "fake url";
@@ -64,7 +64,11 @@ define([
 				defaultDomain: fakeDomain
 			};
 
-			sut = new Forgot(prepare, settings, call, platformSettings, translator);
+			location = {
+				hostname: fakeDomain
+			};
+
+			sut = new Forgot(prepareStub, settings, callStub, platformSettings, translatorStub);
 		});
 
 		suite("#forgotSuccess", function () {
@@ -93,6 +97,19 @@ define([
 			test("error message should be INVALID USER", function () {
 				response.responseText = '{"error":1}';
 				executeSut(settings.forgot.message.INVALID_USER);
+			});
+		});
+
+		suite("#forgotCall", function () {
+			test("calls to call.post", function () {
+				var data = {
+						username: fakeUser,
+					    lang: fakeLang,
+						domain: fakeDomain
+					};
+
+                sut.forgotCall(data);
+                sinon.assert.calledWith(callStub.post, settings.forgot.url, sinon.match(data), sinon.match.func, sinon.match.func);
 			});
 		});
 	});
