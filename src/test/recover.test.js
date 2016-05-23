@@ -28,13 +28,14 @@ define([
 	suite("Recover", function () {
 		var sut,
 			prepare, prepareStub, call, callStub, redirector, redirectorStub, fakeUser, fakeToken, fakeUrl,
-			fakeDomain, settings, xhr, platformSettings;
+			fakeDomain, settings, xhr, platformSettings, fakePassword;
 
 		setup(function () {
 			fakeUrl = "fake url";
 			fakeUser = "pepito";
 			fakeToken = "xx";
 			fakeDomain = "open365.io";
+			fakePassword = "fake password";
 			xhr = {};
 
 			prepare = new Prepare();
@@ -69,7 +70,7 @@ define([
 				defaultDomain: fakeDomain
 			};
 
-			sut = new Recover(prepare, settings, call, platformSettings, redirector);
+			sut = new Recover(prepareStub, settings, callStub, platformSettings, redirectorStub);
 		});
 
 		suite("#recoverSuccess", function () {
@@ -144,6 +145,19 @@ define([
 			test("calls to prepare.showDomainMessage", function () {
 				sut.init(params);
 				sinon.assert.called(prepareStub.showDomainMessage);
+			});
+		});
+
+		suite("#recoverCall", function () {
+			test("calls to call.post", function () {
+				var data = {
+					username: fakeUser,
+					password: fakePassword,
+					token: fakeToken
+				};
+
+				sut.recoverCall(data);
+				sinon.assert.calledWith(callStub.post, settings.recover.url, sinon.match(data), sinon.match.func, sinon.match.func);
 			});
 		});
 	});

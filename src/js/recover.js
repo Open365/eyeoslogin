@@ -103,7 +103,11 @@ define([
             }
 
             this.prepare.prepareErrorMessage("");
-            this.recoverCall(usernameContent, password, token);
+            this.recoverCall({
+                username: usernameContent,
+                password: password,
+                token: token
+            });
         },
 
         requestFail: function (response) {
@@ -133,14 +137,10 @@ define([
             this.prepare.prepareErrorMessage(msg);
         },
 
-        recoverCall: function (username, password, token) {
+        recoverCall: function (data) {
             var recoverySettings = this.settings.recover;
 
-            this.call.post(recoverySettings.url, {
-                username: username,
-                password: password,
-                token: token
-            }, this.recoverSuccess.bind(this), this.recoverFail.bind(this));
+            this.call.post(recoverySettings.url, data, this.recoverSuccess.bind(this), this.recoverFail.bind(this));
         },
 
         init: function (getParams) {
