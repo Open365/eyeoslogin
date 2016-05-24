@@ -251,26 +251,6 @@ define([
 		}
 	};
 
-	Prepare.prototype.getUrlParametersByNames = function(names) {
-		var url = window.location.href,
-			params = {};
-		for(var i = 0; i < names.length; i++) {
-			names[i] = names[i].replace(/[\[\]]/g, "\\$&");
-			var regex = new RegExp("[?&]" + names[i] + "(=([^&#]*)|&|#|$|)"),
-				results = regex.exec(url);
-			if (!results) {
-				params[names[i]] = null;
-				break;
-			}
-			if (!results[2]) {
-				params[names[i]] = '';
-				break;
-			}
-			params[names[i]] = decodeURIComponent(results[2].replace(/\+/g, " ")).replace("/","");
-		}
-		return params;
-	};
-
 	return Prepare;
 });
 
