@@ -49,9 +49,9 @@ require([
 	"js/analytics",
 	"js/themeStyles",
 	"js/clouds",
-	"js/browserDetection"
-
-], function (domReady, Login, Credentials, Prepare, Translator, Redirector, Recover, Analytics, ThemeStyles,clouds, BrowserDetector) {
+	"js/browserDetection",
+	"js/settings"
+], function (domReady, Login, Credentials, Prepare, Translator, Redirector, Recover, Analytics, ThemeStyles,clouds, BrowserDetector, Settings) {
 
 
 	domReady(function() {
@@ -65,8 +65,10 @@ require([
 			localStorage.setItem('userInfo', JSON.stringify(userInfo));
 		}
 
-		var translator = new Translator();
+		var settings = Settings,
+			translator = new Translator();
 		translator.applyTranslations();
+
 		var login = new Login(),
 			recover = new Recover(),
 			redirector = new Redirector(),
@@ -80,12 +82,10 @@ require([
 		}
 
 		prepare.showLoading();
-		if(location.pathname === "/password/reset/") {
-			var params = prepare.getUrlParametersByNames(['username', 'token']);
+		var params = prepare.getUrlParametersByNames(settings.reset.requestParams);
 
-			if(params && params.username != null && params.username.length > 0 && params.token != null && params.token.length > 0) {
-				recover.init(params);
-			}
+		if(location.pathname === settings.reset.pathname && params && params.username != null && params.username.length > 0 && params.token != null && params.token.length > 0) {
+			recover.init(params);
 		} else {
 			credentials.checkCard(redirector.goToLoginTarget.bind(redirector), login.init.bind(login));
 		}

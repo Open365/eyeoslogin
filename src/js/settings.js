@@ -77,6 +77,13 @@ define(['operatingSystem'], function (OperatingSystem) {
 				PASS_EQUAL_USER: "Passwords can't be equal to username."
 			}
 		},
+		reset: {
+			pathname: "/password/reset/",
+			requestParams: [
+				"username",
+				"token"
+			]
+		},
 		general: {
 			message: {
 				CUSTOM_VALIDITY: "Please fill out this field.",
