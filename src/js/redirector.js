@@ -19,7 +19,6 @@
 
 define([
 	"js/settings",
-	"operatingSystem",
 	"urijs/URI",
 	"js/credentials",
 ], function (Settings, OperatingSystem, UriJS, Credentials) {
