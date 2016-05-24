@@ -86,15 +86,21 @@ define([
         },
 
         requestFail: function (response) {
-            var recoverySettings = this.settings.forgot,
-                msg;
+            var forgotSettings = this.settings.forgot,
+                msg = forgotSettings.message.INVALID;
 
-            if (response.error == 1) {
-                msg = recoverySettings.message.INVALID_USER;
-            } else if (response.error == 4) {
-                msg = response.msg;
-            } else {
-                msg = recoverySettings.message.INVALID;
+            switch (response && response.error) {
+                case 1:
+                    msg = forgotSettings.message.INVALID_USER;
+                    break;
+
+                case 4:
+                    msg = response.msg;
+                    break;
+
+                case 6:
+                    msg = forgotSettings.message.INVALID_DOMAIN;
+                    break;
             }
 
             this.prepare.prepareErrorMessage(msg);

@@ -58,7 +58,8 @@ define(['operatingSystem'], function (OperatingSystem) {
 			message: {
 				SUCCESS: "An email has been sent to you…",
 				INVALID: "Incorrect params.",
-				INVALID_USER: "Invalid user."
+				INVALID_USER: "Invalid user.",
+				INVALID_DOMAIN: "Invalid domain."
 			}
 		},
 		recover: {
