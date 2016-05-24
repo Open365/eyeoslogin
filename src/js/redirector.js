@@ -20,19 +20,20 @@
 define([
 	"js/settings",
 	"urijs/URI",
-	"js/credentials",
-], function (Settings, OperatingSystem, UriJS, Credentials) {
+	"js/url",
+	"js/credentials"
+], function (Settings, UriJS, Url, Credentials) {
 
-	var Redirector = function (settings, injectedLocation, injectedOperatingSystem, credentials, injectedPlatformSettings) {
+	var Redirector = function (settings, injectedLocation, url, credentials, injectedPlatformSettings) {
 		this.settings = settings || Settings;
 		this.location = injectedLocation || window.location;
-		this.OperatingSystem = injectedOperatingSystem || OperatingSystem;
+		this.url = url || new Url();
 		this.credentials = credentials || new Credentials();
 		this.platformSettings = injectedPlatformSettings || window.platformSettings;
 	};
 
 	Redirector.prototype._removeParamFromQueryString = function (locationSearch, param) {
-		var locationSearch = new UriJS(locationSearch)
+		locationSearch = new UriJS(locationSearch)
 			.removeSearch(param)
 			.search();
 		return locationSearch;
@@ -50,9 +51,9 @@ define([
 	};
 
 	Redirector.prototype.goToDefaultTarget = function(transactionId) {
-		var url = getURLParameter('target', this.location) || '/';
+		var url = this.url.getURLParameter('target', this.location) || '/';
 		if (this.platformSettings.cleanUrlParameters) {
-			url = removeURLParameters(url);
+			url = this.url.removeURLParameters(url);
 		} else {
 			url = this.addTidToUrl(url, transactionId);
 		}
@@ -67,22 +68,6 @@ define([
 	Redirector.prototype.gotToMainPage = function() {
 		window.location = '/';
 	};
-
-	function getURLParameter(name, location) {
-		return decodeURIComponent((
-			new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)')
-				.exec(location.search)
-			|| [, ""])[1].replace(/\+/g, '%20'))
-			|| null;
-	}
-
-	function removeURLParameters(url) {
-		var index = url.indexOf('?');
-		if (index != -1) {
-			return url.str(0, index);
-		}
-		return url;
-	}
 
 	return Redirector;
 });

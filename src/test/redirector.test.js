@@ -20,12 +20,11 @@
 
 'use strict';
 define([
-	"js/redirector",
+	"js/redirector"
 ], function (Redirector) {
 	suite('redirector.test suite', function () {
 		var sut;
 		var location, locationReplaceStub, settings;
-		var appGateway, appGatewayOpenAppStub, appGatewayIsChromeInstalledStub;
 		var os;
 		var tid;
 		var platformSettings;
@@ -47,15 +46,11 @@ define([
 			};
 			locationReplaceStub = sinon.stub(location, 'replace');
 
-			var OperatingSystem = {
-				getName: function() {return os}
-			};
-
 			platformSettings = {
 				cleanUrlParameters: false
 			};
 
-			sut = new Redirector(settings, location, OperatingSystem, null, platformSettings);
+			sut = new Redirector(settings, location, null, null, platformSettings);
 		});
 
 
