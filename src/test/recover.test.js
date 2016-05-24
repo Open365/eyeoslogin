@@ -63,6 +63,12 @@ define([
 						PASS_MIN_LENGHT: "Password must be at least 8 characters.",
 						PASS_EQUAL_USER: "Passwords can't be equal to username."
 					}
+				},
+				reset: {
+					requestParams: [
+						'username',
+						'token'
+					]
 				}
 			};
 
@@ -158,6 +164,35 @@ define([
 
 				sut.recoverCall(data);
 				sinon.assert.calledWith(callStub.post, settings.recover.url, sinon.match(data), sinon.match.func, sinon.match.func);
+			});
+		});
+
+		suite("#getParams", function () {
+			var location = {}, actual;
+
+			function executeSut(search, expected) {
+				location = {
+					search: search
+				};
+				actual = sut.getParams(location);
+
+				assert.equal(actual, expected);
+			}
+
+			test("return true because param user and token are in the url", function () {
+				executeSut('?username=eyeos@open365.io&token=f75a5a01acbbec42290df8a24d66ad96becfefab6aca7e9650cebef10f67', true);
+			});
+
+			test("return false because param user is not in the url", function () {
+				executeSut('?token=f75a5a01acbbec42290df8a24d66ad96becfefab6aca7e9650cebef10f67', false);
+			});
+
+			test("return false because param token is not in the url", function () {
+				executeSut('?username=eyeos@open365.io', false);
+			});
+
+			test("return false because there are no params", function () {
+				executeSut('', false)
 			});
 		});
 	});

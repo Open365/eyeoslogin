@@ -21,15 +21,17 @@ define([
     "js/prepare",
     "js/settings",
     "js/call",
-    "js/redirector"
-], function (Prepare, Settings, Call, Redirector) {
+    "js/redirector",
+    "js/url"
+], function (Prepare, Settings, Call, Redirector, Url) {
 
-    var Recover = function (prepare, settings, call, injectedPlatformSettings, redirector) {
+    var Recover = function (prepare, settings, call, injectedPlatformSettings, redirector, url) {
         this.prepare = prepare || new Prepare();
         this.settings = settings || Settings;
         this.call = call || new Call();
         this.platformSettings = injectedPlatformSettings || window.platformSettings;
         this.redirector = redirector || new Redirector();
+        this.url = url || new Url();
     };
 
     Recover.prototype = {
@@ -143,9 +145,20 @@ define([
             this.call.post(recoverySettings.url, data, this.recoverSuccess.bind(this), this.recoverFail.bind(this));
         },
 
-        init: function (getParams) {
-            this.username = getParams['username'];
-            this.token = getParams['token'];
+        getParams: function(location) {
+            var params = this.settings.reset.requestParams;
+
+            for(var i = 0; i < params.length; i++) {
+                this[params[i]] = this.url.getURLParameter(params[i], location);
+
+                if(this[params[i]] === null || this[params[i]] === undefined || this[params[i]].length === 0) {
+                    return false;
+                }
+            }
+            return true;
+        },
+
+        init: function () {
             this.prepare.hideLoading();
             this.prepare.showRecoverForm();
             this.prepare.prepareRecoverFormFocus();

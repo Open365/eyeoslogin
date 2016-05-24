@@ -82,9 +82,9 @@ require([
 		}
 
 		prepare.showLoading();
-		var params = prepare.getUrlParametersByNames(settings.reset.requestParams);
+		var params = recover.getParams(location);
 
-		if(location.pathname === settings.reset.pathname && params && params.username != null && params.username.length > 0 && params.token != null && params.token.length > 0) {
+		if(location.pathname === settings.reset.pathname && params) {
 			recover.init(params);
 		} else {
 			credentials.checkCard(redirector.goToLoginTarget.bind(redirector), login.init.bind(login));
