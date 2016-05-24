@@ -43,7 +43,7 @@ define([
         recoverSuccess: function (response, status, xhr) {
             if (!response.error && status === 'success') {
                 this.prepare.prepareSuccessMessage(this.settings.recover.message.SUCCESS);
-                this.redirector.gotToMainPage();
+                setTimeout(this.redirector.gotToMainPage(), this.settings.recover.timeout_message);
                 $('.recoverPassButton').addClass('clicked');
             } else {
                 this.recoverFail(response);

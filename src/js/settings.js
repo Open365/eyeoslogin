@@ -67,7 +67,7 @@ define(['operatingSystem'], function (OperatingSystem) {
 				success: true
 			},
 			message: {
-				SUCCESS: "Your password has been changed.",
+				SUCCESS: "Your password has been changed. Redirecting to login...",
 				INVALID: "Incorrect params.",
 				INVALID_USER: "Invalid user.",
 				INVALID_PASSWORD: "Invalid password.",
@@ -75,7 +75,8 @@ define(['operatingSystem'], function (OperatingSystem) {
 				PASS_MISSMATCH: "Passwords don't match.",
 				PASS_MIN_LENGHT: "Password must be at least 8 characters.",
 				PASS_EQUAL_USER: "Passwords can't be equal to username."
-			}
+			},
+			timeout_message: 5000 //milliseconds
 		},
 		reset: {
 			pathname: "/password/reset/",
