@@ -4,7 +4,9 @@
 
 define(function () {
 
-    var browserDetector = function() {
+    var browserDetector = function() {};
+
+    browserDetector.prototype.detection = function() {
         if (window.currentPage  !== "browserNotSupported" && window.currentPage  !== "mobile") {
             if (!this.detectMobile()) {
                 this.detectBrowser();
@@ -14,7 +16,6 @@ define(function () {
         if (window.platformSettings.customTitle) {
             window.document.title = window.platformSettings.customTitle;
         }
-
     };
 
     browserDetector.prototype.detectMobile = function() {

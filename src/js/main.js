@@ -87,6 +87,7 @@ require([
 		if(location.pathname === settings.reset.pathname && params) {
 			recover.init(params);
 		} else {
+			browserDetection.detection();
 			credentials.checkCard(redirector.goToLoginTarget.bind(redirector), login.init.bind(login));
 		}
 	});
