@@ -17,33 +17,13 @@ msgstr "Inserire questo captcha per riprovare"
 
 #: 
 msgid "The maximum number of users has been reached. Please contact your administrator"
-msgstr "Il numero massimo di utenti è stato raggiunto. Si prega di contattare l’amministratore"
+msgstr "Il numero massimo di utenti è stato raggiunto. Si prega di contattare l'amministratore"
 
-#: 
-msgid "Connection lost. Now trying to reconnect"
-msgstr "Connessione persa. Tentativo di riconnessione in corso"
-
-#: 
+#:
 msgid "Please fill out this field."
 msgstr "Per favore completare questo campo."
 
-#: 
-msgid "Do you want a better experience"
-msgstr "Desideri un’esperienza migliore?"
-
-#: 
-msgid "Download eyeRun"
-msgstr "Scarica eyeRun"
-
-#: 
-msgid "and enjoy eyeOS in a new way"
-msgstr "e goditi eyeOS in un modo nuovo"
-
-#: 
-msgid "* Your workspace will be open in a new window for full experience"
-msgstr "Il tuo Workspace verrà aperto in una nuova finestra per garantire un’esperienza completa"
-
-#: 
+#:
 msgid "Username"
 msgstr "Nome utente"
 
@@ -55,18 +35,98 @@ msgstr "Password"
 msgid "Log in"
 msgstr "Accedi (Log in)"
 
-#: 
-msgid "Launch eyeOs"
-msgstr "Lancia eyeOs"
+#:
+msgid "Username should include"
+msgstr "Il nome utente deve includere"
 
-#: 
-msgid "Detecting Eyerun"
-msgstr "Scoprendo eyeRun"
+#:
+msgid "Username should be something like username@example.com"
+msgstr "Il nome utente deve essere del tipo utente@esempio.com"
 
-#: 
-msgid "Download"
-msgstr "Scarica"
+#:
+msgid "Invalid user"
+msgstr "Utente non valido"
 
-#: 
-msgid "or"
-msgstr "o"
+#:
+msgid "Servers have some hiccups, try later"
+msgstr "Il collegamento al Server ha dei problemi. Riprovare più tardi"
+
+#:
+msgid "Your password has been changed.You can now use your new password to login."
+msgstr "La tua password è stata modificata. Devi utilizzarla al prossimo login"
+
+#:
+msgid "Incorrect params"
+msgstr "Parametri incorretti"
+
+#:
+msgid "Your password has been changed."
+msgstr "La tua password è stata cambiata"
+
+#:
+msgid "Invalid password"
+msgstr "Password non valida"
+
+#:
+msgid "Your password recovery session has expired"
+msgstr "La sessione di recupero password è scaduta"
+
+#:
+msgid "Passwords don't match"
+msgstr "Le password non sono uguali"
+
+#:
+msgid "Password must be at least 8 characters"
+msgstr "Le password devono avere almeno 8 caratteri"
+
+#:
+msgid "Passwords can't be equal to username"
+msgstr "La password non può essere uguale al nome utente"
+
+#:
+msgid "Forgot password?"
+msgstr "Password dimenticata?"
+
+#:
+msgid "Or register here"
+msgstr "O regitrati qui"
+
+#:
+msgid "Using this service implies that you have read and accept the "
+msgstr "L'utilizzo di questo servizio implica che hai letto e accettato le"
+
+#:
+msgid "Terms and Conditions"
+msgstr "condizioni"
+
+#:
+msgid "I forgot my password"
+msgstr "Ho dimenticato la password"
+
+#:
+msgid "Recover my password"
+msgstr "Recuperare la mia password"
+
+#:
+msgid "For any other problem accessing the platform you can "
+msgstr "Per qualsiasi problemi di accesso alla piattaforma poi"
+
+#:
+msgid "ask for help here"
+msgstr "chiede aiuto qui"
+
+#:
+msgid "Type a new password"
+msgstr "Scrivi una nuova password"
+
+#:
+msgid "Re-Type the new password"
+msgstr "Ripeti la nuova password"
+
+#:
+msgid "Reset password"
+msgstr "Resetare password"
+
+#:
+msgid "An email has been sent to you…"
+msgstr "Ti è stata inviata una mail…"

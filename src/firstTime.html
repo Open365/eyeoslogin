@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" class=" js canvas webgl no-touch websockets websocketsbinary"
       style="overflow: hidden; margin: 0px; padding: 0px; height: 100%; width: 100%;">
 <head>
@@ -17,49 +17,6 @@
     <![endif]-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-
-    <script>
-        var isMobile = false; //initiate as false
-        // device detection
-        if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
-                || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0, 4))) isMobile = true;
-
-        if (isMobile && document.cookie.indexOf("desktopVersion") === -1) {
-
-            location.replace("./mobile.html");
-        }
-
-
-        var newStyleInHead = "themes/" + window.platformSettings.theme + "/css/login.css";
-        var stylesheet = document.createElement('link');
-        stylesheet.rel = "stylesheet";
-        stylesheet.type = "text/css";
-        stylesheet.href = newStyleInHead;
-
-        var head = document.getElementsByTagName('head')[0];
-        head.appendChild(stylesheet);
-
-        if (window.platformSettings.customTitle) {
-            document.title = window.platformSettings.customTitle;
-        }
-    </script>
-    <script>
-        if (window.platformSettings.disableAnalytics === false) {
-            (function (i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r;
-                i[r] = i[r] || function () {
-                            (i[r].q = i[r].q || []).push(arguments)
-                        }, i[r].l = 1 * new Date();
-                a = s.createElement(o),
-                        m = s.getElementsByTagName(o)[0];
-                a.async = 1;
-                a.src = g;
-                m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-            ga('create', 'UA-76176340-1', 'auto');
-            ga('send', 'pageview', document.location.pathname);
-        }
-    </script>
 </head>
 <body>
 
@@ -92,11 +49,10 @@
                     <div class="mobileLink">
                         <a href="https://play.google.com/store/apps/details?id=io.open365.cloud" target="_blank"
                                     class="link loginButton loading-button"> android </a>
-                        <a disabled class="disabled link loginButton loading-button disabled">iOS soon</a> <br>
+                        <a href="https://itunes.apple.com/en/app/open365/id1106886667?l=en&mt=8"
+                           class="link loginButton loading-button">iOS</a> <br>
 
                     </div>
-
-
                 </p>
 
                 <div class="btns-wrapper">
@@ -115,32 +71,11 @@
     height: 1px;
 "></iframe>
 </div>
-<style>
-    #forceDownload {
-        color: #01D7D4;
-    }
+<script>
+    window.currentPage = "firstTime";
+</script>
 
-    .almost_there {
-        font-size: 2em;
-    }
-
-    .btns-wrapper {
-        margin-top: 3em;
-    }
-
-    .disabled, .disabled:hover {
-        cursor: default;
-        background-color: #aaa;
-    }
-
-    .mobileLink {
-        margin-top: 30px;
-    }
-    .mobileLink .link {
-        margin-left: 10px;
-        text-decoration: none;
-    }
-</style>
+<script src="vendor/require.js" data-main="js/main.js"></script>
 <script>
     var donwloads = {
         windows: 'https://s3-eu-west-1.amazonaws.com/open365.io/downloads/open365-client-1.0.0.153934-18.msi',
@@ -162,51 +97,4 @@
     })
 </script>
 </body>
-<script>
-
-    // Animating bg
-    $('#loginPage').mousemove(function (e) {
-        $('#clouds').css('transform', 'translate(' + (e.pageX + this.offsetLeft) / 120 + 'px, ' + (e.pageY + this.offsetTop) / 120 + 'px )');
-        $('#cloud-kde').css('transform', 'translate(' + (e.pageX + this.offsetLeft) / 20 + 'px, ' + (e.pageY + this.offsetTop) / 20 + 'px )');
-        $('#cloud-lo').css('transform', 'translate(' + (e.pageX + this.offsetLeft) / 100 + 'px, ' + (e.pageY + this.offsetTop) / 100 + 'px )');
-        $('#cloud-thunderbird').css('transform', 'translate(' + -(e.pageX + this.offsetLeft) / 30 + 'px, ' + -(e.pageY + this.offsetTop) / 30 + 'px )');
-        $('#cloud-1').css('transform', 'translate(' + -(e.pageX + this.offsetLeft) / 30 + 'px, ' + -(e.pageY + this.offsetTop) / 30 + 'px )');
-        $('#cloud-2').css('transform', 'translate(' + -(e.pageX + this.offsetLeft) / 70 + 'px, ' + -(e.pageY + this.offsetTop) / 70 + 'px )');
-        $('#cloud-3').css('transform', 'translate(' + -(e.pageX + this.offsetLeft) / 50 + 'px, ' + -(e.pageY + this.offsetTop) / 50 + 'px )');
-        $('#cloud-4').css('transform', 'translate(' + -(e.pageX + this.offsetLeft) / 20 + 'px, ' + -(e.pageY + this.offsetTop) / 20 + 'px )');
-    });
-
-    //Trying rotation mobile
-    if (window.DeviceOrientationEvent) {
-        function handleOrientation(event) {
-            var y = event.beta;  // In degree in the range [-180,180]
-            var x = event.gamma; // In degree in the range [-90,90]
-            var xAlt = x;
-            var yAlt = y;
-
-            if (x > 20) {
-                x = 20
-            }
-
-            if (x < -20) {
-                x = -20
-            }
-
-            x += 1;
-            y += 1;
-            xAlt -= 30;
-            yAlt -= 30;
-            $('#clouds').css('transform', 'translate(' + (x - 10) + 'px, ' + (y / 3) + 'px )');
-            $('#cloud-kde').css('transform', 'translate(' + xAlt + 'px, ' + yAlt + 'px )');
-            $('#cloud-lo').css('transform', 'translate(' + (yAlt - 1) + 'px, ' + x + 'px )');
-            $('#cloud-thunderbird').css('transform', 'translate(' + (x - 1) + 'px, ' + (y - 1) + 'px )');
-            $('#cloud-1').css('transform', 'translate(' + xAlt + 'px, ' + yAlt + 'px )');
-            $('#cloud-2').css('transform', 'translate(' + yAlt + 'px, ' + xAlt + 'px )');
-            $('#cloud-3').css('transform', 'translate(' + xAlt + 'px, ' + yAlt + 'px )');
-            $('#cloud-4').css('transform', 'translate(' + y + 'px, ' + x + 'px )');
-        }
-
-        window.addEventListener('deviceorientation', handleOrientation);
-    }
-</script>
 </html>

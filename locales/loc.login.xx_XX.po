@@ -5,7 +5,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 "Project-Id-Version: login\n"
-"Language: zu\n"
+"Language: xx\n"
 
 #: 
 msgid "Incorrect user or password"
@@ -19,31 +19,11 @@ msgstr "XXXXXXXXXXXXX"
 msgid "The maximum number of users has been reached. Please contact your administrator"
 msgstr "XXX XXXXXXX XXXXXX XX XXXXX XXX XXXX XXXXXXX. XXXXXX XXXXXXX XXXX XXXXXXXXX"
 
-#: 
-msgid "Connection lost. Now trying to reconnect"
-msgstr "XXXXXXXXXX XXXX. XXX XXXXXX XX XXXXXXXXX"
-
-#: 
+#:
 msgid "Please fill out this field."
 msgstr "XXXXXXXXXXXXX"
 
-#: 
-msgid "Do you want a better experience"
-msgstr "XXXXXXXXXXXXX"
-
-#: 
-msgid "Download eyeRun"
-msgstr "XXXXXXXXXXXXX"
-
-#: 
-msgid "and enjoy eyeOS in a new way"
-msgstr "XXXXXXXXXXXXX"
-
-#: 
-msgid "* Your workspace will be open in a new window for full experience"
-msgstr "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-
-#: 
+#:
 msgid "Username"
 msgstr "XXXXXXXXXXXXX"
 
@@ -55,18 +35,98 @@ msgstr "XXXXXXXX"
 msgid "Log in"
 msgstr "XXX XX"
 
-#: 
-msgid "Launch eyeOs"
-msgstr "XXXXXX XXXXX"
+#:
+msgid "Username should include"
+msgstr "Xxxxxxxx xxxxxx xxxxxxx"
 
-#: 
-msgid "Detecting Eyerun"
-msgstr "XXXXXXXXX XXXXXX"
+#:
+msgid "Username should be something like username@example.com"
+msgstr "Xxxxxxxx xxxxxx xx xxxxxxxxx xxxx xxxxxxxxxxxxxxxxxxxx"
 
-#: 
-msgid "Download"
-msgstr "XXXXXXXX"
+#:
+msgid "Invalid user"
+msgstr "Xxxxxxx xxxx"
 
-#: 
-msgid "or"
-msgstr "XX"
+#:
+msgid "Servers have some hiccups, try later"
+msgstr "Xxxxxxx xxxx xxxx xxxxxxx, xxx xxxxx"
+
+#:
+msgid "Your password has been changed.You can now use your new password to login."
+msgstr "Xxxx xxxxxxxx xxx xxxx xxxxxxx.Xxx xxx xxx xxx xxxx xxx xxxxxxxx xx xxxxx."
+
+#:
+msgid "Incorrect params"
+msgstr "Xxxxxxxxx xxxxxx"
+
+#:
+msgid "Your password has been changed."
+msgstr "Xxxx xxxxxxxx xxx xxxx xxxxxxx."
+
+#:
+msgid "Invalid password"
+msgstr "Xxxxxxx xxxxxxxx"
+
+#:
+msgid "Your password recovery session has expired"
+msgstr "Xxxx xxxxxxxx xxxxxxxx xxxxxxx xxx xxxxxxx"
+
+#:
+msgid "Passwords don't match"
+msgstr "Xxxxxxxxx xxxxx xxxxx"
+
+#:
+msgid "Password must be at least 8 characters"
+msgstr "Xxxxxxxx xxxx xx xx xxxxx x xxxxxxxxxx"
+
+#:
+msgid "Passwords can't be equal to username"
+msgstr "Xxxxxxxxx xxxxx xx xxxxx xx xxxxxxxx"
+
+#:
+msgid "Forgot password?"
+msgstr "Xxxxxx xxxxxxxx?"
+
+#:
+msgid "Or register here"
+msgstr "Xx xxxxxxxx xxxx"
+
+#:
+msgid "Using this service implies that you have read and accept the "
+msgstr "Xxxxx xxxx xxxxxxx xxxxxxx xxxx xxx xxxx xxxx xxx xxxxxx xxx "
+
+#:
+msgid "Terms and Conditions"
+msgstr "Xxxxx xxx Xxxxxxxxxx"
+
+#:
+msgid "I forgot my password"
+msgstr "X xxxxxx xx xxxxxxxx"
+
+#:
+msgid "Recover my password"
+msgstr "Xxxxxxx xx xxxxxxxx"
+
+#:
+msgid "For any other problem accessing the platform you can "
+msgstr "Xxx xxx xxxxx xxxxxxx xxxxxxxxx xxx xxxxxxxx xxx xxx "
+
+#:
+msgid "ask for help here"
+msgstr "xxx xxx xxxx xxxx"
+
+#:
+msgid "Type a new password"
+msgstr "Xxxx x xxx xxxxxxxx"
+
+#:
+msgid "Re-Type the new password"
+msgstr "Xxxxxxx xxx xxx xxxxxxxx"
+
+#:
+msgid "Reset password"
+msgstr "Xxxxx xxxxxxxx"
+
+#:
+msgid "An email has been sent to you…"
+msgstr "Xx xxxxx xxx xxxx xxxx xx xxx…"

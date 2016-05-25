@@ -19,31 +19,11 @@ msgstr "Resolve this captcha to try again"
 msgid "The maximum number of users has been reached. Please contact your administrator"
 msgstr "The maximum number of users has been reached. Please contact your administrator"
 
-#: 
-msgid "Connection lost. Now trying to reconnect"
-msgstr "Connection lost. Now trying to reconnect"
-
-#: 
+#:
 msgid "Please fill out this field."
 msgstr "Please fill out this field"
 
-#: 
-msgid "Do you want a better experience"
-msgstr "Do you want a better experience"
-
-#: 
-msgid "Download eyeRun"
-msgstr "Download eyeRun"
-
-#: 
-msgid "and enjoy eyeOS in a new way"
-msgstr "and enjoy eyeOS in a new way"
-
-#: 
-msgid "* Your workspace will be open in a new window for full experience"
-msgstr "Your Workplace will be open in a new window for full experience"
-
-#: 
+#:
 msgid "Username"
 msgstr "Username"
 
@@ -55,18 +35,115 @@ msgstr "Password"
 msgid "Log in"
 msgstr "Log in"
 
-#: 
-msgid "Launch eyeOs"
-msgstr "Launch eyeOs"
+#:
+msgid "Username should include"
+msgstr "Username should include"
 
-#: 
-msgid "Detecting Eyerun"
-msgstr "Detecting Eyerun"
+#:
+msgid "Username should be something like username@example.com"
+msgstr "Username should be something like username@example.com"
 
-#: 
-msgid "Download"
-msgstr "Download"
+#:
+msgid "Invalid user"
+msgstr "Invalid user"
 
-#: 
-msgid "or"
-msgstr "or"
+#:
+msgid "Servers have some hiccups, try later"
+msgstr "Servers have some hiccups, try later"
+
+#:
+msgid "Your password has been changed.You can now use your new password to login."
+msgstr "Your password has been changed.You can now use your new password to login."
+
+#:
+msgid "Incorrect params"
+msgstr "Incorrect params"
+
+#:
+msgid "Your password has been changed."
+msgstr "Your password has been changed."
+
+#:
+msgid "Invalid password"
+msgstr "Invalid password"
+
+#:
+msgid "Your password recovery session has expired"
+msgstr "Your password recovery session has expired"
+
+#:
+msgid "Passwords don't match"
+msgstr "Passwords don't match"
+
+#:
+msgid "Password must be at least 8 characters"
+msgstr "Password must be at least 8 characters"
+
+#:
+msgid "Passwords can't be equal to username"
+msgstr "Passwords can't be equal to username"
+
+#:
+msgid "Forgot password?"
+msgstr "Forgot password?"
+
+#:
+msgid "Or register here"
+msgstr "Or register here"
+
+#:
+msgid "Using this service implies that you have read and accept the "
+msgstr "Using this service implies that you have read and accept the "
+
+#:
+msgid "Terms and Conditions"
+msgstr "Terms and Conditions"
+
+#:
+msgid "I forgot my password"
+msgstr "I forgot my password"
+
+#:
+msgid "Recover my password"
+msgstr "Recover my password"
+
+#:
+msgid "For any other problem accessing the platform you can "
+msgstr "For any other problem accessing the platform you can "
+
+#:
+msgid "ask for help here"
+msgstr "ask for help here"
+
+#:
+msgid "Type a new password"
+msgstr "Type a new password"
+
+#:
+msgid "Re-Type the new password"
+msgstr "Re-Type the new password"
+
+#:
+msgid "Reset password"
+msgstr "Reset password"
+
+#:
+msgid "An email has been sent to you…"
+msgstr "An email has been sent to you…"
+
+#:
+msgid "Browser not supported"
+msgstr "Browser not supported"
+
+#:
+msgid "Sorry, your current browser or version isn't supported by Open365."
+msgstr "Sorry, your current browser or version isn't supported by Open365."
+
+#:
+msgid "Please download last version of"
+msgstr "Please download last version of"
+
+#:
+msgid "try again"
+msgstr "try again"
+

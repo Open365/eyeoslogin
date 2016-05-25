@@ -76,16 +76,16 @@ define([
 		});
 
 		suite("#loginCaptchaFailCallback", function () {
-			var shakeLoginExp, getExp, prepareCaptchaErrorMessageExp, setInputValueExp;
+			var shakeBoxExp, getExp, prepareCaptchaErrorMessageExp, setInputValueExp;
 			setup(function () {
 				getExp = callMock.expects("get").once().withExactArgs(sinon.match.func, sinon.match.func);
-				shakeLoginExp = prepareMock.expects("shakeLogin").once().withExactArgs();
+				shakeBoxExp = prepareMock.expects("shakeBox").once().withExactArgs();
 				prepareCaptchaErrorMessageExp = prepareMock.expects("prepareCaptchaErrorMessage").once().withExactArgs(settings.login.message.MAX_ATTEMPS);
 				setInputValueExp = prepareMock.expects("setInputValue").twice();
 			});
-			test("calls to prepare.shakeLogin", function () {
+			test("calls to prepare.shakeBox", function () {
 				sut.loginCaptchaFailCallback();
-				shakeLoginExp.verify();
+				shakeBoxExp.verify();
 			});
 			test("calls to call.get", function () {
 				sut.loginCaptchaFailCallback();

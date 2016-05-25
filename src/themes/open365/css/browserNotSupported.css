@@ -1,0 +1,15 @@
+.almost_there {
+    font-size: 2em;
+}
+
+.mobileLink .link {
+    margin-left: 10px;
+    text-decoration: none;
+}
+#loginGeneralContainerCentered {
+    background: rgb(27, 38, 85) !important;
+}
+
+#formBox a {
+    color: white;
+}

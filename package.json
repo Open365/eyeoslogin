@@ -31,6 +31,7 @@
     "requirejs": "~2.1.14",
     "shelljs": "0.4.0",
     "sinon": "1.7.3",
+    "grunt-hash-replace-files": "*",
     "time-grunt": "0.3.2"
   },
   "license": "AGPL-3.0"

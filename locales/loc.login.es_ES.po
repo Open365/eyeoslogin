@@ -19,31 +19,11 @@ msgstr "Soluciona este captcha para volver a intentarlo"
 msgid "The maximum number of users has been reached. Please contact your administrator"
 msgstr "Se ha llegado al número máximo de usuarios"
 
-#: 
-msgid "Connection lost. Now trying to reconnect"
-msgstr "Se ha interrumpido la conexión. Intentando reconectar"
-
-#: 
+#:
 msgid "Please fill out this field."
 msgstr "Por favor rellena este campo"
 
-#: 
-msgid "Do you want a better experience"
-msgstr "¿Quieres una experiencia mejorada?"
-
-#: 
-msgid "Download eyeRun"
-msgstr "Descarga eyeRun"
-
-#: 
-msgid "and enjoy eyeOS in a new way"
-msgstr "y disfruta de eyeOS de una nueva manera"
-
-#: 
-msgid "* Your workspace will be open in a new window for full experience"
-msgstr "Tu Workplace se abrirá en una nueva ventana para una experiencia mejorada"
-
-#: 
+#:
 msgid "Username"
 msgstr "Usuario"
 
@@ -55,19 +35,98 @@ msgstr "Contraseña"
 msgid "Log in"
 msgstr "Entrar"
 
-#: 
-msgid "Launch eyeOs"
-msgstr "Lanzar eyeOS"
+#:
+msgid "Username should include"
+msgstr "El nombre de usuario debería contener"
 
-#: 
-msgid "Detecting Eyerun"
-msgstr "Detectando eyeRun"
+#:
+msgid "Username should be something like username@example.com"
+msgstr "El nombre de usuario debería ser del tipo nombreusuario@ejemplo.com"
 
-#: 
-msgid "Download"
-msgstr "Descargar"
+#:
+msgid "Invalid user"
+msgstr "Usuario incorrecto"
 
-#: 
-msgid "or"
-msgstr "o"
+#:
+msgid "Servers have some hiccups, try later"
+msgstr "Estamos experimentando algunos contratiempos. Inténtalo más tarde."
 
+#:
+msgid "Your password has been changed.You can now use your new password to login."
+msgstr "Tu contraseña ha sido cambiada. Ahora ya puedes usar tu nueva contraseña para entrar"
+
+#:
+msgid "Incorrect params"
+msgstr "Parámetros incorrectos"
+
+#:
+msgid "Your password has been changed."
+msgstr "Tu contraseña ha cambiado."
+
+#:
+msgid "Invalid password"
+msgstr "Contraseña incorrecta"
+
+#:
+msgid "Your password recovery session has expired"
+msgstr "Tu sesión ha expirado"
+
+#:
+msgid "Passwords don't match"
+msgstr "Las contraseñas no coinciden"
+
+#:
+msgid "Password must be at least 8 characters"
+msgstr "La contraseña debe tener como mínimo 8 caracteres"
+
+#:
+msgid "Passwords can't be equal to username"
+msgstr "La contraseña no puede ser igual al nombre de usuario"
+
+#:
+msgid "Forgot password?"
+msgstr "He olvidado mi contraseña"
+
+#:
+msgid "Or register here"
+msgstr "O regístrate aquí"
+
+#:
+msgid "Using this service implies that you have read and accept the "
+msgstr "Utilizar este servicio implica que has leído y aceptado los "
+
+#:
+msgid "Terms and Conditions"
+msgstr "Términos y condiciones"
+
+#:
+msgid "I forgot my password"
+msgstr "He olvidado mi contraseña"
+
+#:
+msgid "Recover my password"
+msgstr "Recuperar contraseña"
+
+#:
+msgid "For any other problem accessing the platform you can "
+msgstr "Para cualquier otra incidencia accediendo a la plataforma puedes "
+
+#:
+msgid "ask for help here"
+msgstr "obtener ayuda aquí"
+
+#:
+msgid "Type a new password"
+msgstr "Escribe una nueva contraseña"
+
+#:
+msgid "Re-Type the new password"
+msgstr "Repite la nueva contraseña"
+
+#:
+msgid "Reset password"
+msgstr "Cambiar contraseña"
+
+#:
+msgid "An email has been sent to you…"
+msgstr "Te hemos enviado un correo-e con los datos para continuar."

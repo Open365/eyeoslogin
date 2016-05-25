@@ -17,18 +17,22 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-define(["js/tr", "i18next"], function (tr) {
+define([
+	"js/tr",
+	"i18next",
+	"js/settings"
+],	function (tr, Settings) {
 
 	function Translator() {
-
+		this.platformSettings = window.platformSettings || {};
+		this.settings = Settings;
 	}
 
 	Translator.prototype.getCurrentLanguage = function(lang) {
 		var languageMap = {
 			"es" : "es_ES",
-			"ca" : "ca_CA",
 			"en" : "en_UK",
-			"eu" : "eu_EU"
+			"it" : "it_IT"
 		};
 		if(languageMap.hasOwnProperty(lang)) {
 			return languageMap[lang];
@@ -37,8 +41,7 @@ define(["js/tr", "i18next"], function (tr) {
 	};
 
 	Translator.prototype.applyTranslations = function () {
-		var userInfo = JSON.parse(localStorage.getItem('userInfo')) || {};
-		window.lang = userInfo.lang || 'en';
+		window.lang = this.getUserLanguage();
 		i18n.init({
 			getAsync:false,
 			resGetPath: 'translations/__lng__/__ns__.json',
@@ -50,7 +53,7 @@ define(["js/tr", "i18next"], function (tr) {
 			elements[i].oninvalid = function (e) {
 				e.target.setCustomValidity("");
 				if (!e.target.validity.valid) {
-					e.target.setCustomValidity(tr("Please fill out this field."));
+					e.target.setCustomValidity(this.messageTranslation(this.settings.general.message.CUSTOM_VALIDITY));
 				}
 			};
 			elements[i].oninput = function (e) {
@@ -58,24 +61,41 @@ define(["js/tr", "i18next"], function (tr) {
 			};
 		}
 
-		$("#usernameLabel").html(tr($('#usernameLabel').html()));
-		$("#username").attr('placeholder', tr($("#username").attr('placeholder')));
 
-		$("#passwordLabel").html(tr($('#passwordLabel').html()));
-		$("#password").attr('placeholder', tr($("#password").attr('placeholder')));
+		$("#usernameLabel").html(tr($("#usernameLabel").html()));
+		$("#passwordLabel").html(tr($("#passwordLabel").html()));
+		$("#forgotPassLink a").html(tr($("#forgotPassLink a").text()));
+		$("#register_button a").html(tr($("#register_button a").text()));
 
-		$("#textLogIn").text(tr($('#textLogIn').text().trim()));
-		$("#textLaunch").text(tr($('#textLaunch').text().trim()));
-		$("#detectingEyerun").text(tr($('#detectingEyerun').text().trim()));
+		$("#termsAndConditions span").text(tr($("#termsAndConditions span").text()));
+		$("#termsAndConditions a").html(tr($("#termsAndConditions a").text()));
+
+		$("#forgotPassLabel").html(tr($("#forgotPassLabel").html()));
+		$("#usernameForgotLabel").html(tr($("#usernameForgotLabel").html()));
+		$("#forgotPassButton").text(tr($("#forgotPassButton").text().trim()));
+		$("#forgotPassHelpText span").text(tr($("#forgotPassHelpText span").text()));
+		$("#forgotPassHelpText a").html(tr($("#forgotPassHelpText a").text()));
+
+		$("#newPasswordLabel").html(tr($("#newPasswordLabel").html()));
+		$("#repeatPasswordLabel").html(tr($("#repeatPasswordLabel").html()));
+		$("#recoverPassButton").text(tr($("#recoverPassButton").text().trim()));
+
+		$("#textLogIn").text(tr($("#textLogIn").text().trim()));
 		$("#captchaRefreshButton").attr('alt', tr($("#captchaRefreshButton").attr('alt')));
 
-		$("#eyeRunDown").html(tr($("#eyeRunDown").html()));
-		$("#eyeRunLinkor").html(tr($("#eyeRunLinkor").html()));
+		$("#notSupported").text(tr($("#notSupported").text().trim()));
+		$("#notSupportedDesc").text(tr($("#notSupportedDesc").text().trim()));
+		$("#pleaseDownload").text(tr($("#pleaseDownload").text().trim()));
+		$("#notSupportedTryAgain").text(tr($("#notSupportedTryAgain").text()));
 
-		$("#eyeRunTitle").html(tr($("#eyeRunTitle").html()));
-		$("#eyeRunLink").html(tr($("#eyeRunLink").html()));
-		$("#eyeRunLinkDescription").html(tr($("#eyeRunLinkDescription").html()));
-		$("#eyeRunDisclaimer").html(tr($("#eyeRunDisclaimer").html()));
+	};
+
+	Translator.prototype.messageTranslation = function(message) {
+		return tr(message);
+	};
+
+	Translator.prototype.getUserLanguage = function() {
+		return this.platformSettings.lang || 'en';
 	};
 
 	return Translator;

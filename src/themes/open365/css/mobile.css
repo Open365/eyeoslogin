@@ -1,0 +1,61 @@
+.main_text {
+    font-size: 2em;
+}
+#loginGeneralContainerCentered {
+    position: relative;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(27, 38, 85, .58);
+    z-index: 2;
+    text-align: center;
+    max-width: 100%;
+    width: 100%;
+    padding-bottom: 1.8em;
+}
+.wellcome_title {
+    font-size: 4em;
+}
+
+.disabled, .disabled:hover {
+    cursor: default;
+    background-color: #aaa;
+}
+
+.mobileLink {
+    font-size: 2.2em;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+.mobileLink .link {
+    margin-left: 10px;
+    text-decoration: none;
+}
+.desktop_version_container {
+    margin-top: 90px;
+    margin-bottom: 20px;
+}
+
+#desktop_version {
+    color: white;
+}
+
+@media screen and (max-height: 770px) {
+    .wellcome_title {
+        font-size: 3.5em;
+        margin: 0px;
+    }
+
+    .main_text {
+        font-size: 1.5em;
+    }
+
+    .mobileLink {
+        font-size: 1.7em;
+        margin-top: 50px;
+    }
+
+    .desktop_version_container {
+        margin-top: 0px;
+        margin-bottom: 30px
+    }
+}

@@ -10,6 +10,7 @@ module.exports = function (grunt) {
 
 	// Project configuration
 	grunt.loadNpmTasks('grunt-shell');
+	grunt.loadNpmTasks('hash-replace-files');
 	grunt.initConfig({
 
 		// Project settings
@@ -45,8 +46,7 @@ module.exports = function (grunt) {
 				name: 'src/js/main',
 				paths: {
 					js: 'src/js',
-					operatingSystem : 'bower_components/operatingSystem/build/operatingSystem',
-					eyeRunRequestor: 'bower_components/eyeRunRequestor/build/eyeRunRequestor.min',
+					operatingSystem : 'bower_components/operating_system/build/operatingSystem',
 					urijs: 'bower_components/uri.js/src',
 					jquery: 'src/vendor/jquery-2.1.1.min',
 					emile: 'src/vendor/emile',
@@ -106,6 +106,28 @@ module.exports = function (grunt) {
 					keepalive: false
 				}
 			}
+		},
+		hash_replace_files: {
+			options: {
+				whereToReplace: [
+					"<%= dirs.dist %>/index.html",
+					"start.sh",
+					"<%= dirs.dist %>/browserNotSupported.html",
+					"<%= dirs.dist %>/firstTime.html",
+					"<%= dirs.dist %>/maintenance.html",
+					"<%= dirs.dist %>/mobile.html"
+				]
+			},
+			main: {
+				options: {
+					files: ["<%= dirs.dist %>/js/main.js"]
+				}
+			},
+			platformSettings: {
+				options: {
+					files: ["<%= dirs.dist %>/js/platformSettings.js"]
+				}
+			}
 		}
 	});
 
@@ -149,6 +171,7 @@ module.exports = function (grunt) {
 		} else {
 			grunt.task.run(['requirejs:'+target, 'shell:deploy']); //release or debug
 		}
+		grunt.task.run('hash_replace_files');
 	});
 
 };

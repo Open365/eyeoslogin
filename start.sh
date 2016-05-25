@@ -10,10 +10,6 @@ if [[ -n $EYEOS_LOGIN_CLEAN_URL_PARAMETERS ]]; then
     sed -i "s/cleanUrlParameters: .*,/cleanUrlParameters: $EYEOS_LOGIN_CLEAN_URL_PARAMETERS,/" build/js/platformSettings.js
 fi
 
-if [[ -n $EYEOS_LOGIN_DISABLE_EYERUN ]]; then
-    sed -i "s/disableEyeRun: .*,/disableEyeRun: $EYEOS_LOGIN_DISABLE_EYERUN,/" build/js/platformSettings.js
-fi
-
 if [[ -n $EYEOS_LOGIN_TITLE ]]; then
     sed -i "s/customTitle: .*,/customTitle: '$EYEOS_LOGIN_TITLE',/" build/js/platformSettings.js
 fi
@@ -38,7 +34,7 @@ if [[ -n $EYEOS_LOGIN_FORCE_DOMAIN ]]; then
     sed -i "s/forceDomain: .*,/forceDomain: $EYEOS_LOGIN_FORCE_DOMAIN,/" build/js/platformSettings.js
 fi
 
-if [[ -n EYEOS_LOGIN_ENABLE_USER_REGISTRATION ]]; then
+if [[ -n $EYEOS_LOGIN_ENABLE_USER_REGISTRATION ]]; then
     sed -i "s/enableUserRegistration: .*,/enableUserRegistration: $EYEOS_LOGIN_ENABLE_USER_REGISTRATION,/" build/js/platformSettings.js
 fi
 

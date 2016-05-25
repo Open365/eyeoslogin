@@ -17,17 +17,28 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-window.platformSettings = {
-	lang: 'en',
-	theme:'open365',
-	cleanUrlParameters: false,
-	customTitle: false,
-	disableAnalytics: false,
-	forceDomain: true,
-	defaultDomain: "open365.io",
-	domainFromUrl: false,
-	suggestDomain: true,
-	enableUserRegistration: true,
-	minBrowsersVersion: { "Chrome":30, "Firefox": 30 },
-	lastSettingsInFile: null // This line is to make sure that all the settings have a trailing coma
-};
+define([
+], function () {
+
+	var Url = function () {};
+
+	Url.prototype.getURLParameter = function(name, location) {
+		return decodeURIComponent((
+			new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)')
+				.exec(location.search)
+			|| [, ""])[1].replace(/\+/g, '%20').replace("/",""))
+			|| null;
+	};
+
+	//window.removeURLParameters = removeURLParameters;
+
+	Url.prototype.removeURLParameters = function(url) {
+		var index = url.indexOf('?');
+		if (index != -1) {
+			return url.substr(0, index);
+		}
+		return url;
+	};
+
+	return Url;
+});

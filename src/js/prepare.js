@@ -20,19 +20,80 @@
 define([
 	"jquery",
 	"emile",
-	"js/tr",
-	"eyeRunRequestor",
-	"operatingSystem"
-], function ($, emile, tr, EyeRunRequestor, OperatingSystem) {
+	"js/translator",
+	"js/settings"
+], function ($, emile, Translator, Settings) {
 
-	var Prepare = function () {
-		this._eyeRunRequestor = new EyeRunRequestor();
-		this._eyeRunDownloadInterval = null;
+	var Prepare = function (settings, translator) {
 		this.platformSettings = window.platformSettings || {};
+		this.translator = translator || new Translator();
+		this.settings = settings || Settings;
 	};
 
-	Prepare.prototype.prepareSubmit = function (callback) {
+	Prepare.prototype.prepareLoginSubmit = function (callback) {
 		$("#loginform").on("submit", callback);
+	};
+
+	Prepare.prototype.prepareForgotSubmit = function (callback) {
+		$("#forgotform").on("submit", callback);
+	};
+
+	Prepare.prototype.prepareRecoverSubmit = function (callback) {
+		$("#recoverform").on("submit", callback);
+	};
+
+	Prepare.prototype.prepareForgotPassClick = function(callback) {
+		$("#forgotPassLink").click(callback);
+	};
+
+	Prepare.prototype.prepareLoginTermsAndConditionsClick = function(callback) {
+		$("#termsAndConditions a").click(callback);
+	};
+
+	Prepare.prototype.prepareForgotAskForHelpClick = function(callback) {
+		$("#forgotPassHelpText a").click(callback);
+	};
+
+	Prepare.prototype.linkTermsAndConditions = function() {
+		var urlTermsConditions = "terms_conditions/" + this.translator.getUserLanguage() + "/terms-and-conditions.html";
+		$("#termsAndConditions a").attr("href", urlTermsConditions);
+	};
+
+	Prepare.prototype.linkAskForHelp = function() {
+		var userLanguage = this.translator.getUserLanguage();
+		if (userLanguage.localeCompare("en") != 0 && userLanguage.localeCompare("es") != 0) {
+			userLanguage = "en";
+		}
+		var urlHelp = "https://support.open365.io/index.php/" + userLanguage + "/forum";
+		$("#forgotPassHelpText a").attr("href", urlHelp);
+	};
+
+	Prepare.prototype.showForgotForm = function() {
+		this.hideLoginForm();
+		this.hideRecoverForm();
+		$("#forgotform").removeClass("hidden");
+	};
+
+	Prepare.prototype.showRecoverForm = function() {
+		this.hideLoginForm();
+		this.hideForgotForm();
+		$("#recoverform").removeClass("hidden");
+	};
+
+	Prepare.prototype.hideForgotForm = function() {
+		$("#forgotform").addClass("hidden");
+	};
+
+	Prepare.prototype.hideRecoverForm = function() {
+		$("#recoverform").addClass("hidden");
+	};
+
+	Prepare.prototype.hideLoginForm = function() {
+		$("#loginform").addClass("hidden");
+	};
+
+	Prepare.prototype.prepareRecoverFormFocus = function() {
+		$("#newPassword").focus();
 	};
 
 	Prepare.prototype.prepareLoginFormFocus = function () {
@@ -51,7 +112,7 @@ define([
         $("#" +input).focus();
 	};
 
-	Prepare.prototype.shakeLogin = function () {
+	Prepare.prototype.shakeBox = function () {
 		//third party
 		function bounce(pos) {
 			pos += 1.941626;
@@ -94,16 +155,26 @@ define([
 	};
 
 	Prepare.prototype.prepareErrorMessage = function (message) {
-		$("#errorMessage").html(tr(message));
+		$("#errorMessage").html(this.translator.messageTranslation(message));
 		if(message.length > 0){
 			$("#errorMessage").removeClass('hidden');
+			$("#successMessage").addClass('hidden');
 		}else{
 			$("#errorMessage").addClass('hidden');
 		}
 	};
 
+	Prepare.prototype.prepareSuccessMessage = function (message) {
+		$("#successMessage").html(this.translator.messageTranslation(message));
+		if(message.length > 0){
+			$("#successMessage").removeClass('hidden');
+		}else{
+			$("#successMessage").addClass('hidden');
+		}
+	};
+
 	Prepare.prototype.prepareCaptchaErrorMessage = function (message) {
-		$("#errorCaptchaMessage").html(tr(message));
+		$("#errorCaptchaMessage").html(this.translator.messageTranslation(message));
 		if(message.length > 0){
 			$("#errorCaptchaMessage").removeClass('hidden');
 		}else{
@@ -134,19 +205,8 @@ define([
 	Prepare.prototype.hideLoading = function () {
 		$("#loading").removeClass("loadingShown");
 		$("#loading").addClass("hidden");
-		this.hideLaunchButton();
 		this.hideLoginButton();
 		$("#loginform").removeClass("hidden");
-	};
-
-
-	Prepare.prototype.hideDetectButtonAndShowLoginButton = function () {
-		this.hideDetectingEyerunButton();
-		this.showLoginButton();
-	};
-	Prepare.prototype.hideDetectButtonAndShowLaunchButton = function () {
-		this.hideDetectingEyerunButton();
-		this.showLaunchButton();
 	};
 
 	Prepare.prototype.showLoginButton = function () {
@@ -155,81 +215,6 @@ define([
 
 	Prepare.prototype.hideLoginButton = function () {
 		$("#textLogIn").addClass("hidden");
-	};
-
-
-	Prepare.prototype.showLaunchButton = function () {
-		$("#textLaunch").removeClass("hidden");
-	};
-
-	Prepare.prototype.hideLaunchButton = function () {
-		$("#textLaunch").addClass("hidden");
-	};
-
-	Prepare.prototype.hideDetectingEyerunButton = function () {
-		$("#detectingEyerun").addClass("hidden");
-	};
-
-	Prepare.prototype.generateDownloadLinks = function(versions) {
-
-			OperatingSystem.getEyeRunDownloadLink(function(url) {
-
-				$("#eyeRunGeneralContainer").show();
-
-				var downloadName = versions?versions[0].name:'eyeRun';
-				$("#eyeRunLink1").text(downloadName).attr("href", url);
-
-				if (versions[1] !== 'undefined' ) {
-					OperatingSystem.getEyeRunDownloadLink(function(url) {
-
-						$("#eyeRunLinkor").show();
-						$("#eyeRunLink2").text(versions[1].name).attr("href", url).show();
-
-					}, versions[1].version);
-				}
-
-
-			}, versions?versions[0].version:'');
-
-	};
-
-	Prepare.prototype.prepareEnhancedMode = function() {
-		var self = this;
-		this._eyeRunRequestor.eyeRunInstalled(function(exists) {
-			if(exists) {
-				self.hideDetectButtonAndShowLaunchButton();
-				if(self._eyeRunDownloadInterval){
-					clearInterval(self._eyeRunDownloadInterval);
-				}
-				$("#eyeRunDisclaimer").show();
-
-			} else {
-				self.hideDetectButtonAndShowLoginButton();
-
-				$("#eyeRunLink2").hide();
-				$("#eyeRunLinkor").hide();
-				$("#eyeRunGeneralContainer").hide();
-
-				switch(OperatingSystem.getName()) {
-
-					case 'Windows':
-						self.generateDownloadLinks([{ version: '32', name: 'eyeRun 32'},
-													{ version: '64', name: 'eyeRun 64'}]);
-						break;
-					case 'MacOs':
-						self.generateDownloadLinks();
-						break;
-					case 'UNIX':
-					case 'Linux':
-						self.generateDownloadLinks([{ version: 'rpm', name: 'eyeRun rpm'},
-													{ version: 'deb', name: 'eyeRun deb'}]);
-						break;
-					default:
-
-						break;
-				}
-			}
-		});
 	};
 
 	Prepare.prototype.hideDomainMessage = function () {
@@ -241,11 +226,22 @@ define([
 		var html = "";
 		if (this.platformSettings.forceDomain) {
 			if (this.platformSettings.suggestDomain) {
-				html = "Username should include <strong >" + domain + "</strong>";
+				html = this.translator.messageTranslation(this.settings.general.message.ADVICE_USERNAME) + " <strong id=\"domain\">" + domain + "</strong>";
 			} else {
-				html = "Username should be something like username@example.com";
+				html = this.translator.messageTranslation(this.settings.general.message.INVALID_USER_MANDATORY_DOMAIN);
 			}
 			$('#advice_username').removeClass('hidden').html(html);
+		}
+	};
+
+	Prepare.prototype.showDomainErrorMessage = function(domain) {
+		if (this.platformSettings.forceDomain) {
+			if (this.platformSettings.suggestDomain) {
+				this.prepareErrorMessage(this.translator.messageTranslation(this.settings.general.message.ADVICE_USERNAME) + " " + domain);
+			} else {
+				this.prepareErrorMessage(this.settings.general.message.INVALID_USER_MANDATORY_DOMAIN);
+			}
+			this.shakeBox();
 		}
 	};
 

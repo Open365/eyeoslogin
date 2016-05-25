@@ -243,6 +243,29 @@ body {
     right: 7px;
 }
 
+.successMessage {
+    background-color: rgba(0, 195, 219, 0.4);
+    border: 1px solid rgba(160, 253, 248, 0.78);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: .5em 1.4em 1em;
+}
+
+.successMessage::before {
+    content: ' ';
+    background: url(../img/alert-icon.svg) center center no-repeat;
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    position: relative;
+    top: 6px;
+    right: 7px;
+}
+
 #captchaBox {
     display: none;
     margin: 20px 0 0 0;
@@ -301,55 +324,6 @@ body {
     transform: translateY(-50%);
 }
 
-#eyeRunDisclaimer {
-    color: #fff;
-    padding-top: 10px;
-}
-
-#eyeRunDisclaimer, #eyeosRunning, #eyeRunGeneralContainer {
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, .29);
-}
-
-#eyeRunGeneralContainer {
-    color: #fff;
-    padding-left: 90px;
-    position: relative;
-    text-align: left;
-}
-
-#eyeRunGeneralContainer::after {
-    background: rgba(255, 255, 255, .29) url(../img/installer.svg) center center no-repeat;
-    border-radius: 100%;
-    content: ' ';
-    height: 70px;
-    margin-top: -35px;
-    position: absolute;
-    left: 0;
-    top: 50%;
-    width: 70px;
-}
-
-#eyeRunGeneralContainer #eyeRunTitle {
-    font-size: 21px;
-    font-weight: normal;
-}
-
-#eyeRunDownload {
-    margin-top: 8px;
-}
-
-.eyeRunDownloadDescription, .linkSeparator, .eyeRunDownloadLink {
-    display: inline-block;
-}
-
-.eyeRunDownloadLink {
-    color: #a7fbe8;
-    font-weight: 600;
-    text-decoration: none;
-    border-bottom: 1px solid #a7fbe8;
-}
-
 .hidden {
     display: none;
 
@@ -362,9 +336,26 @@ body {
     font-size: 0.9em;"
 }
 
-#register_label {
+#forgotPassLink {
     float:right;
     font-style:italic;
     margin-bottom: 20px;
+}
+
+#forgotPassLink a {
     color:#fff
+}
+
+#register_button a {
+    color:#fff
+}
+
+.accessLink {
+    font-size: 13px;
+    font-style: italic;
+}
+
+.accessLink a{
+    color: #fff;
+    font-weight: bold;
 }

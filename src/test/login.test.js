@@ -24,14 +24,14 @@ define([
 	"js/call",
 	"js/captcha",
 	"js/redirector",
-	"js/userInfo"
-], function (Login, Prepare, Credentials, Call, Captcha, Redirector, UserInfo) {
+	"js/userInfo",
+	"js/forgot"
+], function (Login, Prepare, Credentials, Call, Captcha, Redirector, UserInfo, Forgot) {
 
 	suite("Login", function () {
 		var sut, sutMock, url,
 			prepare, prepareMock,
 			credentials, credentialsMock,
-			fakeEyeRunRequestor, spySetSessionEyeRun,
 			call, callMock,
 			captcha, captchaMock,
 			fakeUser, fakePassword,
@@ -39,7 +39,8 @@ define([
 			originalJSON, settings,
 			xhr, tid,
 			redirector, redirectorGoToLoginTargetStub,
-			userInfo, userInfoStub, platformSettings;
+			userInfo, userInfoStub, platformSettings,
+			forgot, forgotMock;
 
 		setup(function () {
 			url = "fake url";
@@ -66,14 +67,11 @@ define([
 			userInfo = new UserInfo();
 			userInfoStub = sinon.stub(userInfo, 'getAndStore');
 
-			spySetSessionEyeRun = sinon.spy();
-			fakeEyeRunRequestor = {
-				setSession: spySetSessionEyeRun,
-				appGateway: function () {}
-			};
-
 			redirector = new Redirector();
 			redirectorGoToLoginTargetStub = sinon.stub(redirector, 'goToLoginTarget');
+
+			forgot = new Forgot();
+			forgotMock = sinon.mock(forgot);
 
 			settings = {
 				login: {
@@ -91,6 +89,7 @@ define([
 					},
 					message: {
 						INVALID: "Incorrect user or password",
+						INVALID_USER: "Invalid user",
 						MAX_ATTEMPS: "Resolve this captcha to try again"
 					}
 				},
@@ -102,9 +101,11 @@ define([
 				}
 			};
 
-			platformSettings = {};
+			platformSettings = {
+				defaultDomain: fakeDomain
+			};
 
-			sut = new Login(prepare, settings, credentials, call, captcha, fakeEyeRunRequestor, redirector, userInfo, platformSettings);
+			sut = new Login(prepare, settings, credentials, call, captcha, redirector, userInfo, forgot, platformSettings);
 			sutMock = sinon.mock(sut);
 
 			originalJSON = JSON;
@@ -167,18 +168,18 @@ define([
 
 		suite("#loginFail", function () {
 			var data,
-				shakeLoginExp,
+				shakeBoxExp,
 				setInputValuePasswordExp,
 				prepareErrorMessageExp;
 			setup(function () {
 				data = settings.login.response.MAX_ATTEMPS;
-				shakeLoginExp = prepareMock.expects("shakeLogin").once().withExactArgs();
+				shakeBoxExp = prepareMock.expects("shakeBox").once().withExactArgs();
 				setInputValuePasswordExp = prepareMock.expects("setInputValue").once().withExactArgs('password', '');
 				prepareErrorMessageExp = prepareMock.expects("prepareErrorMessage").once();
 			});
-			test("calls shakeLogin when called", function () {
+			test("calls shakeBox when called", function () {
 				sut.loginFail({});
-				shakeLoginExp.verify();
+				shakeBoxExp.verify();
 			});
 			test("calls to prepare.setInputValue of password", function () {
 				sut.loginFail({});
@@ -196,13 +197,19 @@ define([
 				prepareKeyPressExp,
 				prepareUsernameInputExp,
 				hideLoadingExp,
-				prepareSubmitExp;
+				prepareSubmitExp,
+				prepareForgotExp,
+				prepareForgotPassExp,
+				forgotSetDomainExp;
 			setup(function() {
 				prepareLoginFormFocusExp = prepareMock.expects('prepareLoginFormFocus').once().withExactArgs();
 				prepareKeyPressExp = prepareMock.expects('prepareKeyPress').once().withExactArgs();
-				prepareSubmitExp = prepareMock.expects('prepareSubmit').once().withExactArgs(sinon.match.func);
+				prepareSubmitExp = prepareMock.expects('prepareLoginSubmit').once().withExactArgs(sinon.match.func);
+				prepareForgotExp = prepareMock.expects('prepareForgotSubmit').once().withExactArgs(sinon.match.func);
+				prepareForgotPassExp = prepareMock.expects('prepareForgotPassClick').once().withExactArgs(sinon.match.func);
 				prepareUsernameInputExp = prepareMock.expects('prepareUsernameInput').once().withExactArgs();
 				hideLoadingExp = prepareMock.expects('hideLoading').once().withExactArgs();
+				forgotSetDomainExp = forgotMock.expects('setDomain').once();
 			});
 			test("calls to prepare.prepareLoginFormFocus", function () {
 				sut.init();
@@ -220,9 +227,17 @@ define([
 				sut.init();
 				hideLoadingExp.verify();
 			});
-			test("calls to prepare.prepareSubmit", function () {
+			test("calls to prepare.prepareLoginSubmit", function () {
 				sut.init();
 				prepareSubmitExp.verify();
+			});
+			test("calls to prepare.prepareForgotPassClick", function () {
+				sut.init();
+				prepareForgotPassExp.verify();
+			});
+			test("calls to forgot.setDomain", function () {
+				sut.init();
+				forgotSetDomainExp.verify();
 			});
 		});
 
@@ -259,7 +274,7 @@ define([
 		});
 
 		suite("#performLogin invalid user", function () {
-			var fakeUsernameContent, fakeEvent, prepareErrorMessage, shakeLoginExp;
+			var fakeUsernameContent, fakeEvent, prepareErrorMessage, shakeBoxExp;
 
 			function executeSut(fakeUser) {
 				fakeUsernameContent = fakeUser + '@' + fakeDomain;
@@ -269,15 +284,15 @@ define([
 
 				sut.performLogin(fakeEvent);
 				prepareErrorMessage.verify();
-				shakeLoginExp.verify();
+				shakeBoxExp.verify();
 			}
 			setup(function () {
 				fakeEvent = { preventDefault: function () {} };
 				prepareMock.expects('getInputValue').once().withExactArgs('password').returns(fakePassword);
 				prepareMock.expects('getInputValue').once().withExactArgs('captchaText').returns(fakeText);
 				prepareMock.expects('getInputValue').once().withExactArgs('captchaId').returns(fakeId);
-				prepareErrorMessage = prepareMock.expects("prepareErrorMessage").once().withExactArgs("Username invalid");
-				shakeLoginExp = prepareMock.expects("shakeLogin").once();
+				prepareErrorMessage = prepareMock.expects("prepareErrorMessage").once().withExactArgs(settings.login.message.INVALID_USER);
+				shakeBoxExp = prepareMock.expects("shakeBox").once();
 			});
 
 			test("calls to prepare.prepareErrorMessage user invalid reason min length", function () {
@@ -313,13 +328,6 @@ define([
 		suite("#doSuccess", function () {
 			var credentials, setTokenExp;
 
-			function makeSetSessionSuccess () {
-				fakeEyeRunRequestor.setSession.callArg(3);
-			}
-			function makeSetSessionFail () {
-				fakeEyeRunRequestor.setSession.callArg(4);
-			}
-
 			setup(function () {
 				credentials = "fake credentials";
 				setTokenExp = credentialsMock.expects("setToken").once().withExactArgs(credentials);
@@ -335,18 +343,10 @@ define([
 				sinon.assert.calledWithExactly(userInfoStub, sinon.match.func);
 			});
 
-			test("calls to login.goToLoginTarget after sending credentials to eyerun", function () {
+			test("calls to login.goToLoginTarget after getting user info", function () {
 				sut.transactionId = 'myTransactionId';
 				sut.doSuccess(credentials);
 				userInfoStub.callArg(0);
-				makeSetSessionSuccess();
-				assert(redirectorGoToLoginTargetStub.calledWithExactly('myTransactionId'));
-			});
-			test("calls to login.goToLoginTarget after sending credentials to eyerun FAILS", function () {
-				sut.transactionId = 'myTransactionId';
-				sut.doSuccess(credentials);
-				userInfoStub.callArg(0);
-				makeSetSessionFail();
 				assert(redirectorGoToLoginTargetStub.calledWithExactly('myTransactionId'));
 			});
 		});

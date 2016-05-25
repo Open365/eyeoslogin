@@ -20,13 +20,11 @@
 
 'use strict';
 define([
-	"js/redirector",
-	"eyeRunRequestor"
-], function (Redirector, EyeRunRequestor) {
+	"js/redirector"
+], function (Redirector) {
 	suite('redirector.test suite', function () {
 		var sut;
 		var location, locationReplaceStub, settings;
-		var appGateway, appGatewayOpenAppStub, appGatewayIsChromeInstalledStub, eyeRunInstalledStub;
 		var os;
 		var tid;
 		var platformSettings;
@@ -48,106 +46,45 @@ define([
 			};
 			locationReplaceStub = sinon.stub(location, 'replace');
 
-			var OperatingSystem = {
-				getName: function() {return os}
-			};
-
 			platformSettings = {
 				cleanUrlParameters: false
 			};
 
-			var eyeRunRequestor = new EyeRunRequestor();
-			eyeRunInstalledStub = sinon.stub(eyeRunRequestor, 'eyeRunInstalled');
-			appGateway = eyeRunRequestor.appGateway();
-			appGatewayOpenAppStub = sinon.stub(appGateway, 'openApp');
-			appGatewayIsChromeInstalledStub = sinon.stub(appGateway, 'isChromeInstalled');
-			sinon.stub(eyeRunRequestor, 'appGateway').returns(appGateway);
-
-			sut = new Redirector(settings, eyeRunRequestor, location, OperatingSystem, null, platformSettings);
+			sut = new Redirector(settings, location, null, null, platformSettings);
 		});
 
 
 		suite('#goToLoginTarget', function () {
-			
-			suite('when should not apply enhancedMode', function(){
+			function exercise() {
+				sut.goToLoginTarget(tid);
+			}
 
-				function exercise() {
-					sut.goToLoginTarget(tid);
-				}
+			test('should redirect to correct url', sinon.test(function () {
+				var url = '/?TID=' + tid;
+				exercise();
+				assert(locationReplaceStub.calledWithExactly(url));
+			}));
 
-				test('should redirect to correct url', sinon.test(function () {
-					var url = '/?TID=' + tid;
-					exercise();
-					assert(locationReplaceStub.calledWithExactly(url));
-				}));
-				
-				test('and when url already has a query should redirect to correct url', sinon.test(function(){
-					location.search = '?theme=gene&target=whatever';
-					var url = 'whatever?theme=gene&TID=' + tid;
-					exercise();
-					assert(locationReplaceStub.calledWithExactly(url));
-				}));
+			test('and when url already has a query should redirect to correct url', sinon.test(function(){
+				location.search = '?theme=gene&target=whatever';
+				var url = 'whatever?theme=gene&TID=' + tid;
+				exercise();
+				assert(locationReplaceStub.calledWithExactly(url));
+			}));
 
-				test('and when url already has a TID should replace it for the new TID', sinon.test(function(){
-					location.search = '?TID=OLDTID/';
-					var url = '/?TID=' + tid;
-					exercise();
-					assert(locationReplaceStub.calledWithExactly(url));
-				}));
+			test('and when url already has a TID should replace it for the new TID', sinon.test(function(){
+				location.search = '?TID=OLDTID/';
+				var url = '/?TID=' + tid;
+				exercise();
+				assert(locationReplaceStub.calledWithExactly(url));
+			}));
 
-				test('should remove parameters when specified', sinon.test(function(){
-					var url = '/';
-					platformSettings.cleanUrlParameters = true;
-					exercise();
-					assert(locationReplaceStub.calledWithExactly(url));
-				}));
-			});
-
-			suite('when should apply enhancedMode', function() {
-				setup(function () {
-					settings.ENHANCED_MODE_AVAILABLE = true;
-				});
-				function exercise () {
-					sut.goToLoginTarget(tid);
-				}
-				suite('when eyerun is installed', function(){
-					setup(function () {
-						eyeRunInstalledStub.callsArgWith(0, true);
-					});
-					function makeChromeInstalled(installed) {
-						appGatewayIsChromeInstalledStub.callsArgWith(0, installed);
-					}
-
-					test.skip('and chrome installed should call appGateway openApp', sinon.test(function(){
-						makeChromeInstalled(true);
-						exercise();
-						var url = 'myDesktop?TID='+tid;
-						assert(appGatewayOpenAppStub.calledWithExactly(url));
-					}));
-
-					test('and chrome not installed should redirect to correct url', sinon.test(function(){
-						makeChromeInstalled(false);
-						location.search = '?theme=gene&target=whatever';
-						exercise();
-						var url = 'whatever?theme=gene&TID=' + tid;
-						assert(locationReplaceStub.calledWithExactly(url));
-					}));
-				});
-
-				suite('when eyeRun is not installed', function(){
-					setup(function () {
-						eyeRunInstalledStub.callsArgWith(0, false);
-					});
-					test('should redirect to correct url', sinon.test(function(){
-						location.search = '?theme=gene&target=whatever';
-						exercise();
-						var url = 'whatever?theme=gene&TID=' + tid;
-						assert(locationReplaceStub.calledWithExactly(url));
-					}));
-				});
-
-
-			});
+			test('should remove parameters when specified', sinon.test(function(){
+				var url = '/';
+				platformSettings.cleanUrlParameters = true;
+				exercise();
+				assert(locationReplaceStub.calledWithExactly(url));
+			}));
 
 		});
 

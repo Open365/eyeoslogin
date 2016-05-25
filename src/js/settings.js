@@ -39,6 +39,7 @@ define(['operatingSystem'], function (OperatingSystem) {
 			},
 			message: {
 				INVALID: "Incorrect user or password",
+				INVALID_USER: "Invalid user",
 				MAX_ATTEMPS: "Resolve this captcha to try again",
                 SERVICE_UNAVAILABLE: "Servers have some hiccups, try later",
 				LICENSE_EXPIRED: "The maximum number of users has been reached. Please contact your administrator"
@@ -49,21 +50,47 @@ define(['operatingSystem'], function (OperatingSystem) {
 				captcha: protocol + "//" + domain + "/captcha/v1/captcha/"
 			}
 		},
-		recovery: {
-			url: {
-				request: protocol + "//" + domain + "/password/v1/forgot",
-				change: protocol + "//" + domain + "/password/v1/recover/"
-			},
+		forgot: {
+			url: protocol + "//" + domain + "/password/v1/forgot",
 			response: {
 				success: true
 			},
 			message: {
-				SUCCESS_1: "An email has been sent to you...",
-				SUCCESS_2: "Your password has been changed successfully",
-				INVALID_USER: "Your username should be something like username@example.com",
-				PASS_MISSMATCH: "Passwords do not match",
-				INVALID_PASSWORD: "Password must be at least 8 characters long and different than your username",
-				INVALID_TOKEN: "Your password recovery session has expired"
+				SUCCESS: "An email has been sent to you…",
+				INVALID: "Incorrect params.",
+				INVALID_USER: "Invalid user.",
+				INVALID_DOMAIN: "Invalid domain."
+			}
+		},
+		recover: {
+			url: protocol + "//" + domain + "/password/v1/recover/",
+			response: {
+				success: true
+			},
+			message: {
+				SUCCESS: "Your password has been changed. Redirecting to login...",
+				INVALID: "Incorrect params.",
+				INVALID_USER: "Invalid user.",
+				INVALID_PASSWORD: "Invalid password.",
+				INVALID_TOKEN: "Your password recovery session has expired.",
+				PASS_MISSMATCH: "Passwords don't match.",
+				PASS_MIN_LENGHT: "Password must be at least 8 characters.",
+				PASS_EQUAL_USER: "Passwords can't be equal to username."
+			},
+			timeout_message: 5000 //milliseconds
+		},
+		reset: {
+			pathname: "/password/reset/",
+			requestParams: [
+				"username",
+				"token"
+			]
+		},
+		general: {
+			message: {
+				CUSTOM_VALIDITY: "Please fill out this field.",
+				ADVICE_USERNAME: "Username should include",
+				INVALID_USER_MANDATORY_DOMAIN: "Username should be something like username@example.com"
 			}
 		},
 		desktop: {

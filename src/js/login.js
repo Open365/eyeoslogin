@@ -23,22 +23,21 @@ define([
 	"js/credentials",
 	"js/call",
 	"js/captcha",
-	"js/settings",
 	"operatingSystem",
-	"eyeRunRequestor",
 	"js/redirector",
-	"js/userInfo"
-], function (Prepare, Settings, Credentials, Call, Captcha, Settings, OperatingSystem, EyeRunRequestor, Redirector, UserInfo) {
+	"js/userInfo",
+	"js/forgot"
+], function (Prepare, Settings, Credentials, Call, Captcha, OperatingSystem, Redirector, UserInfo, Forgot) {
 
-	var Login = function (prepare, settings, credentials, call, captcha, eyeRunRequestor, redirector, userInfo, injectedPlatformSettings) {
+	var Login = function (prepare, settings, credentials, call, captcha, redirector, userInfo, forgot, injectedPlatformSettings) {
 		this.prepare = prepare || new Prepare();
 		this.settings = settings || Settings;
 		this.credentials = credentials || new Credentials();
 		this.call = call || new Call();
 		this.captcha = captcha || new Captcha();
-		this._requestor = eyeRunRequestor || new EyeRunRequestor();
 		this._redirector = redirector || new Redirector();
 		this.userInfo = userInfo || new UserInfo();
+		this.forgot = forgot || new Forgot();
 		this.platformSettings = injectedPlatformSettings || window.platformSettings;
 	};
 
@@ -87,13 +86,8 @@ define([
 
 			if (!domain) {
 				if (this.platformSettings.forceDomain) {
-					if (this.platformSettings.suggestDomain) {
-						this.prepare.prepareErrorMessage("Your username should end with " + this.domain);
-					} else {
-						this.prepare.prepareErrorMessage("Your username should be something like username@example.com");
-					}
 					this.prepare.hideDomainMessage();
-					this.prepare.shakeLogin();
+					this.prepare.showDomainErrorMessage(this.domain);
 					return;
 				} else {
 					domain = this.domain.substring(1); //it contains @ and we don't need it
@@ -106,8 +100,8 @@ define([
 			}
 
 			if(!/^[a-zA-Z0-9_.-]{4,192}$/.test(username)) {
-				this.prepare.prepareErrorMessage("Username invalid");
-				this.prepare.shakeLogin();
+				this.prepare.prepareErrorMessage(this.settings.login.message.INVALID_USER);
+				this.prepare.shakeBox();
 				return;
 			}
 
@@ -137,9 +131,7 @@ define([
 				self._redirector.goToLoginTarget.call(self._redirector, self.transactionId);
 			}
 			this.credentials.setToken(data);
-			this.userInfo.getAndStore(function () {
-				self._requestor.setSession(self.credentials.getRawCredentials(), window.location.hostname, self.transactionId, goToLoginTarget, goToLoginTarget);
-			});
+			this.userInfo.getAndStore(goToLoginTarget);
  		},
 
 		loginFailCallback: function (xhr) {
@@ -149,7 +141,7 @@ define([
 		loginFail: function (status) {
 			var loginSettings = this.settings.login,
 				message = loginSettings.message.INVALID;
-			this.prepare.shakeLogin();
+			this.prepare.shakeBox();
 			this.prepare.setInputValue('password', '');
 			if (status === loginSettings.response.MAX_ATTEMPS) {
 				message = loginSettings.message.MAX_ATTEMPS;
@@ -166,30 +158,24 @@ define([
 			}
 		},
 
-		shouldApplyEnhancedMode : function() {
-			if (this.platformSettings.disableEyeRun) {
-				return false;
-			}
-			var notAlreadyAppModeRunning = (window.location.href.indexOf('APP_MODE=1') === -1);
-			return notAlreadyAppModeRunning && this.settings.ENHANCED_MODE_AVAILABLE && $.inArray(OperatingSystem.getName(), this.settings.ENHANCED_MODE_AVAILABLE_OS) !== -1
-		},
-
 		init: function () {
+			this.domain = this.platformSettings.domainFromUrl ? "@" + location.hostname : "@" + this.platformSettings.defaultDomain;
+
 			this.prepare.hideLoading();
 			this.prepare.prepareLoginFormFocus();
-			this.prepare.prepareSubmit(this.performLogin.bind(this));
+			this.prepare.prepareLoginSubmit(this.performLogin.bind(this));
 			this.prepare.prepareKeyPress();
 			this.prepare.prepareUsernameInput();
 			this.prepare.prepareRegisterButton();
-
-			this.domain = this.platformSettings.domainFromUrl ? "@" + location.hostname : "@" + this.platformSettings.defaultDomain;
 			this.prepare.showDomainMessage(this.domain);
 
-			if (this.shouldApplyEnhancedMode()) {
-				this.prepare.prepareEnhancedMode();
-			} else {
-				this.prepare.hideDetectButtonAndShowLoginButton();
-			}
+			this.forgot.setDomain(this.domain);
+			this.prepare.prepareForgotSubmit(this.forgot.performForgot.bind(this.forgot));
+			this.prepare.prepareForgotPassClick(this.prepare.showForgotForm.bind(this.prepare));
+			this.prepare.prepareForgotAskForHelpClick(this.prepare.linkAskForHelp());
+			this.prepare.prepareLoginTermsAndConditionsClick(this.prepare.linkTermsAndConditions());
+
+			this.prepare.showLoginButton();
 		}
 	};
 

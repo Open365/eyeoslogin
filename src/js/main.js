@@ -25,8 +25,7 @@ require.config({
 		emile: 'src/vendor/emile',
 		i18next: 'src/vendor/i18next.min',
 		eyeosAuthClient: 'src/vendor/eyeosAuthClient.min',
-		eyeRunRequestor: '../../bower_components/eyeRunRequestor/build/eyeRunRequestor.min',
-		operatingSystem : '../../bower_components/operatingSystem/build/operatingSystem.min',
+		operatingSystem : '../../bower_components/operating_system/build/operatingSystem.min',
 		urijs: '../../bower_components/uri.js/src'
 	},
 	shim: {
@@ -46,36 +45,49 @@ require([
 	"js/prepare",
 	"js/translator",
 	"js/redirector",
-	"js/recovery"	
-], function (domReady, Login, Credentials, Prepare, Translator, Redirector, Recovery) {	
+	"js/recover",
+	"js/analytics",
+	"js/themeStyles",
+	"js/clouds",
+	"js/browserDetection",
+	"js/settings"
+], function (domReady, Login, Credentials, Prepare, Translator, Redirector, Recover, Analytics, ThemeStyles,clouds, BrowserDetector, Settings) {
+
+
 	domReady(function() {
-
-		if ($("#recoveryPage").length) {
-
-			var recovery = new Recovery();
-			recovery.prepare();
-
+		if (!localStorage.userInfo) {
+			localStorage.setItem('userInfo', JSON.stringify({lang: platformSettings.lang}));
 		} else {
-
-			if (!localStorage.userInfo) {
-				localStorage.setItem('userInfo', JSON.stringify({lang: platformSettings.lang}));
-			} else {
-				var userInfo = JSON.parse(localStorage.userInfo);
-				if (!userInfo.lang) {
-					userInfo.lang = platformSettings.lang;
-				}
-				localStorage.setItem('userInfo', JSON.stringify(userInfo));
+			var userInfo = JSON.parse(localStorage.userInfo);
+			if (!userInfo.lang) {
+				userInfo.lang = platformSettings.lang;
 			}
-
-			var translator = new Translator();
-			translator.applyTranslations();
-			var login = new Login(),
-			redirector = new Redirector(),
-			credentials = new Credentials(),
-			prepare = new Prepare();
-			prepare.showLoading();
-			credentials.checkCard(redirector.goToLoginTarget.bind(redirector), login.init.bind(login));
+			localStorage.setItem('userInfo', JSON.stringify(userInfo));
 		}
 
+		var settings = Settings,
+			translator = new Translator();
+		translator.applyTranslations();
+
+		var login = new Login(),
+			recover = new Recover(),
+			redirector = new Redirector(),
+			credentials = new Credentials(),
+			prepare = new Prepare(),
+			themeStyles = new ThemeStyles(),
+			browserDetection = new BrowserDetector();
+
+		if (window.currentPage) {
+			themeStyles.insertStyle("themes/" + window.platformSettings.theme + "/css/" + window.currentPage + ".css");
+		}
+
+		prepare.showLoading();
+		var params = recover.getParams(location);
+
+		if(location.pathname === settings.reset.pathname && params) {
+			recover.init(params);
+		} else {
+			credentials.checkCard(redirector.goToLoginTarget.bind(redirector), login.init.bind(login));
+		}
 	});
 });
