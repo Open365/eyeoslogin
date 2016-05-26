@@ -1,7 +1,7 @@
 #!/bin/sh -e
 apk update
 apk add chromium xvfb
-npm install istanbul@0.2.11
+npm install -g istanbul@0.2.11
 if [ -f /.dockerinit ]; then
     Xvfb :0 &
     sleep 5
