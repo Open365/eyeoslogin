@@ -1,4 +1,5 @@
 #!/bin/sh -e
+apk add chromium xvfb
 if [ -f /.dockerinit ]; then
     Xvfb :0 &
     sleep 5
