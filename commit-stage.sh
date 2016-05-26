@@ -3,7 +3,7 @@ apk update
 apk add chromium xvfb
 npm install istanbul@0.2.11
 if [ -f /.dockerinit ]; then
-    xvfb :0 &
+    Xvfb :0 &
     sleep 5
     export DISPLAY=:0
     ./coverage.sh
