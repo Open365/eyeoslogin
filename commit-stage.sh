@@ -1,7 +1,8 @@
 #!/bin/sh -e
 apk add chromium xvfb
+npm install istanbul
 if [ -f /.dockerinit ]; then
-    Xvfb :0 &
+    xvfb :0 &
     sleep 5
     export DISPLAY=:0
     ./coverage.sh
