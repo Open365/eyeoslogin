@@ -164,7 +164,6 @@ define([
 			this.prepare.hideLoading();
 			this.prepare.prepareLoginFormFocus();
 			this.prepare.prepareLoginSubmit(this.performLogin.bind(this));
-			this.prepare.prepareKeyPress();
 			this.prepare.prepareUsernameInput();
 			this.prepare.prepareRegisterButton();
 			this.prepare.showDomainMessage(this.domain);
