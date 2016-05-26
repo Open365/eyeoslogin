@@ -1,4 +1,5 @@
 #!/bin/sh -e
+apk update
 apk add chromium xvfb
 npm install istanbul
 if [ -f /.dockerinit ]; then
