@@ -1,7 +1,8 @@
 #!/bin/sh -e
 apk update
-apk add chromium xvfb
+apk add chromium xvfb bash
 npm install -g istanbul@0.2.11
+export CHROME_BIN=/usr/bin/chromium-browser
 if [ -f /.dockerinit ]; then
     Xvfb :0 &
     sleep 5
@@ -12,7 +13,7 @@ fi
 
 echo "commit_id=$(git rev-parse HEAD)" > commit.properties
 npm install
-bower install
+bower install --allow-root
 
 if [ "$(git rev-parse HEAD)" = "$(git rev-parse origin/master)" ]; then
     git checkout master
