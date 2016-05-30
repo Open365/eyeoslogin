@@ -50,8 +50,9 @@ require([
 	"js/themeStyles",
 	"js/clouds",
 	"js/browserDetection",
-	"js/settings"
-], function (domReady, Login, Credentials, Prepare, Translator, Redirector, Recover, Analytics, ThemeStyles,clouds, BrowserDetector, Settings) {
+	"js/settings",
+	"js/desktopVersion"
+], function (domReady, Login, Credentials, Prepare, Translator, Redirector, Recover, Analytics, ThemeStyles,clouds, BrowserDetector, Settings, DesktopVersion) {
 
 
 	domReady(function() {
