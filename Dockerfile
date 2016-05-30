@@ -1,5 +1,4 @@
-FROM docker-registry.eyeosbcn.com/alpine6-node-base
-
+FROM mhart/alpine-node:6.2
 
 ENV InstallationDir=/usr/share/nginx/html/applogin
 
@@ -9,7 +8,8 @@ RUN mkdir -p ${InstallationDir}
 
 COPY . ${InstallationDir}
 
-RUN apk update && \
+RUN echo -e '#!/bin/ash\n ash "$@"' > /bin/bash && chmod +x /bin/bash && \
+    apk update && \
     apk add ruby-dev python libffi-dev \
             make autoconf automake gcc g++ bzip2 git ruby && \
     npm install -g nan && \
