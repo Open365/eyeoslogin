@@ -1,7 +1,7 @@
 #!/bin/sh -e
 apk update
 apk add chromium xvfb bash xorg-server-dev
-npm install -g istanbul@0.2.11
+npm install -g grunt grunt-cli istanbul@0.2.11
 export CHROME_BIN=/usr/bin/chromium-browser
 if [ -f /.dockerinit ]; then
     Xvfb :0 -extension RANDR &
