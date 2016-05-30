@@ -15,20 +15,32 @@
     <![endif]-->
 
     <script src="js/platformSettings.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 </head>
 <body>
 
 <div id="loginPage">
+    <div class="bg-wrapper">
+        <div id="clouds"></div>
+        <div id="cloud-kde"></div>
+        <div id="cloud-lo"></div>
+        <div id="cloud-thunderbird"></div>
+        <div id="cloud-1"></div>
+        <div id="cloud-2"></div>
+        <div id="cloud-3"></div>
+        <div id="cloud-4"></div>
+    </div>
     <div id="loginGeneralContainerCentered" class="login-text">
         <div id="loginGeneralContainer" class="login-text">
             <div id="logo_eyeos"></div>
             <div id="formBox" class="formBox">
-                <p id="notSupported" class="almost_there">
+                <p class="welcome_title almost_there">
                     Browser not supported
                 </p>
-
-                <p id="notSupportedDesc">Sorry, your current browser or version isn't supported by Open365.</p>
-                <p>
+                <p class="main_text">
+                    Sorry, your current browser or version isn't supported by Open365.
+                </p>
+                <p class="main_text">
                     <span id="pleaseDownload">Please download last version of</span>
                     <a href="https://www.google.com/chrome/browser/desktop/index.html">Google Chrome</a> /
                     <a href="https://www.mozilla.org/firefox/new/?scene=2">Mozilla Firefox</a>
@@ -37,7 +49,9 @@
             <div class="mobileLink">
                 <a href="/" class="link loginButton loading-button" id="notSupportedTryAgain">try again</a>
             </div>
-
+            <div id="desktop_version_container">
+                <a id="desktopVersionLink" href="#">Continue to the desktop version</a>
+            </div>
         </div>
     </div>
 </div>
@@ -46,5 +60,4 @@
 </script>
 <script src="vendor/require.js" data-main="js/main.js"></script>
 </body>
-
 </html>

@@ -4,7 +4,9 @@
 
 define(function () {
 
-    var browserDetector = function() {
+    var browserDetector = function() {};
+
+    browserDetector.prototype.detection = function() {
         if (window.currentPage  !== "browserNotSupported" && window.currentPage  !== "mobile") {
             if (!this.detectMobile()) {
                 this.detectBrowser();
@@ -14,7 +16,6 @@ define(function () {
         if (window.platformSettings.customTitle) {
             window.document.title = window.platformSettings.customTitle;
         }
-
     };
 
     browserDetector.prototype.detectMobile = function() {
@@ -43,9 +44,12 @@ define(function () {
         BrowserSupport.Chrome = !!window.chrome && !!window.chrome.webstore;
         BrowserSupport.Blink = (BrowserSupport.Chrome || BrowserSupport.Opera) && !!window.CSS;
 
-        if (!BrowserSupport.Chrome && !BrowserSupport.Firefox && !BrowserSupport.Opera) {
+        if (BrowserSupport.IE || BrowserSupport.Edge || BrowserSupport.Safari) {
             location.replace("./browserNotSupported.html");
-        } else {
+            return;
+        }
+
+        if (BrowserSupport.Chrome || BrowserSupport.Firefox || BrowserSupport.Opera) {
             var browserVersion = navigator.userAgent;
             var tokens = browserVersion.split(' ');
             var version;

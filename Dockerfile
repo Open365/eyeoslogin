@@ -1,4 +1,4 @@
-FROM docker-registry.eyeosbcn.com/eyeos-fedora21-frontend-base
+FROM docker-registry.eyeosbcn.com/alpine6-node-base
 
 
 ENV InstallationDir=/usr/share/nginx/html/applogin
@@ -9,7 +9,23 @@ RUN mkdir -p ${InstallationDir}
 
 COPY . ${InstallationDir}
 
-RUN ./build.sh
+RUN apk update && \
+    apk add ruby-dev python libffi-dev \
+            make autoconf automake gcc g++ bzip2 git ruby && \
+    npm install -g nan && \
+    npm -g install node-gyp && \
+    npm -g install iconv \
+    && npm install -g coffee-script grunt grunt-cli i18next-conv bower\
+    && gem update --no-document --system \
+    && gem install --no-document json_pure compass \
+    && gem cleanup \
+    && gem sources -c && \
+    ./build.sh && \
+    npm -g cache clean && \
+    npm cache clean && \
+    apk del make autoconf automake gcc g++ ruby ruby-dev python && \
+    rm -r /etc/ssl /var/cache/apk/*
+
 
 VOLUME ${InstallationDir}
 

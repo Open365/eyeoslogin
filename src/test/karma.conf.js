@@ -59,7 +59,15 @@ module.exports = function(config) {
       'Chrome'
     ],
 
-    // Which plugins to enable
+	customLaunchers: {
+	  Chrome_ci: {
+		  base: 'Chrome',
+		  flags: ['--no-sandbox']
+	  }
+	},
+
+
+	  // Which plugins to enable
 	  plugins: [
 		  'karma-requirejs',
 		  'karma-mocha',
@@ -96,4 +104,5 @@ module.exports = function(config) {
           ]
       }
   });
+	config.browsers = ['Chrome_ci'];
 };

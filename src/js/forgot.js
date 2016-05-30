@@ -42,6 +42,10 @@ define([
             if (!response.error && status === 'success') {
                 this.prepare.prepareSuccessMessage(this.settings.forgot.message.SUCCESS);
                 $('.forgotPassButton').addClass('clicked');
+                if (this.platformSettings.disableAnalytics === false) {
+                    ga('set', 'metric3', 1 );
+                    ga('send', 'event', 'ForgotPassword', 'Success');
+                }
             } else {
                 this.forgotFail(response);
             }

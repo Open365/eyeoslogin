@@ -215,10 +215,6 @@ define([
 				sut.init();
 				prepareLoginFormFocusExp.verify();
 			});
-			test("calls to prepare.prepareKeyPress", function () {
-				sut.init();
-				prepareKeyPressExp.verify();
-			});
 			test("calls to prepare.prepareUsernameInput", function () {
 				sut.init();
 				prepareUsernameInputExp.verify();

@@ -62,7 +62,7 @@ body {
     width: 100%;
     height: 100%;
     overflow: hidden;
-
+    pointer-events: none;
 }
 
 #clouds, #cloud-kde, #cloud-lo, #cloud-thunderbird, #cloud-1, #cloud-2, #cloud-3, #cloud-4 {
@@ -119,11 +119,14 @@ body {
     background: url(../img/clouds.svg) no-repeat center 103%;
 }*/
 
+#loginPage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+}
+
 #loginGeneralContainerCentered {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
     background: rgba(27, 38, 85, .58);
     z-index: 2;
     text-align: center;
@@ -358,4 +361,26 @@ body {
 .accessLink a{
     color: #fff;
     font-weight: bold;
+}
+
+@media screen and (max-width: 800px){
+    #logo_eyeos{
+        margin: .3em auto 0;
+    }
+    #loginGeneralContainerCentered{
+        width: 90%;
+        padding-bottom: .5em;
+    }
+
+    .inputField{
+        margin-bottom: .5em;
+    }
+
+    #forgotPassLink{
+        font-size: .875rem;
+        margin-bottom: 1.5em;
+    }
+    .loginButton{
+        padding: .6em;margin-bottom: .2em;
+    }
 }

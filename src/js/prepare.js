@@ -168,6 +168,7 @@ define([
 		$("#successMessage").html(this.translator.messageTranslation(message));
 		if(message.length > 0){
 			$("#successMessage").removeClass('hidden');
+			$("#errorMessage").addClass('hidden');
 		}else{
 			$("#successMessage").addClass('hidden');
 		}
