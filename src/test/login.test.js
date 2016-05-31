@@ -102,7 +102,8 @@ define([
 			};
 
 			platformSettings = {
-				defaultDomain: fakeDomain
+				defaultDomain: fakeDomain,
+				domainFromUrlExceptions: ''
 			};
 
 			sut = new Login(prepare, settings, credentials, call, captcha, redirector, userInfo, forgot, platformSettings);
