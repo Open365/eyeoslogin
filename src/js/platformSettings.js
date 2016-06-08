@@ -26,6 +26,7 @@ window.platformSettings = {
 	forceDomain: true,
 	defaultDomain: "open365.io",
 	domainFromUrl: false,
+	domainFromUrlExceptions: "",
 	suggestDomain: true,
 	enableUserRegistration: true,
 	minBrowsersVersion: { "Chrome":30, "Firefox": 30 },

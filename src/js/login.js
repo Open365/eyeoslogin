@@ -159,7 +159,11 @@ define([
 		},
 
 		init: function () {
-			this.domain = this.platformSettings.domainFromUrl ? "@" + location.hostname : "@" + this.platformSettings.defaultDomain;
+			var fromUrl = this.platformSettings.domainFromUrl;
+			if(this.platformSettings.domainFromUrlExceptions.split(',').indexOf(location.hostname)>-1) {
+				fromUrl = false;
+			}
+			this.domain = fromUrl ? "@" + location.hostname : "@" + this.platformSettings.defaultDomain;
 
 			this.prepare.hideLoading();
 			this.prepare.prepareLoginFormFocus();

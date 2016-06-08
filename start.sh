@@ -26,6 +26,10 @@ if [[ -n $EYEOS_LOGIN_DOMAIN_FROM_URL ]]; then
     sed -i "s/domainFromUrl: .*,/domainFromUrl: $EYEOS_LOGIN_DOMAIN_FROM_URL,/" build/js/platformSettings.js
 fi
 
+if [[ -n $EYEOS_LOGIN_DOMAIN_FROM_URL_EXCEPTIONS ]]; then
+    sed -i "s/domainFromUrlExceptions: .*,/domainFromUrlExceptions: '$EYEOS_LOGIN_DOMAIN_FROM_URL_EXCEPTIONS',/" build/js/platformSettings.js
+fi
+
 if [[ -n $EYEOS_LOGIN_DEFAULT_DOMAIN ]]; then
     sed -i "s/defaultDomain: .*,/defaultDomain: '$EYEOS_LOGIN_DEFAULT_DOMAIN',/" build/js/platformSettings.js
 fi

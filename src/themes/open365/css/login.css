@@ -53,6 +53,7 @@ html {
 
 body {
     margin: 0;
+    visibility: visible !important;
 }
 
 .bg-wrapper {

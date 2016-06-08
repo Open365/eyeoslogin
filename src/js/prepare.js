@@ -69,15 +69,27 @@ define([
 	};
 
 	Prepare.prototype.showForgotForm = function() {
+		this.hideErrorMessage();
+		this.hideSuccessMessage();
 		this.hideLoginForm();
 		this.hideRecoverForm();
 		$("#forgotform").removeClass("hidden");
 	};
 
 	Prepare.prototype.showRecoverForm = function() {
+		this.hideErrorMessage();
+		this.hideSuccessMessage();
 		this.hideLoginForm();
 		this.hideForgotForm();
 		$("#recoverform").removeClass("hidden");
+	};
+
+	Prepare.prototype.showErrorMessage = function() {
+		$("#errorMessage").removeClass('hidden');
+	};
+
+	Prepare.prototype.showSuccessMessage = function() {
+		$("#successMessage").removeClass('hidden');
 	};
 
 	Prepare.prototype.hideForgotForm = function() {
@@ -90,6 +102,14 @@ define([
 
 	Prepare.prototype.hideLoginForm = function() {
 		$("#loginform").addClass("hidden");
+	};
+
+	Prepare.prototype.hideErrorMessage = function() {
+		$("#errorMessage").addClass('hidden');
+	};
+
+	Prepare.prototype.hideSuccessMessage = function() {
+		$("#successMessage").addClass('hidden');
 	};
 
 	Prepare.prototype.prepareRecoverFormFocus = function() {
@@ -141,7 +161,7 @@ define([
 				$("#captchaText").prop('required', false);
 				$('#captchaBox').hide();
 				$("#errorMessage").html("");
-				$("#errorMessage").addClass('hidden');
+				self.hideErrorMessage();
 			}
 		});
 	};
@@ -157,20 +177,20 @@ define([
 	Prepare.prototype.prepareErrorMessage = function (message) {
 		$("#errorMessage").html(this.translator.messageTranslation(message));
 		if(message.length > 0){
-			$("#errorMessage").removeClass('hidden');
-			$("#successMessage").addClass('hidden');
+			this.showErrorMessage();
+			this.hideSuccessMessage();
 		}else{
-			$("#errorMessage").addClass('hidden');
+			this.hideErrorMessage();
 		}
 	};
 
 	Prepare.prototype.prepareSuccessMessage = function (message) {
 		$("#successMessage").html(this.translator.messageTranslation(message));
 		if(message.length > 0){
-			$("#successMessage").removeClass('hidden');
-			$("#errorMessage").addClass('hidden');
+			this.showSuccessMessage();
+			this.hideErrorMessage();
 		}else{
-			$("#successMessage").addClass('hidden');
+			this.hideSuccessMessage();
 		}
 	};
 
