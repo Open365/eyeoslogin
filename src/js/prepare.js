@@ -267,7 +267,9 @@ define([
 	};
 
 	Prepare.prototype.prepareRegisterButton = function () {
-		if (this.platformSettings.enableUserRegistration) {
+		var defaultHostanme = this.platformSettings.publicTenant + "." + this.platformSettings.defaultDomain;
+
+		if (this.platformSettings.enableUserRegistration && defaultHostanme == document.domain) {
 			$('#register_button').removeClass('hidden');
 		}
 	};

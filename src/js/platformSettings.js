@@ -25,6 +25,7 @@ window.platformSettings = {
 	disableAnalytics: false,
 	forceDomain: true,
 	defaultDomain: "open365.io",
+	publicTenant: "cloud",
 	domainFromUrl: false,
 	domainFromUrlExceptions: "",
 	suggestDomain: true,
