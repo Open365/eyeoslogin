@@ -42,4 +42,7 @@ if [[ -n $EYEOS_LOGIN_ENABLE_USER_REGISTRATION ]]; then
     sed -i "s/enableUserRegistration: .*,/enableUserRegistration: $EYEOS_LOGIN_ENABLE_USER_REGISTRATION,/" build/js/platformSettings.js
 fi
 
-sleep infinity
+while true
+do
+	sleep 9999d
+done
