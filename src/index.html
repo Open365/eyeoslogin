@@ -38,22 +38,22 @@
             <div id="logo_eyeos"></div>
             <div id="formBox" class="formBox">
                 <div id="sessionExpired_newPassText" class="hidden">Please set a new password</div>
-                <div id="errorMessage" class="errorMessage hidden">Error test message</div>
+                <div id="errorMessage" qa-id="error-message" class="errorMessage hidden">Error test message</div>
                 <div id="successMessage" class="successMessage hidden">Success message</div>
-                <form id="loginform" method="post">
+                <form id="loginform" qa-id="login-form" method="post">
                     <div id="advice_username" class="advice_username hidden">
                         Username should include <strong id="domain">@open365.io</strong>
                     </div>
                     <div id="userRow">
                         <div id="userInputContainer" class="textFieldBox">
-                            <input tabindex="1" type="text" id="username" name="username" class="inputField login-text"
+                            <input tabindex="1" type="text" id="username" qa-id="username-text" name="username" class="inputField login-text"
                                    required="">
                             <label class="title_placeholder" id="usernameLabel" for="username">Username</label>
                         </div>
                     </div>
                     <div id="passRow" class="margTop">
                         <div class="textFieldBox">
-                            <input tabindex="2" type="password" id="password" name="password"
+                            <input tabindex="2" type="password" id="password" qa-id="password-text" name="password"
                                    class="inputField login-text" required="">
                             <label class="title_placeholder" id="passwordLabel" for="password">Password</label>
                         </div>
@@ -73,7 +73,7 @@
                         <div style="clear: both;"></div>
                     </div>
                     <div id="buttonsLoginBox" class="btns-wrapper">
-                        <button type="submit" name="Login" id="textLogIn" class="loginButton loading-button"
+                        <button type="submit" name="Login" id="textLogIn" qa-id="login-button" class="loginButton loading-button"
                                 tabindex="4">Log in
                         </button>
                         <span class="loading-animation">
@@ -86,23 +86,23 @@
 
                     <input type="text" id="captchaId" class="hidden"/>
 
-                    <div id="register_button" class="hidden" style="margin-bottom: 2em;">
+                    <div id="register_button" qa-id="register-button" class="hidden" style="margin-bottom: 2em;">
                         <a href="http://cloud.open365.io/signup">Or register here</a>
                     </div>
-                    <p id="termsAndConditions" class="accessLink"><span>Using this service implies that you have read and accept the </span><a href="javascript:void(0)" target="_blank">Terms and Conditions</a>.</p>
+                    <p id="termsAndConditions" qa-id="terms-link" class="accessLink"><span>Using this service implies that you have read and accept the </span><a href="javascript:void(0)" target="_blank">Terms and Conditions</a>.</p>
                 </form>
 
-                <form id="forgotform" class="hidden" method="post">
+                <form id="forgotform" qa-id="forgot-password-form" class="hidden" method="post">
                     <p id="forgotPassLabel">I forgot my password</p>
                     <div id="userForgotRow">
                         <div class="textFieldBox">
-                            <input tabindex="1" type="text" id="usernameForgot" name="usernameForgot" class="inputField login-text"
+                            <input tabindex="1" type="text" id="usernameForgot" qa-id="forgot-username-text" name="usernameForgot" class="inputField login-text"
                                    required="">
                             <label class="title_placeholder" id="usernameForgotLabel" for="usernameForgot">Username</label>
                         </div>
                     </div>
                     <div id="buttonsForgotBox" class="btns-wrapper">
-                        <button type="submit" name="Login" id="forgotPassButton" class="loginButton loading-button"
+                        <button type="submit" name="Login" id="forgotPassButton" qa-id="forgot-password-button" class="loginButton loading-button"
                                 tabindex="4">Recover my password
                         </button>
                        <span class="loading-animation">
@@ -115,10 +115,10 @@
                     <p id="forgotPassHelpText" class="accessLink"><span>For any other problem accessing the platform you can </span><a href="javascript:void(0)" target="_blank">ask for help here</a>.</p>
                 </form>
 
-                <form id="recoverform" class="hidden" method="post">
+                <form id="recoverform" qa-id="recover-password-form" class="hidden" method="post">
                     <div id="newPassRow">
                         <div class="textFieldBox">
-                            <input tabindex="1" type="password" id="newPassword" name="newPassword"
+                            <input tabindex="1" type="password" qa-id="new-password-text" id="newPassword" name="newPassword"
                                    class="inputField login-text" required="">
                             <label class="title_placeholder" id="newPasswordLabel" for="newPassword">Type a new password</label>
                         </div>
@@ -126,14 +126,14 @@
 
                     <div id="repeatPassRow" class="margTop">
                         <div class="textFieldBox">
-                            <input tabindex="2" type="password" id="repeatPassword" name="repeatPassword"
+                            <input tabindex="2" type="password" id="repeatPassword" qa-id="repeat-password-text" name="repeatPassword"
                                    class="inputField login-text" required="">
                             <label class="title_placeholder" id="repeatPasswordLabel" for="repeatPassword">Re-Type the new password</label>
                         </div>
                     </div>
 
                     <div id="buttonsRecoverBox" class="btns-wrapper">
-                        <button type="submit" name="Login" id="recoverPassButton" class="loginButton loading-button"
+                        <button type="submit" name="Login" id="recoverPassButton" qa-id="recover-password-button" class="loginButton loading-button"
                                 tabindex="4">Reset password
                         </button>
                        <span class="loading-animation">
