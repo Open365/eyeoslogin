@@ -93,7 +93,7 @@ msgstr "O regitrati qui"
 
 #:
 msgid "Using this service implies that you have read and accept the "
-msgstr "L'utilizzo di questo servizio implica che hai letto e accettato le"
+msgstr "L'utilizzo di questo servizio implica che hai letto e accettato le "
 
 #:
 msgid "Terms and Conditions"
