@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" class=" js canvas webgl no-touch websockets websocketsbinary"
+      style="overflow: hidden; margin: 0px; padding: 0px; height: 100%; width: 100%;">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--IE=edge: It forces the browser the render at whatever the most recent version's standards are.-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--TODO: create build-->
+    <title>Open365</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="themes/desktop/images/favicon.ico"/>
+
+    <script src="js/platformSettings.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+</head>
+<body style="visibility: hidden">
+
+<div id="loginPage">
+    <div class="bg-wrapper">
+        <div id="clouds"></div>
+        <div id="cloud-kde"></div>
+        <div id="cloud-lo"></div>
+        <div id="cloud-thunderbird"></div>
+        <div id="cloud-1"></div>
+        <div id="cloud-2"></div>
+        <div id="cloud-3"></div>
+        <div id="cloud-4"></div>
+    </div>
+
+    <div id="loginGeneralContainerCentered" class="login-text">
+        <div id="loginGeneralContainer" class="login-text">
+            <div id="logo_eyeos"></div>
+            <div id="formBox" class="formBox">
+                <p class="almost_there">
+                    The beta is closing
+                </p>
+                <p>
+                    The service will be closed the 31st of October.
+                </p>
+            </div>
+        </div>
+    </div>
+    <iframe id="downloadIframe" src="#" style="
+    position: absolute;
+    top: -1000000000000px;
+    width: 1px;
+    height: 1px;
+"></iframe>
+</div>
+<script>
+    window.currentPage = "closing";
+</script>
+
+<script src="vendor/require.js" data-main="js/main.js"></script>
+</body>
+</html>

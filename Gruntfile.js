@@ -113,6 +113,7 @@ module.exports = function (grunt) {
 					"<%= dirs.dist %>/index.html",
 					"start.sh",
 					"<%= dirs.dist %>/browserNotSupported.html",
+					"<%= dirs.dist %>/closing.html",
 					"<%= dirs.dist %>/firstTime.html",
 					"<%= dirs.dist %>/maintenance.html",
 					"<%= dirs.dist %>/mobile.html"
