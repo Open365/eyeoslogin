@@ -19,7 +19,7 @@ grunt watch
 * Install modules
 
 ```bash
-    $ ./pre-requeriments.sh
+    $ ./pre-requirements.sh
 	$ npm install
 	$ bower install
 ```
